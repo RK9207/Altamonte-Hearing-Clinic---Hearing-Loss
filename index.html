@@ -318,11 +318,16 @@ a:hover{ color:var(--green-deep); }
 .eval-media img{ object-position:50% 50%; }
 .eval-media figcaption{ font-size:.9375rem; line-height:1.5; }
 .leave{ grid-area:leave; background:var(--paper); border:1px solid var(--line); border-radius:20px; padding:24px; }
-.leave h3{ font-size:1.5rem; margin-bottom:16px; }
-.leave ul{ list-style:none; display:grid; gap:12px; }
-.leave li{ display:flex; gap:10px; align-items:flex-start; font-size:1.0625rem; line-height:1.55; }
-.leave .icon{ width:18px; height:18px; color:var(--green); margin-top:3px; }
-.leave p{ margin:16px 0 0; padding-top:14px; border-top:1px solid var(--line); color:var(--pine); font-size:1.0625rem; line-height:1.55; max-width:none; }
+.leave h3{ display:flex; align-items:center; gap:16px; font-size:1.5rem; margin-bottom:20px; }
+.leave h3::after{ content:""; width:40px; height:2px; flex-shrink:0; background:var(--gold); }
+.leave ul{ list-style:none; display:grid; gap:16px; }
+.leave li{ display:flex; gap:12px; align-items:flex-start; min-width:0; }
+.leave-icon{ display:grid; place-items:center; width:30px; height:30px; flex:0 0 30px; border-radius:50%; background:#EDF3EA; color:var(--green); }
+.leave .icon{ width:18px; height:18px; }
+.leave li strong{ display:block; margin:2px 0 5px; color:var(--pine); font:700 1.125rem/1.4 var(--font-body); }
+.leave li p{ margin:0; color:var(--muted); font-size:1.0625rem; line-height:1.55; max-width:none; }
+.leave-note{ margin:20px 0 0; padding:14px 16px; border-radius:10px; background:#F0F4ED; color:var(--pine); font-size:1.0625rem; line-height:1.55; max-width:none; }
+.leave-note strong{ font-weight:700; }
 .eval-cta{ grid-area:cta; display:flex; flex-wrap:wrap; align-items:center; gap:16px 28px; padding-top:20px; border-top:1px solid #B5C9BF; }
 .cost-note{ margin:0; max-width:62ch; font-size:1.0625rem; line-height:1.55; color:var(--pine); }
 @media(min-width:640px) and (max-width:1023px){
@@ -338,10 +343,9 @@ a:hover{ color:var(--green-deep); }
  .eval-cta{ display:grid; grid-template-columns:auto minmax(0,1fr); }
  .cost-note{ max-width:none; }
  .eval-media{ max-width:none; }
- .leave{ padding:20px 24px; }
+ .leave{ padding:24px; }
  .leave ul{ grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
- .leave h3{ margin-bottom:12px; }
- .leave p{ margin-top:12px; padding-top:12px; }
+ .leave li+li{ border-left:1px solid var(--line); padding-left:24px; }
  .steps li:last-child{ padding-bottom:0; }
 }
 @media(max-width:520px){
@@ -351,6 +355,13 @@ a:hover{ color:var(--green-deep); }
  .steps li:not(:last-child)::after{ left:17px; top:44px; }
  .steps h3{ min-height:36px; font-size:1.25rem; }
  .leave{ padding:20px; }
+ .leave h3{ gap:12px; font-size:1.375rem; }
+ .leave h3::after{ width:24px; }
+ .leave li{ display:grid; grid-template-columns:30px minmax(0,1fr); gap:6px 12px; }
+ .leave li>div{ display:contents; }
+ .leave li strong{ grid-column:2; margin:0; min-height:30px; display:flex; align-items:center; }
+ .leave li p{ grid-column:1 / -1; }
+ .leave li+li{ border-top:1px solid var(--line); padding-top:12px; }
  .eval-cta .btn-row{ width:100%; }
  .eval-cta .btn{ width:100%; }
 }
@@ -790,14 +801,14 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
 
     </div>
 
-    <div class="leave">
-      <h3>What you leave knowing</h3>
+    <div class="leave" aria-labelledby="leave-title">
+      <h3 id="leave-title">What you leave knowing</h3>
       <ul>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>The type and degree of any hearing loss we find.</span></li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>A baseline for future comparisons—even if your hearing is normal.</span></li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Whether earwax care, a medical referral or hearing aids make sense next.</span></li>
+        <li><span class="leave-icon"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span><div><strong>Your hearing, understood</strong><p>The type and degree of any hearing loss we find.</p></div></li>
+        <li><span class="leave-icon"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span><div><strong>A baseline for the future</strong><p>A record to compare at future visits—even if your hearing is normal.</p></div></li>
+        <li><span class="leave-icon"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span><div><strong>Your appropriate next step</strong><p>Whether earwax care, a medical referral or hearing aids make sense next.</p></div></li>
       </ul>
-      <p>Your recommendations follow your results. Take the information home and decide when you're ready.</p>
+      <p class="leave-note"><strong>Time to consider your options.</strong> Recommendations follow your results. Take the information home and decide when you're ready.</p>
     </div>
 
     <div class="eval-cta">
