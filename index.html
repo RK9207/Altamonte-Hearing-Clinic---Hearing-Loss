@@ -162,12 +162,16 @@ a:hover{ color:var(--green-deep); }
 /* ==========================================================
    S02 HERO
    ========================================================== */
-.hero{ background:var(--cream); padding-block:clamp(28px, 5vw, 72px) clamp(40px, 6vw, 88px); }
-.hero-grid{ display:grid; gap:32px; align-items:center; }
-.hero-copy h1{ max-width:18ch; }
-.hero-copy .lead{ font-size:clamp(1.125rem, 1.05rem + .3vw, 1.25rem); line-height:1.55; margin-top:22px; max-width:46ch; }
-.hero-copy .reassure{ margin:-.2em 0 26px; color:var(--muted); max-width:46ch; }
-.hero-actions{ margin-bottom:24px; }
+.hero{ background:var(--cream); padding-block:clamp(28px, 4vw, 56px) clamp(40px, 4vw, 64px); }
+.hero-grid{ display:grid; gap:28px; align-items:center; }
+.hero-eyebrow{ margin:0 0 14px; color:var(--green-deep); font-size:.9375rem; font-weight:700; line-height:1.5; }
+.hero-copy h1{ max-width:20ch; font-size:clamp(2.25rem, 1.8rem + 2vw, 3.5rem); }
+.hero-copy h1 .hero-next{ white-space:nowrap; }
+.hero-copy .lead{ font-size:clamp(1.125rem, 1.05rem + .3vw, 1.25rem); line-height:1.55; margin:18px 0 14px; max-width:46ch; }
+.hero-copy .reassure{ margin:0 0 22px; color:var(--muted); font-size:1rem; max-width:46ch; }
+.hero-actions{ margin-bottom:14px; gap:6px 18px; }
+.hero-phone{ display:inline-flex; align-items:center; gap:8px; min-height:44px; font-size:1rem; font-weight:500; white-space:nowrap; }
+.hero-phone .icon{ width:20px; height:20px; }
 .trust-badge{
   display:inline-flex; flex-wrap:wrap; align-items:center; gap:6px 12px;
   padding:10px 18px; border-radius:999px;
@@ -178,19 +182,21 @@ a:hover{ color:var(--green-deep); }
 .trust-badge strong{ font-weight:700; }
 .stars{ display:inline-flex; gap:2px; }
 .star{ width:18px; height:18px; fill:var(--gold); stroke:none; }
-.hero-facts{ list-style:none; display:grid; gap:8px; margin-top:24px; font-size:1rem; color:var(--muted); }
+.hero .trust-badge{ padding:0; min-height:32px; gap:6px 10px; border:0; border-radius:0; background:transparent; font-size:.9375rem; }
+.hero .trust-badge:hover{ text-decoration:underline; }
+.hero .star{ width:16px; height:16px; }
+.hero-facts{ list-style:none; display:flex; flex-wrap:wrap; gap:6px 18px; margin-top:16px; font-size:.9375rem; line-height:1.5; color:var(--muted); }
 .hero-facts li{ display:flex; gap:10px; align-items:flex-start; }
-.hero-facts .icon{ width:20px; height:20px; color:var(--green); margin-top:3px; }
+.hero-facts .icon{ width:18px; height:18px; color:var(--green); margin-top:2px; }
 .hero-media{ margin:0; }
 .hero-media .frame{ aspect-ratio:3/2; background:var(--mist); border-radius:var(--r-photo); overflow:hidden; }
-.hero-media img{ width:100%; height:100%; object-fit:cover; object-position:50% 40%; }
-@media (min-width:768px){ .hero-media .frame{ aspect-ratio:4/3; } }
-@media (min-width:1024px){
-  .hero-grid{ grid-template-columns:1.08fr .92fr; gap:clamp(40px, 5vw, 72px); }
-  .hero-media .frame{ aspect-ratio:5/6; }
+.hero-media img{ width:100%; height:100%; object-fit:cover; object-position:50% 50%; }
+@media (min-width:900px){
+  .hero-grid{ grid-template-columns:1.04fr 1fr; gap:clamp(32px, 4vw, 56px); }
 }
 @media (max-width:520px){
   .hero-actions .btn{ width:100%; }
+  .hero-actions .hero-phone{ margin-inline:auto; }
 }
 
 /* ==========================================================
@@ -567,29 +573,31 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
 <section class="hero" aria-labelledby="hero-title">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <h1 id="hero-title">Trouble following conversations? Start with a hearing evaluation in Altamonte Springs.</h1>
-      <p class="lead">Altamonte Family Hearing offers comprehensive hearing evaluations, results explained in plain language, and options matched to what we find, so you can decide what comes next with clear information.</p>
-      <p class="reassure">Not every hearing concern calls for hearing aids. If yours doesn't, we'll tell you.</p>
+      <p class="hero-eyebrow">Hearing evaluations in Altamonte Springs</p>
+      <h1 id="hero-title">Trouble following conversations? <span class="hero-next">Find out why.</span></h1>
+      <p class="lead">Understand your hearing with a comprehensive evaluation for adults at Altamonte Family Hearing. We explain your results and help you explore your options.</p>
+      <p class="reassure">If you don't need hearing aids, we'll tell you.</p>
       <div class="btn-row hero-actions">
         <button class="btn btn-primary" type="button" data-open-booking>Book Appointment</button>
-        <a class="btn btn-outline" href="tel:+14078098154"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call 407-809-8154</a>
+        <a class="hero-phone" href="tel:+14078098154"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call 407-809-8154</a>
       </div>
       <a class="trust-badge" href="#reviews">
         <span class="stars" aria-hidden="true"><svg class="star"><use href="#i-star"/></svg><svg class="star"><use href="#i-star"/></svg><svg class="star"><use href="#i-star"/></svg><svg class="star"><use href="#i-star"/></svg><svg class="star"><use href="#i-star"/></svg></span>
         <span><strong>5.0/5 on Google</strong></span>
-        <span>from 157 reviews</span>
+        <span>157 reviews</span>
       </a>
       <ul class="hero-facts">
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Care in English and Spanish. Hablamos español.</li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Now accepting new patients. Family members are welcome at your visit.</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>English &amp; Spanish care · Hablamos español</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>New patients &amp; family members welcome</li>
       </ul>
     </div>
 
-    <!-- IMG-HERO-01 : real clinic photo (AFH-C-28) - ear exam with smiling patient. Landscape; 3:2 mobile, 4:3 tablet, 5:6 desktop crop. -->
+    <!-- IMG-HERO-01 : real clinic photo (AFH-C-168) - Jaysee and a patient discussing care at the consultation desk. Landscape 3:2 at every breakpoint. -->
     <figure class="hero-media" data-img="IMG-HERO-01">
       <div class="frame">
-        <img src="https://altamontefamilyhearing.com/assets/photos/AFH-C-28.webp"
-             alt="Hearing Aid Specialist Jaysee Soto performing an ear exam while the patient smiles"
+        <img src="https://altamontefamilyhearing.com/assets/photos/AFH-C-168.webp"
+             width="1800" height="1201"
+             alt="Jaysee Soto discussing hearing care with a patient at the clinic's consultation desk"
              fetchpriority="high" decoding="async">
       </div>
     </figure>
