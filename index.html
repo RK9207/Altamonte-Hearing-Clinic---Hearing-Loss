@@ -219,6 +219,12 @@ a:hover{ color:var(--green-deep); }
   .hero-media .frame{ aspect-ratio:3/2; }
   .hero-media img{ object-position:50% 50%; }
 }
+@media (max-width:767px){
+  .hero-rating{ display:flex; width:fit-content; max-width:100%; margin-inline:auto; }
+  .hero-media{ margin-inline:auto; }
+  .hero-media figcaption, .hero-access{ text-align:center; margin-inline:auto; }
+  .hero-access{ max-width:640px; }
+}
 @media (max-width:520px){
   .hero-copy h1{ font-size:clamp(2.25rem, 9.8vw, 2.75rem); }
   .hero-eyebrow{ letter-spacing:.065em; font-size:.75rem; }
