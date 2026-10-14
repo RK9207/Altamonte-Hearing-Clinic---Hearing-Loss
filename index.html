@@ -441,27 +441,32 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
 }
 
 /* ==========================================================
-   S06 TEAM
+   S06 TEAM — real people, clear roles
    ========================================================== */
-.team-top{ display:grid; gap:28px; align-items:center; margin-bottom:clamp(32px, 4vw, 56px); }
+.team-section{ padding-block:clamp(40px,4vw,64px); }
+.team-top{ display:grid; gap:28px; align-items:center; margin-bottom:28px; }
 .team-top .sec-head{ margin-bottom:0; }
-.team-photo .frame{ min-height:200px; }
+.team-eyebrow{ display:flex; align-items:center; gap:10px; margin:0 0 14px; color:var(--green-deep); font-size:.8125rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; }
+.team-eyebrow::before{ content:""; width:24px; height:2px; background:var(--gold); }
+.team-top h2{ line-height:1.16; max-width:none; }
+.team-top h2 em{ color:var(--green); }
+.team-top .sec-head>p:last-child{ margin:18px 0 0; font-size:1.125rem; line-height:1.6; color:var(--pine); }
+.team-photo .frame{ border-radius:56px 20px 20px 20px; }
 .team-photo img{ height:auto; object-fit:initial; }
-.profiles{ display:grid; gap:24px; }
-.profile{
-  display:grid; grid-template-columns:96px 1fr; grid-template-areas:"photo head" "body body";
-  gap:14px 18px; align-content:start;
-  background:var(--cream); border:1px solid var(--line); border-radius:var(--r-card);
-  padding:clamp(20px, 3vw, 32px);
-}
-.profile-photo{ grid-area:photo; }
+.team-photo figcaption{ font-size:.9375rem; }
+.profiles{ display:grid; gap:20px; }
+.profile{ display:grid; grid-template-columns:112px minmax(0,1fr); grid-template-areas:"photo head" "body body"; gap:20px; align-content:start; background:var(--cream); border:1px solid var(--line); border-radius:20px; padding:24px; }
+.profile-photo{ grid-area:photo; aspect-ratio:4/5; border-radius:16px; overflow:hidden; background:var(--mist); }
+.profile-photo img{ width:100%; height:100%; object-fit:cover; object-position:50% 35%; }
 .profile-head{ grid-area:head; align-self:center; }
-.profile-head h3{ font-size:1.5rem; }
-.profile-head p{ margin:4px 0 0; color:var(--muted); font-size:1rem; }
+.profile-head h3{ font-size:1.625rem; line-height:1.2; }
+.profile-head p{ margin:8px 0 0; color:var(--green-deep); font-size:1rem; line-height:1.5; font-weight:500; }
 .profile-body{ grid-area:body; }
-.profile-body ul{ list-style:none; display:grid; gap:10px; }
-.profile-body li{ display:flex; gap:10px; align-items:flex-start; }
-.profile-body .icon{ width:20px; height:20px; color:var(--green); margin-top:5px; }
+.profile-body>p:first-child{ margin:0 0 18px; font-size:1.0625rem; line-height:1.6; }
+.profile-body ul{ list-style:none; display:grid; gap:8px; padding-top:16px; border-top:1px solid var(--line); }
+.profile-body li{ font-size:1rem; line-height:1.55; }
+.profile-body li strong{ font-weight:700; }
+.profile-body .profile-extra{ margin:14px 0 0; color:var(--muted); font-size:.9375rem; line-height:1.55; }
 .ph{
   aspect-ratio:4/5; width:100%;
   display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; text-align:center;
@@ -470,18 +475,42 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
 }
 .ph svg{ width:34px; height:34px; stroke:#7C958A; }
 .ph b{ font-weight:700; color:var(--pine); }
-.support-team{ margin-top:clamp(28px, 4vw, 40px); display:grid; gap:16px; }
-.support-team p{ margin:0; max-width:72ch; }
-.referral{ color:var(--muted); font-size:1rem; }
-@media (min-width:768px){
-  .profile{ grid-template-columns:190px 1fr; grid-template-areas:"photo head" "photo body"; gap:12px 28px; }
-  .profile-head{ align-self:end; }
+.support-team{ margin-top:28px; padding:24px; border:1px solid var(--line); border-radius:20px; background:#F0F4ED; }
+.support-team>h3{ font-size:1.5rem; margin:0 0 8px; }
+.support-intro{ margin:0 0 20px; font-size:1.0625rem; line-height:1.55; color:var(--muted); }
+.coordinators{ display:grid; gap:24px; }
+.coordinator{ display:grid; grid-template-columns:88px minmax(0,1fr); gap:18px; min-width:0; align-items:start; }
+.coordinator img{ width:88px; height:110px; object-fit:cover; object-position:50% 35%; border-radius:12px; }
+.coordinator h4{ font:700 1.125rem/1.4 var(--font-body); }
+.coordinator .coord-role{ margin:4px 0 8px; color:var(--green-deep); font-size:.9375rem; line-height:1.5; font-weight:500; }
+.coordinator .coord-copy{ margin:0; font-size:1rem; line-height:1.55; }
+.coordinator .coord-language{ margin:10px 0 0; font-size:.9375rem; line-height:1.5; font-weight:700; color:var(--green-deep); }
+.team-section .referral{ margin:20px 0 0; max-width:none; color:var(--muted); font-size:1rem; line-height:1.55; }
+@media(min-width:768px){
+ .profiles{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .profile{ grid-template-columns:128px minmax(0,1fr); }
+ .coordinators{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .coordinator+ .coordinator{ border-left:1px solid var(--line); padding-left:24px; }
 }
-@media (min-width:1024px){
-  .team-top{ grid-template-columns:5fr 7fr; gap:clamp(40px, 6vw, 80px); }
-  .profiles{ grid-template-columns:1fr 1fr; }
+@media(min-width:1024px){
+ .team-top{ grid-template-columns:5fr 7fr; gap:clamp(36px,4vw,56px); }
+ .profile{ grid-template-columns:144px minmax(0,1fr); gap:20px 24px; }
 }
-@media (min-width:768px) and (max-width:1023px){ .profile{ grid-template-columns:170px 1fr; } }
+@media(max-width:520px){
+ .team-top h2{ font-size:2rem; }
+ .profile{ padding:20px; grid-template-columns:96px minmax(0,1fr); gap:18px 16px; }
+ .profile-head h3{ font-size:1.375rem; }
+ .support-team{ padding:20px; }
+ .coordinator{ grid-template-columns:72px minmax(0,1fr); gap:14px; }
+ .coordinator img{ width:72px; height:90px; }
+ .coordinator>div:first-child{ grid-row:1 / span 2; }
+ .coordinator>div:last-child{ display:contents; }
+ .coordinator h4,.coordinator .coord-role{ grid-column:2; }
+ .coordinator .coord-role{ margin:0; }
+ .coordinator .coord-copy,.coordinator .coord-language{ grid-column:1 / -1; }
+ .coordinator .coord-language{ margin:0; }
+ .coordinator+ .coordinator{ border-top:1px solid var(--line); padding-top:20px; }
+}
 
 /* ==========================================================
    S07 REVIEWS
@@ -916,77 +945,58 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
 </section>
 
 <!-- ======================= S06 TEAM ======================= -->
-<section class="sec bg-paper" id="team" aria-labelledby="team-title">
+<section class="sec bg-paper team-section" id="team" aria-labelledby="team-title">
   <div class="wrap">
     <div class="team-top">
       <div class="sec-head">
-        <h2 id="team-title">Meet the local team behind your care</h2>
-        <p>Altamonte Family Hearing is an independent, family-owned practice, not part of a chain. Jaysee Soto and his wife Grace opened it, and they live in the community the office serves. Two Florida-licensed Hearing Aid Specialists provide your care, supported by a small front-office team.</p>
+        <p class="team-eyebrow">Meet your local team</p>
+        <h2 id="team-title">Meet the people behind <em>your hearing care.</em></h2>
+        <p>Altamonte Family Hearing is an independent, family-owned practice founded by Jaysee and Grace Soto. Two Florida-licensed Hearing Aid Specialists and a bilingual patient-support team help you from your first appointment through follow-up care.</p>
       </div>
-      <!-- IMG-TEAM-01 : real team photo (staff-AE8A1554-3). Native landscape, all four people kept in frame; no cropping. -->
-      <figure class="figure team-photo" data-img="IMG-TEAM-01">
-        <div class="frame">
-          <img src="https://altamontefamilyhearing.com/assets/photos/staff-AE8A1554-3.webp"
-               alt="The Altamonte Family Hearing team standing in front of the clinic sign"
-               loading="lazy" decoding="async">
-        </div>
-        <figcaption>The Altamonte Family Hearing team.</figcaption>
-      </figure>
+      <figure class="figure team-photo" data-img="IMG-TEAM-01"><div class="frame"><img src="https://altamontefamilyhearing.com/assets/photos/staff-AE8A1554-3.webp" alt="The Altamonte Family Hearing team standing in front of the clinic sign" loading="lazy" decoding="async"></div><figcaption>The Altamonte Family Hearing team.</figcaption></figure>
     </div>
-
     <div class="profiles">
-      <article class="profile">
-        <!-- IMG-PROVIDER-01 : portrait placeholder, Jaysee A. Soto (white-coat portrait available on clinic site). 4:5 portrait. -->
-        <div class="profile-photo">
-          <div class="ph" data-img="IMG-PROVIDER-01" role="img" aria-label="Portrait of Jaysee A. Soto (placeholder)">
-            <svg class="icon" aria-hidden="true"><use href="#i-person"/></svg>
-            <span><b>IMG-PROVIDER-01</b><br>Jaysee portrait · 4:5</span>
-          </div>
-        </div>
-        <div class="profile-head">
-          <h3>Jaysee A. Soto, HAS, BC-HIS</h3>
-          <p>Owner and Hearing Aid Specialist</p>
-        </div>
+      <article class="profile" aria-labelledby="jaysee-name">
+        <div class="profile-photo" data-img="IMG-PROVIDER-01"><img src="https://altamontefamilyhearing.com/assets/photos/jaysee-portrait.webp" alt="Jaysee A. Soto, owner and Hearing Aid Specialist" loading="lazy" decoding="async"></div>
+        <div class="profile-head"><h3 id="jaysee-name">Jaysee A. Soto</h3><p>Owner · Florida-licensed Hearing Aid Specialist</p></div>
         <div class="profile-body">
+          <p>In hearing care since 2013, Jaysee takes time to understand your listening difficulties, explain your results and help you make informed decisions. He founded the practice with his wife, Grace, and lives in the community it serves.</p>
           <ul>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Florida-licensed Hearing Aid Specialist (HAS)</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Board Certified in Hearing Instrument Sciences (BC-HIS)</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>HearingUp Certified Provider</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>In hearing care since 2013</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Florida Hearing Society Board, District 5 Director</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Provides care in English and Spanish</span></li>
+            <li><strong>Board Certified in Hearing Instrument Sciences</strong> (BC-HIS)</li>
+            <li><strong>HearingUp Certified Provider</strong></li>
+            <li><strong>Care in English and Spanish</strong></li>
           </ul>
+          <p class="profile-extra">HAS: Hearing Aid Specialist. Florida Hearing Society Board, District 5 Director.</p>
         </div>
       </article>
-
-      <article class="profile">
-        <!-- IMG-PROVIDER-02 : portrait placeholder, Toni Trager (white-coat portrait available on clinic site). 4:5 portrait. -->
-        <div class="profile-photo">
-          <div class="ph" data-img="IMG-PROVIDER-02" role="img" aria-label="Portrait of Toni Trager (placeholder)">
-            <svg class="icon" aria-hidden="true"><use href="#i-person"/></svg>
-            <span><b>IMG-PROVIDER-02</b><br>Toni portrait · 4:5</span>
-          </div>
-        </div>
-        <div class="profile-head">
-          <h3>Toni Trager, HAS</h3>
-          <p>Hearing Aid Specialist</p>
-        </div>
+      <article class="profile" aria-labelledby="toni-name">
+        <div class="profile-photo" data-img="IMG-PROVIDER-02"><img src="https://cdn.sanity.io/images/p8cei03q/production/592d18eda5ba9c959fa4c2719d71cd0ff0e3f603-1800x1440.jpg?w=900&amp;auto=format" alt="Toni Trager, Hearing Aid Specialist" loading="lazy" decoding="async"></div>
+        <div class="profile-head"><h3 id="toni-name">Toni Trager</h3><p>Florida-licensed Hearing Aid Specialist</p></div>
         <div class="profile-body">
+          <p>Toni has worn hearing aids since childhood and brings firsthand understanding of the adjustment process. Her calm approach gives patients time to ask questions and become comfortable with their hearing aids.</p>
           <ul>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Florida-licensed Hearing Aid Specialist (HAS)</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Has worn hearing aids since childhood, which informs the care she gives patients</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>B.S. in Health Sciences, University of Central Florida</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Provides home and care-facility visits</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Provides care in English</span></li>
+            <li><strong>Home and care-facility visits</strong></li>
+            <li><strong>Care in English</strong></li>
           </ul>
+          <p class="profile-extra">HAS: Hearing Aid Specialist. B.S. in Health Sciences, University of Central Florida.</p>
         </div>
       </article>
     </div>
-
-    <div class="support-team">
-      <p><strong>Scheduling and support.</strong> Grace Soto (co-owner and Patient Care Coordinator) and Francesca Natal (Patient Care Coordinator) are both bilingual in English and Spanish. They help with scheduling, insurance questions, patient forms and follow-up.</p>
-      <p class="referral">Our specialists are licensed Hearing Aid Specialists, not physicians. When your results suggest something that needs medical attention, we'll explain and refer you to an ENT physician or another provider.</p>
+    <div class="support-team" aria-labelledby="support-title">
+      <h3 id="support-title">Help before and after your visit</h3>
+      <p class="support-intro">Meet the patient coordinators who help with the practical details of your care.</p>
+      <div class="coordinators">
+        <article class="coordinator" aria-labelledby="grace-name">
+          <div data-img="IMG-COORDINATOR-01"><img src="https://cdn.sanity.io/images/p8cei03q/production/4fac9632e53190ee3edd42029b0a9b78c58c05c7-1800x1440.jpg?w=900&amp;auto=format" alt="Grace Soto, co-owner and Patient Care Coordinator" loading="lazy" decoding="async"></div>
+          <div><h4 id="grace-name">Grace Soto</h4><p class="coord-role">Co-owner · Patient Care Coordinator</p><p class="coord-copy">Grace co-founded the practice with Jaysee. She helps with appointments, insurance questions, coordinating your care and follow-up visits.</p><p class="coord-language">English &amp; Spanish</p></div>
+        </article>
+        <article class="coordinator" aria-labelledby="francesca-name">
+          <div data-img="IMG-COORDINATOR-02"><img src="https://cdn.sanity.io/images/p8cei03q/production/d470d108685dbdd5ac71c470a83983c6fe72314b-1800x1440.jpg?w=900&amp;auto=format" alt="Francesca Natal, Patient Care Coordinator" loading="lazy" decoding="async"></div>
+          <div><h4 id="francesca-name">Francesca Natal</h4><p class="coord-role">Patient Care Coordinator</p><p class="coord-copy">Francesca helps you schedule appointments, complete patient forms and understand what to bring. She answers practical questions so you feel prepared before arriving.</p><p class="coord-language">English &amp; Spanish</p></div>
+        </article>
+      </div>
     </div>
+    <p class="referral">Our specialists are licensed Hearing Aid Specialists, not physicians. If your results indicate a need for medical attention, we'll explain and refer you to an ENT physician or another provider.</p>
   </div>
 </section>
 
