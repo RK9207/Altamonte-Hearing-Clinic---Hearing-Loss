@@ -160,17 +160,21 @@ a:hover{ color:var(--green-deep); }
 }
 
 /* ==========================================================
-   S02 HERO
+   S02 HERO — editorial clinic introduction
    ========================================================== */
-.hero{ background:var(--cream); padding-block:clamp(28px, 4vw, 56px) clamp(40px, 4vw, 64px); }
-.hero-grid{ display:grid; gap:28px; align-items:center; }
-.hero-eyebrow{ margin:0 0 14px; color:var(--green-deep); font-size:.9375rem; font-weight:700; line-height:1.5; }
-.hero-copy h1{ max-width:20ch; font-size:clamp(2.25rem, 1.8rem + 2vw, 3.5rem); }
-.hero-copy h1 .hero-next{ white-space:nowrap; }
-.hero-copy .lead{ font-size:clamp(1.125rem, 1.05rem + .3vw, 1.25rem); line-height:1.55; margin:18px 0 14px; max-width:46ch; }
-.hero-copy .reassure{ margin:0 0 22px; color:var(--muted); font-size:1rem; max-width:46ch; }
-.hero-actions{ margin-bottom:14px; gap:6px 18px; }
-.hero-phone{ display:inline-flex; align-items:center; gap:8px; min-height:44px; font-size:1rem; font-weight:500; white-space:nowrap; }
+.hero{ background:var(--pine); color:var(--on-dark); padding-block:clamp(32px, 4vw, 56px) 32px; }
+.hero-grid{ display:grid; gap:32px; align-items:start; }
+.hero-eyebrow{ display:flex; align-items:center; gap:10px; margin:0 0 18px; color:var(--gold-soft); font-size:.8125rem; font-weight:700; letter-spacing:.1em; line-height:1.5; text-transform:uppercase; }
+.hero-eyebrow::before{ content:""; flex:none; width:6px; height:6px; border-radius:50%; background:var(--gold); }
+.hero-copy h1{ max-width:20ch; font-size:clamp(2.5rem, 4.4vw, 4.25rem); line-height:1.07; letter-spacing:-.018em; }
+.hero-copy h1 .hero-next{ display:block; color:var(--gold-soft); font-style:italic; white-space:nowrap; }
+.hero-copy .lead{ font-size:clamp(1.125rem, 1.05rem + .3vw, 1.25rem); line-height:1.6; margin:24px 0 12px; max-width:47ch; color:var(--on-dark); }
+.hero-copy .reassure{ margin:0 0 26px; color:var(--on-dark-2); font-size:1rem; line-height:1.5; }
+.hero-actions{ margin-bottom:24px; gap:10px 22px; }
+.hero .btn-primary{ min-height:54px; padding-inline:28px; background:var(--gold); color:var(--pine); }
+.hero .btn-primary:hover{ background:var(--gold-soft); color:var(--pine); }
+.hero-phone{ display:inline-flex; align-items:center; gap:8px; min-height:44px; font-size:1rem; font-weight:700; white-space:nowrap; color:var(--on-dark); }
+.hero-phone:hover{ color:var(--gold-soft); }
 .hero-phone .icon{ width:20px; height:20px; }
 .trust-badge{
   display:inline-flex; flex-wrap:wrap; align-items:center; gap:6px 12px;
@@ -182,21 +186,45 @@ a:hover{ color:var(--green-deep); }
 .trust-badge strong{ font-weight:700; }
 .stars{ display:inline-flex; gap:2px; }
 .star{ width:18px; height:18px; fill:var(--gold); stroke:none; }
-.hero .trust-badge{ padding:0; min-height:32px; gap:6px 10px; border:0; border-radius:0; background:transparent; font-size:.9375rem; }
-.hero .trust-badge:hover{ text-decoration:underline; }
-.hero .star{ width:16px; height:16px; }
-.hero-facts{ list-style:none; display:flex; flex-wrap:wrap; gap:6px 18px; margin-top:16px; font-size:.9375rem; line-height:1.5; color:var(--muted); }
-.hero-facts li{ display:flex; gap:10px; align-items:flex-start; }
-.hero-facts .icon{ width:18px; height:18px; color:var(--green); margin-top:2px; }
+.hero-rating{ display:inline-flex; align-items:center; gap:16px; min-height:52px; color:var(--on-dark); text-decoration:none; }
+.hero-rating:hover{ color:var(--gold-soft); }
+.hero-rating-score{ font:700 2.125rem/1 var(--font-body); letter-spacing:-.04em; }
+.hero-rating-detail{ display:grid; gap:6px; padding-left:16px; border-left:1px solid rgba(232,211,166,.35); font-size:.9375rem; line-height:1.4; }
+.hero-rating-detail .star{ width:19px; height:19px; }
+.hero-rating:hover .hero-rating-detail>span:last-child{ text-decoration:underline; text-underline-offset:3px; }
+.hero-access{ margin:16px 0 0; color:var(--on-dark-2); font-size:.9375rem; line-height:1.6; }
 .hero-media{ margin:0; }
-.hero-media .frame{ aspect-ratio:3/2; background:var(--mist); border-radius:var(--r-photo); overflow:hidden; }
-.hero-media img{ width:100%; height:100%; object-fit:cover; object-position:50% 50%; }
+.hero-media .frame{ aspect-ratio:5/4; background:#263F34; border-radius:clamp(64px, 8vw, 112px) 24px 24px 24px; overflow:hidden; }
+.hero-media img{ width:100%; height:100%; object-fit:cover; object-position:100% 50%; }
+.hero-media figcaption{ margin-top:14px; color:var(--on-dark-2); font-size:.9375rem; line-height:1.5; }
+.hero-benefits{ display:grid; grid-template-columns:minmax(0,1fr); gap:0; margin:32px 0 0; list-style:none; border-top:1px solid rgba(232,211,166,.28); padding-top:24px; }
+.hero-benefits li{ padding-block:16px; min-width:0; }
+.hero-benefits li+li{ border-top:1px solid rgba(232,211,166,.2); }
+.hero-benefits strong{ display:block; font:700 1.0625rem/1.4 var(--font-body); color:var(--gold-soft); margin-bottom:8px; }
+.hero-benefits p{ margin:0; color:var(--on-dark); font-size:1rem; line-height:1.55; max-width:37ch; }
+@media (min-width:768px){
+  .hero-benefits{ grid-template-columns:repeat(3,minmax(0,1fr)); padding-top:28px; }
+  .hero-benefits li{ padding:0 24px; }
+  .hero-benefits li:first-child{ padding-left:0; }
+  .hero-benefits li:last-child{ padding-right:0; }
+  .hero-benefits li+li{ border-top:0; border-left:1px solid rgba(232,211,166,.22); }
+}
 @media (min-width:900px){
   .hero-grid{ grid-template-columns:1.04fr 1fr; gap:clamp(32px, 4vw, 56px); }
+  .hero-visual{ padding-top:8px; }
+}
+@media (max-width:899px){
+  .hero-media{ max-width:640px; width:100%; }
+  .hero-media .frame{ aspect-ratio:3/2; }
+  .hero-media img{ object-position:50% 50%; }
 }
 @media (max-width:520px){
+  .hero-copy h1{ font-size:clamp(2.25rem, 9.8vw, 2.75rem); }
+  .hero-eyebrow{ letter-spacing:.065em; font-size:.75rem; }
   .hero-actions .btn{ width:100%; }
   .hero-actions .hero-phone{ margin-inline:auto; }
+  .hero-media .frame{ border-radius:64px 18px 18px 18px; }
+  .hero-benefits{ margin-top:24px; padding-top:8px; }
 }
 
 /* ==========================================================
@@ -570,37 +598,56 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
 <main id="main">
 
 <!-- ======================= S02 HERO ======================= -->
-<section class="hero" aria-labelledby="hero-title">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <p class="hero-eyebrow">Hearing evaluations in Altamonte Springs</p>
-      <h1 id="hero-title">Trouble following conversations? <span class="hero-next">Find out why.</span></h1>
-      <p class="lead">Understand your hearing with a comprehensive evaluation for adults at Altamonte Family Hearing. We explain your results and help you explore your options.</p>
-      <p class="reassure">If you don't need hearing aids, we'll tell you.</p>
-      <div class="btn-row hero-actions">
-        <button class="btn btn-primary" type="button" data-open-booking>Book Appointment</button>
-        <a class="hero-phone" href="tel:+14078098154"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call 407-809-8154</a>
+<section class="hero on-dark" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="hero-eyebrow">Hearing evaluations · Altamonte Springs, FL</p>
+        <h1 id="hero-title">Trouble following conversations? <span class="hero-next">Find out why.</span></h1>
+        <p class="lead">Start with a comprehensive hearing evaluation for adults at Altamonte Family Hearing. Get clear explanations of your results and guidance on your next step.</p>
+        <p class="reassure">If you don't need hearing aids, we'll tell you.</p>
+        <div class="btn-row hero-actions">
+          <button class="btn btn-primary" type="button" data-open-booking>Book Appointment</button>
+          <a class="hero-phone" href="tel:+14078098154"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call 407-809-8154</a>
+        </div>
+        <a class="hero-rating" href="#reviews" aria-label="Rated 5.0 out of 5 on Google, based on 157 reviews. Read patient reviews.">
+          <span class="hero-rating-score" aria-hidden="true">5.0</span>
+          <span class="hero-rating-detail">
+            <span class="stars" aria-hidden="true"><svg class="star"><use href="#i-star"/></svg><svg class="star"><use href="#i-star"/></svg><svg class="star"><use href="#i-star"/></svg><svg class="star"><use href="#i-star"/></svg><svg class="star"><use href="#i-star"/></svg></span>
+            <span>157 reviews on Google</span>
+          </span>
+        </a>
       </div>
-      <a class="trust-badge" href="#reviews">
-        <span class="stars" aria-hidden="true"><svg class="star"><use href="#i-star"/></svg><svg class="star"><use href="#i-star"/></svg><svg class="star"><use href="#i-star"/></svg><svg class="star"><use href="#i-star"/></svg><svg class="star"><use href="#i-star"/></svg></span>
-        <span><strong>5.0/5 on Google</strong></span>
-        <span>157 reviews</span>
-      </a>
-      <ul class="hero-facts">
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>English &amp; Spanish care · Hablamos español</li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>New patients &amp; family members welcome</li>
-      </ul>
+
+      <div class="hero-visual">
+      <!-- IMG-HERO-01 : real clinic consultation (AFH-C-168). Desktop 5:4, right-aligned crop; tablet/mobile 3:2 full conversation. -->
+      <figure class="hero-media" data-img="IMG-HERO-01">
+        <div class="frame">
+          <img src="https://altamontefamilyhearing.com/assets/photos/AFH-C-168.webp"
+               width="1800" height="1201"
+               alt="Jaysee Soto discussing hearing care with a patient at the clinic's consultation desk"
+               fetchpriority="high" decoding="async">
+        </div>
+        <figcaption>Jaysee Soto in consultation at Altamonte Family Hearing.</figcaption>
+      </figure>
+      <p class="hero-access">Hablamos español. New patients and family members welcome.</p>
+      </div>
     </div>
 
-    <!-- IMG-HERO-01 : real clinic photo (AFH-C-168) - Jaysee and a patient discussing care at the consultation desk. Landscape 3:2 at every breakpoint. -->
-    <figure class="hero-media" data-img="IMG-HERO-01">
-      <div class="frame">
-        <img src="https://altamontefamilyhearing.com/assets/photos/AFH-C-168.webp"
-             width="1800" height="1201"
-             alt="Jaysee Soto discussing hearing care with a patient at the clinic's consultation desk"
-             fetchpriority="high" decoding="async">
-      </div>
-    </figure>
+    <ul class="hero-benefits" aria-label="The care behind your next step">
+      <li>
+        <strong>Independent &amp; family-owned</strong>
+        <p>Two Florida-licensed Hearing Aid Specialists.</p>
+      </li>
+      <li>
+        <strong>Fittings verified in your ear</strong>
+        <p>Real Ear Measurement verifies aid fittings.</p>
+      </li>
+      <li>
+        <strong>5 years of professional care</strong>
+        <p>Included with hearing aids bought from our office.</p>
+      </li>
+    </ul>
   </div>
 </section>
 
