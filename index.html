@@ -289,46 +289,57 @@ a:hover{ color:var(--green-deep); }
 }
 
 /* ==========================================================
-   S04 EVALUATION
+   S04 EVALUATION — a clear visit, explained results
    ========================================================== */
-.eval-grid{ display:grid; gap:32px; grid-template-areas:"head" "steps" "media" "leave" "cta"; }
-.eval-head{ grid-area:head; }
-.eval-head p{ margin-top:16px; color:var(--muted); }
-.steps{ grid-area:steps; list-style:none; display:grid; gap:28px; counter-reset:step; }
-.steps li{ display:grid; grid-template-columns:48px 1fr; gap:6px 20px; counter-increment:step; }
-.steps li::before{
-  content:counter(step); grid-row:1 / span 2;
-  width:48px; height:48px; border-radius:50%;
-  background:var(--green); color:var(--paper);
-  display:grid; place-items:center;
-  font:400 1.375rem/1 var(--font-head);
-}
-.steps h3{ font-size:1.375rem; align-self:center; }
-.steps p{ margin:0; color:var(--pine); }
+.eval-section{ padding-block:clamp(40px,5vw,72px); }
+.eval-grid{ display:grid; gap:32px; grid-template-areas:"head" "steps" "story" "cta"; }
+.eval-head{ grid-area:head; max-width:760px; }
+.eval-eyebrow{ display:flex; align-items:center; gap:10px; margin:0 0 16px; color:var(--green-deep); font-size:.8125rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; }
+.eval-eyebrow::before{ content:""; width:24px; height:2px; background:var(--gold); }
+.eval-head h2{ max-width:26ch; line-height:1.16; }
+.eval-head h2 em{ color:var(--green); }
+.eval-head>p:last-child{ margin:18px 0 0; max-width:65ch; color:var(--muted); }
+.eval-story{ grid-area:story; display:grid; gap:22px; align-content:start; min-width:0; }
+.steps{ grid-area:steps; list-style:none; display:grid; gap:0; counter-reset:step; align-content:start; }
+.steps li{ position:relative; display:grid; grid-template-columns:44px minmax(0,1fr); gap:8px 20px; padding:0 0 28px; counter-increment:step; }
+.steps li:not(:last-child)::after{ content:""; position:absolute; top:52px; bottom:8px; left:21px; width:1px; background:#B5C9BF; }
+.steps li:last-child{ padding-bottom:0; }
+.steps li::before{ content:counter(step,decimal-leading-zero); grid-row:1 / span 2; width:44px; height:44px; border-radius:50%; background:var(--pine); color:var(--gold-soft); display:grid; place-items:center; font:500 1rem/1 var(--font-body); }
+.steps h3{ font-size:1.5rem; align-self:center; min-height:44px; display:flex; align-items:center; }
+.steps p{ margin:0; color:var(--muted); font-size:1.0625rem; line-height:1.65; }
+.steps .eval-reassurance{ grid-column:2; margin-top:12px; padding:12px 16px; border-left:2px solid var(--green); background:#EEF3EC; color:var(--pine); font-size:1rem; }
 .figure{ margin:0; }
 .figure .frame{ background:var(--mist); border-radius:var(--r-photo); overflow:hidden; }
 .bg-mist .figure .frame{ background:#cddbd5; }
 .figure img{ width:100%; height:100%; object-fit:cover; }
 .figure figcaption{ margin-top:12px; font-size:.9375rem; line-height:1.5; color:var(--muted); max-width:56ch; }
-.eval-media{ grid-area:media; align-self:start; }
-.eval-media .frame{ aspect-ratio:3/2; }
-.eval-media img{ object-position:50% 25%; }
-.leave{ grid-area:leave; background:var(--paper); border:1px solid var(--line); border-radius:var(--r-card); padding:clamp(22px, 3vw, 32px); }
-.leave h3{ font-size:1.375rem; margin-bottom:14px; }
+.eval-media .frame{ aspect-ratio:4/5; border-radius:56px 20px 20px 20px; }
+.eval-media img{ object-position:50% 50%; }
+.eval-media figcaption{ font-size:.875rem; }
+.leave{ background:var(--paper); border:1px solid var(--line); border-radius:20px; padding:24px; }
+.leave h3{ font-size:1.375rem; margin-bottom:16px; }
 .leave ul{ list-style:none; display:grid; gap:12px; }
-.leave li{ display:flex; gap:12px; align-items:flex-start; }
-.leave .icon{ color:var(--green); margin-top:4px; }
-.leave p{ margin:16px 0 0; color:var(--muted); font-size:1rem; }
-.eval-cta{ grid-area:cta; }
-.cost-note{ margin:14px 0 0; font-size:1rem; color:var(--muted); }
-@media (min-width:1024px){
-  .eval-grid{
-    grid-template-columns:5fr 7fr; column-gap:clamp(40px, 6vw, 88px); row-gap:32px;
-    grid-template-areas:"media head" "media steps" "media leave" "media cta";
-    grid-template-rows:auto auto auto 1fr;
-  }
-  .eval-media{ position:sticky; top:calc(var(--header-h) + 24px); }
-  .eval-media .frame{ aspect-ratio:4/5; }
+.leave li{ display:flex; gap:10px; align-items:flex-start; font-size:1rem; line-height:1.55; }
+.leave .icon{ width:18px; height:18px; color:var(--green); margin-top:3px; }
+.leave p{ margin:16px 0 0; padding-top:14px; border-top:1px solid var(--line); color:var(--muted); font-size:1rem; line-height:1.55; }
+.eval-cta{ grid-area:cta; display:flex; flex-wrap:wrap; align-items:center; gap:18px 32px; padding-top:28px; border-top:1px solid #B5C9BF; }
+.cost-note{ margin:0; max-width:62ch; font-size:1rem; line-height:1.6; color:var(--muted); }
+@media(min-width:640px) and (max-width:1023px){
+ .eval-story{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:start; gap:24px; }
+}
+@media(min-width:1024px){
+ .eval-grid{ grid-template-columns:4fr 6fr; gap:36px clamp(40px,5vw,72px); grid-template-areas:"head head" "story steps" "cta cta"; }
+ .steps li{ padding-bottom:32px; }
+}
+@media(max-width:520px){
+ .eval-head h2{ font-size:2rem; }
+ .steps li{ grid-template-columns:36px minmax(0,1fr); column-gap:14px; }
+ .steps li::before{ width:36px; height:36px; font-size:.875rem; }
+ .steps li:not(:last-child)::after{ left:17px; top:44px; }
+ .steps h3{ min-height:36px; font-size:1.375rem; }
+ .leave{ padding:20px; }
+ .eval-cta .btn-row{ width:100%; }
+ .eval-cta .btn{ width:100%; }
 }
 
 /* ==========================================================
@@ -725,11 +736,12 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
 </section>
 
 <!-- ======================= S04 EVALUATION ======================= -->
-<section class="sec bg-mist" id="what-to-expect" aria-labelledby="eval-title">
+<section class="sec bg-mist eval-section" id="what-to-expect" aria-labelledby="eval-title">
   <div class="wrap eval-grid">
     <div class="eval-head">
-      <h2 id="eval-title">What happens at your hearing evaluation</h2>
-      <p>You'll know what to expect before you arrive: four steps, each explained as we go, with your results reviewed with you at the end.</p>
+      <p class="eval-eyebrow">Your first visit</p>
+      <h2 id="eval-title">Your hearing evaluation, <em>explained step by step.</em></h2>
+      <p>From talking about your listening concerns to reviewing your results, we explain each step so you know what to expect.</p>
     </div>
 
     <ol class="steps">
@@ -739,19 +751,21 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
       </li>
       <li>
         <h3>Ear exam</h3>
-        <p>We look in your ear canals and at your eardrums with an otoscope, checking for earwax or anything else to address before testing. If something needs care first, we'll explain and, when appropriate, refer you for medical care.</p>
+        <p>We check your ear canals and eardrums with an otoscope, looking for earwax or anything that needs care before testing. If we find an issue, we'll explain what needs to happen first, including a medical referral when appropriate.</p>
       </li>
       <li>
         <h3>Hearing test</h3>
-        <p>In the sound booth, wearing headphones, you listen for tones at different pitches so we can find the softest sounds each ear hears. You'll also listen to words in quiet and in background noise, to measure how well you understand speech.</p>
+        <p>Wearing headphones in the sound booth, you listen for tones at different pitches to find the softest sounds each ear hears. Words in quiet and background noise help us measure how well you understand speech.</p>
       </li>
       <li>
         <h3>Results, explained</h3>
-        <p>We review your audiogram, a chart of your hearing across pitches, and explain what it shows. A family member or friend is welcome to join. If your hearing is within normal limits, we'll tell you that too.</p>
+        <p>We explain your audiogram—a chart of your hearing across pitches—and discuss what the results mean. A family member or friend is welcome to join.</p>
+        <p class="eval-reassurance">If your hearing is within normal limits, we'll tell you that too.</p>
       </li>
     </ol>
 
-    <!-- IMG-CLINIC-01 : real clinic photo (AFH-B-3) - audiogram explanation. Native portrait; 3:2 on mobile/tablet, 4:5 on desktop. -->
+    <div class="eval-story">
+    <!-- IMG-CLINIC-01 : real clinic photo (AFH-B-3) - audiogram explanation. Native portrait; 4:5 at every size to preserve face, hands and chart. -->
     <figure class="figure eval-media" data-img="IMG-CLINIC-01">
       <div class="frame">
         <img src="https://altamontefamilyhearing.com/assets/photos/AFH-B-3.webp"
@@ -765,10 +779,12 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
       <h3>What you leave knowing</h3>
       <ul>
         <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>The type and degree of any hearing loss we find.</span></li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>A baseline record of your hearing to compare against at future visits, useful even if your hearing is normal.</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>A baseline for future comparisons—even if your hearing is normal.</span></li>
         <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Whether earwax care, a medical referral or hearing aids make sense next.</span></li>
       </ul>
-      <p>Recommendations are based on your results. You can take the information home and decide when you're ready.</p>
+      <p>Your recommendations follow your results. Take the information home and decide when you're ready.</p>
+    </div>
+
     </div>
 
     <div class="eval-cta">
