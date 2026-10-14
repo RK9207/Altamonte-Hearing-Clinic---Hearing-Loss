@@ -367,17 +367,28 @@ a:hover{ color:var(--green-deep); }
 }
 
 /* ==========================================================
-   S05 OPTIONS + VERIFIED FITTING
+   S05 OPTIONS + VERIFIED FITTING — measured care and support
    ========================================================== */
-.care-top{ display:grid; gap:32px; }
-.care-copy h2{ max-width:26ch; }
-.care-copy > p{ margin-top:18px; color:var(--muted); }
-.care-media .frame{ aspect-ratio:3/2; }
+.care-section{ padding-block:clamp(40px,4vw,64px); }
+.care-head{ margin-bottom:28px; }
+.care-eyebrow{ display:flex; align-items:center; gap:10px; margin:0 0 14px; color:var(--green-deep); font-size:.8125rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; }
+.care-eyebrow::before{ content:""; width:24px; height:2px; background:var(--gold); }
+.care-head h2{ max-width:none; line-height:1.16; }
+.care-head h2 em{ color:var(--green); }
+.care-head>p:last-child{ margin:16px 0 0; max-width:80ch; color:var(--pine); font-size:1.125rem; line-height:1.6; }
+.care-top{ display:grid; gap:28px; align-items:start; }
+.care-media .frame{ aspect-ratio:3/2; border-radius:56px 20px 20px 20px; }
 .care-media img{ object-position:50% 50%; }
-.mrr{ list-style:none; display:grid; gap:0; margin:28px 0 22px; border-top:1px solid var(--line); }
-.mrr li{ display:grid; gap:4px; padding:16px 0; border-bottom:1px solid var(--line); }
-.mrr strong{ font-family:var(--font-head); font-weight:400; font-size:1.3125rem; color:var(--green-deep); }
-.mrr span{ color:var(--pine); }
+.care-media figcaption{ font-size:.9375rem; line-height:1.5; }
+.care-proof{ margin:16px 0 0; padding:14px 0 0; border-top:1px solid var(--line); color:var(--muted); font-size:1rem; line-height:1.55; }
+.care-proof strong{ color:var(--pine); }
+.care-copy h3{ font-size:1.625rem; line-height:1.25; margin-bottom:12px; }
+.care-copy>p{ margin:0; font-size:1.125rem; line-height:1.6; color:var(--pine); }
+.mrr{ list-style:none; display:grid; gap:0; margin:20px 0 0; counter-reset:fit; }
+.mrr li{ display:grid; grid-template-columns:30px minmax(0,1fr); gap:4px 12px; padding:14px 0; border-top:1px solid var(--line); counter-increment:fit; }
+.mrr li::before{ content:counter(fit,decimal-leading-zero); grid-row:1 / span 2; color:var(--green); font:700 .875rem/1.5 var(--font-body); padding-top:3px; }
+.mrr strong{ font:700 1.125rem/1.4 var(--font-body); color:var(--pine); }
+.mrr span{ color:var(--muted); font-size:1.0625rem; line-height:1.55; }
 details.more-detail{ border:1px solid var(--line); border-radius:var(--r-photo); background:var(--paper); }
 details.more-detail summary{ cursor:pointer; list-style:none; padding:16px 20px; min-height:52px; display:flex; align-items:center; justify-content:space-between; gap:16px; font-weight:700; }
 details.more-detail summary::-webkit-details-marker{ display:none; }
@@ -392,22 +403,40 @@ details.more-detail + details.more-detail{ margin-top:12px; }
 details.more-detail .detail-body{ padding:0 20px 18px; }
 details.more-detail .detail-body p{ margin:0 0 .8em; }
 details.more-detail .detail-body p:last-child{ margin-bottom:0; }
-.care-groups{ display:grid; gap:28px; margin-top:clamp(36px, 5vw, 64px); }
-.care-group{ border-top:3px solid var(--gold); padding-top:20px; }
-.care-group h3{ font-size:1.5rem; margin-bottom:12px; }
-.care-group p{ margin-bottom:.8em; }
-.care-group ul{ list-style:none; display:grid; gap:8px; margin-top:10px; }
-.care-group li{ display:flex; gap:10px; align-items:flex-start; }
-.care-group li .icon{ width:20px; height:20px; color:var(--green); margin-top:4px; }
-.brands{ font-weight:700; color:var(--green-deep); }
-.care-foot{ margin-top:clamp(32px, 4vw, 48px); display:grid; gap:24px; align-items:center; }
-.care-foot p{ margin:0; color:var(--muted); font-size:1rem; max-width:70ch; }
-@media (min-width:1024px){
-  .care-top{ grid-template-columns:7fr 5fr; gap:clamp(40px, 6vw, 80px); align-items:start; }
-  .care-media{ position:sticky; top:calc(var(--header-h) + 24px); }
-  .care-media .frame{ aspect-ratio:4/5; }
-  .care-groups{ grid-template-columns:repeat(3,1fr); gap:clamp(28px, 3vw, 48px); }
-  .care-foot{ grid-template-columns:1fr auto; gap:40px; }
+.care-band{ display:grid; margin-top:28px; border:1px solid var(--line); border-radius:20px; overflow:hidden; background:var(--paper); }
+.care-choice,.care-support{ padding:24px; min-width:0; }
+.care-choice h3,.care-support h3{ font-size:1.5rem; line-height:1.25; margin:0 0 14px; }
+.care-choice p{ margin:0 0 14px; font-size:1.0625rem; line-height:1.55; }
+.care-choice .brands{ margin-bottom:0; color:var(--green-deep); font-size:.9375rem; font-weight:700; line-height:1.6; }
+.care-support{ background:var(--pine); color:var(--on-dark); }
+.care-support h3{ color:var(--gold-soft); }
+.care-support>p{ margin:0 0 14px; color:var(--on-dark); font-size:1.0625rem; line-height:1.55; }
+.care-support ul{ list-style:none; display:grid; gap:10px; }
+.care-support li{ display:flex; gap:10px; align-items:flex-start; font-size:1rem; line-height:1.55; }
+.care-support .icon{ width:18px; height:18px; color:var(--gold-soft); margin-top:3px; }
+.care-details{ display:grid; gap:12px; margin-top:24px; align-items:start; }
+.care-details details.more-detail+details.more-detail{ margin-top:0; }
+.care-details summary{ font-size:1rem; }
+.care-details .detail-body{ font-size:1.0625rem; line-height:1.6; }
+.care-foot{ margin-top:24px; padding-top:24px; border-top:1px solid var(--line); display:grid; gap:16px; align-items:center; }
+.care-existing{ margin:0; max-width:75ch; font-size:1.0625rem; line-height:1.55; }
+.care-limits{ grid-column:1 / -1; margin:0; max-width:none; color:var(--muted); font-size:1rem; line-height:1.55; }
+@media(min-width:768px){
+ .care-band{ grid-template-columns:1fr 1fr; }
+ .care-choice,.care-support{ padding:28px; }
+ .care-details{ grid-template-columns:1fr 1fr; }
+ .care-details details:last-child{ grid-column:1 / -1; }
+}
+@media(min-width:1024px){
+ .care-top{ grid-template-columns:1fr 1fr; gap:clamp(36px,4vw,56px); }
+ .care-media .frame{ aspect-ratio:4/3; }
+ .care-foot{ grid-template-columns:minmax(0,1fr) auto; gap:16px 32px; }
+}
+@media(max-width:520px){
+ .care-head h2{ font-size:2rem; }
+ .care-copy h3{ font-size:1.375rem; }
+ .care-choice,.care-support{ padding:20px; }
+ .care-foot .btn,.care-foot .btn-row{ width:100%; }
 }
 
 /* ==========================================================
@@ -821,75 +850,72 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
 </section>
 
 <!-- ======================= S05 OPTIONS + VERIFIED FITTING ======================= -->
-<section class="sec bg-cream" id="care" aria-labelledby="care-title">
+<section class="sec bg-cream care-section" id="care" aria-labelledby="care-title">
   <div class="wrap">
+    <div class="care-head">
+      <p class="care-eyebrow">Care after your evaluation</p>
+      <h2 id="care-title">If hearing aids are right for you, <em>the fitting matters.</em></h2>
+      <p>Your results guide the next step: earwax care, medical assessment, hearing aids or a baseline to compare against later. If hearing aids are appropriate, we choose and check them for your hearing—and help you get used to them.</p>
+    </div>
     <div class="care-top">
+      <!-- IMG-CLINIC-02: actual Real Ear Measurement photo, 4:3 desktop and 3:2 mobile/tablet. Preserve hands, ear and probe context. -->
+      <div>
+        <figure class="figure care-media" data-img="IMG-CLINIC-02">
+          <div class="frame"><img src="https://altamontefamilyhearing.com/assets/photos/AFH-C-196.webp" alt="Jaysee Soto placing a thin probe tube at a patient's ear during Real Ear Measurement" loading="lazy" decoding="async"></div>
+          <figcaption>Real Ear Measurement checks sound in the ear canal with the hearing aid in place.</figcaption>
+        </figure>
+        <p class="care-proof"><strong>Jaysee is a HearingUp Certified Provider.</strong> The network's best practices include Real Ear Measurement.</p>
+      </div>
       <div class="care-copy">
-        <h2 id="care-title">Options follow your results, and hearing aids are checked in your own ear</h2>
-        <p>After your evaluation, the next step depends on what we find. It might be earwax care, a referral for medical assessment, hearing aids, or simply a baseline to compare against later.</p>
-        <p>If hearing aids are appropriate, these are the steps that tell us the sound is right for you:</p>
-
-        <ul class="mrr">
-          <li><strong>Measure</strong><span>A calibrated speech signal plays at soft, average and loud levels while a thin probe tube measures the sound in your ear canal with the hearing aid in place.</span></li>
-          <li><strong>Adjust</strong><span>We compare what we measured with targets calculated from your hearing test, then adjust the hearing aid toward them.</span></li>
+        <h3>Checked in your ear, not just on a screen</h3>
+        <p>Every ear is different. Real Ear Measurement checks the sound your hearing aid delivers against targets based on your hearing test.</p>
+        <ol class="mrr">
+          <li><strong>Measure</strong><span>A thin probe tube measures sound in your ear canal with the aid in place, using a calibrated speech signal at soft, average and loud levels.</span></li>
+          <li><strong>Adjust</strong><span>We compare the measurements with targets calculated from your hearing test, then adjust the hearing aid toward them.</span></li>
           <li><strong>Re-check</strong><span>We measure again after adjusting and check that loud sounds stay comfortable.</span></li>
+        </ol>
+      </div>
+    </div>
+    <div class="care-band">
+      <div class="care-choice">
+        <h3>Chosen for your everyday life</h3>
+        <p>We compare options against your hearing, daily routine, preferences and budget. We're not tied to one manufacturer.</p>
+        <p class="brands">Phonak · Oticon · ReSound · Signia · Starkey · Widex</p>
+      </div>
+      <div class="care-support">
+        <h3>Five years of professional care</h3>
+        <p>Included with hearing aids bought from our office, at every technology level.</p>
+        <ul>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Follow-up visits over the first few weeks to fine-tune as your brain adjusts.</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Coaching on inserting and removing aids, daily care, and phone pairing or app features when compatible.</span></li>
         </ul>
-
-        <details class="more-detail">
-          <summary>Why measure in the ear at all?</summary>
+      </div>
+    </div>
+    <div class="care-details">
+<details class="more-detail">
+          <summary>How we check the device and your fitting</summary>
           <div class="detail-body">
+            <p>Before fitting, Electroacoustic Analysis checks the hearing aid itself against the manufacturer's specifications. Real Ear Measurement then checks the sound delivered in your own ear.</p>
             <p>The size and shape of your ear canal, and the fit of the dome or earmold, change how much sound reaches you. Two people with the same audiogram and the same settings can end up with different sound levels.</p>
             <p>Fitting software relies on average ear canal values. Real Ear Measurement uses yours. It can also be used to check hearing aids you bought somewhere else.</p>
           </div>
         </details>
-
-        <details class="more-detail">
+      <details class="more-detail">
+        <summary>Hearing aid styles and features</summary>
+        <div class="detail-body"><p>Styles range from behind-the-ear to nearly invisible in-the-canal. Suitability depends on your hearing and ear anatomy. Rechargeable models and Bluetooth streaming, including hands-free calls, are available; features vary by model and technology level.</p></div>
+      </details>
+<details class="more-detail">
           <summary>Muffled or full-feeling ears? Earwax removal</summary>
           <div class="detail-body">
             <p>Earwax is a common reason for muffled hearing, a full feeling in the ear, discomfort, or hearing aids that whistle. We offer earwax removal: a short health screening, a video otoscope exam you can watch on screen, gentle irrigation with body-temperature water at controlled low pressure, and a follow-up video check with home-care advice.</p>
             <p>Irrigation isn't suitable for everyone, for example after ear surgery or with ear tubes, a perforated eardrum or a recent infection. If wax can't be cleared safely, we'll refer you. Call for cost details. Cotton swabs can push wax deeper, so it's best to avoid them.</p>
           </div>
         </details>
-      </div>
-
-      <!-- IMG-CLINIC-02 : real clinic photo (AFH-C-196) - Real Ear Measurement probe placement. Native landscape; 3:2 mobile/tablet, 4:5 desktop. -->
-      <figure class="figure care-media" data-img="IMG-CLINIC-02">
-        <div class="frame">
-          <img src="https://altamontefamilyhearing.com/assets/photos/AFH-C-196.webp"
-               alt="A thin probe tube placed at the ear during a Real Ear Measurement"
-               loading="lazy" decoding="async">
-        </div>
-        <figcaption>Real Ear Measurement: a probe tube measures the sound in the ear canal while the hearing aid is in place.</figcaption>
-      </figure>
     </div>
-
-    <div class="care-groups">
-      <div class="care-group">
-        <h3>Chosen for your life</h3>
-        <p>We compare options against your hearing, your daily routine, your preferences and your budget. We're not tied to one manufacturer.</p>
-        <p class="brands">Phonak, Oticon, ReSound, Signia, Starkey and Widex</p>
-        <p class="small muted">Styles range from behind-the-ear to nearly invisible in-the-canal, and which suit you depends on your hearing and ear anatomy. Rechargeable models and Bluetooth streaming, including hands-free calls, are available. Features vary by model and technology level.</p>
-      </div>
-      <div class="care-group">
-        <h3>Measured in your ear, adjusted for your hearing</h3>
-        <p>Our fittings use two checks. Electroacoustic Analysis tests the hearing aid itself against the manufacturer's specifications before it's fitted. Real Ear Measurement then verifies the sound delivered in your ear.</p>
-        <p class="small muted">Jaysee is a HearingUp Certified Provider, a network built around best practices that include Real Ear Measurement.</p>
-      </div>
-      <div class="care-group">
-        <h3>Support after the fitting</h3>
-        <ul>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Follow-up visits over the first few weeks to fine-tune as your brain adjusts.</span></li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Coaching on putting aids in and taking them out, daily care, and help with phone pairing and app features when devices are compatible.</span></li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Five years of professional care</strong> with hearing aids bought from our office, at every technology level.</span></li>
-        </ul>
-      </div>
-    </div>
-
     <div class="care-foot">
-      <p>Already wear hearing aids, even ones from another provider? We clean, troubleshoot, reprogram and repair most major brands. Hearing aids can make speech easier to follow, but none removes background noise completely, and results and adjustment time vary. Ask us what your five years of professional care includes.</p>
-      <div class="btn-row">
-        <button class="btn btn-primary" type="button" data-open-booking>Book Appointment</button>
-      </div>
+      <p class="care-existing"><strong>Already wear hearing aids?</strong> We clean, troubleshoot, reprogram and repair most major brands—even aids from another provider.</p>
+      <div class="btn-row"><button class="btn btn-primary" type="button" data-open-booking>Book Appointment</button></div>
+      <p class="care-limits">Hearing aids can make speech easier to follow, but none removes all background noise. Results and adjustment time vary. Ask us what your five years of professional care includes.</p>
     </div>
   </div>
 </section>
