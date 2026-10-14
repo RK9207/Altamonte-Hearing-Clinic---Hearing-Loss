@@ -817,6 +817,21 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
 .prep-forms{ margin:16px 0 0; font-size:1rem; line-height:1.55; }
 .prep-forms a{ display:inline-block; padding-block:8px; }
 
+/* Care options: one changing desktop image, matching in-panel mobile photographs. */
+.service-photo{ margin:0 16px 18px; }
+.service-photo .frame{ aspect-ratio:3/2; max-height:260px; border-radius:28px 12px 28px 12px; }
+.service-photo figcaption{ margin-top:8px; font-size:.9375rem; line-height:1.5; max-width:none; }
+.options-photo{ display:none; }
+@media(min-width:1024px){
+ .options-photo{ display:block; }
+ .service-photo{ display:none; }
+}
+@media(max-width:520px){ .service-photo{ margin-inline:12px; } }
+@media(prefers-reduced-motion:no-preference){
+ .options-photo img.image-arrived{ animation:care-image-in .2s ease-out; }
+ @keyframes care-image-in{ from{opacity:.6} to{opacity:1} }
+}
+
 </style>
 </head>
 <body>
@@ -1029,22 +1044,42 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
     <div class="options-list">
       <details class="service-option" name="care-options" open>
         <summary>Hearing-aid fittings &amp; verification</summary>
+        <figure class="figure service-photo" data-desktop-position="30% 45%">
+          <div class="frame"><img src="https://altamontefamilyhearing.com/assets/photos/AFH-C-159-800.webp" width="800" height="534" alt="A hearing aid being placed on a patient's ear at the clinic" loading="lazy" decoding="async" style="object-position:30% 45%"></div>
+          <figcaption>Hearing-aid fitting at Altamonte Family Hearing.</figcaption>
+        </figure>
         <div class="service-description"><p>Hearing aids chosen for your needs, with the sound checked in your ear and follow-up adjustments.</p><a href="#care">See how we check your fitting <span aria-hidden="true">→</span></a></div>
       </details>
       <details class="service-option" name="care-options">
         <summary>Earwax care</summary>
+        <figure class="figure service-photo" data-desktop-position="58% 45%">
+          <div class="frame"><img src="https://altamontefamilyhearing.com/assets/photos/AFH-C-122-800.webp" width="800" height="534" alt="The clinic team providing earwax care to a seated patient" loading="lazy" decoding="async" style="object-position:50% 40%"></div>
+          <figcaption>Earwax care at Altamonte Family Hearing.</figcaption>
+        </figure>
         <div class="service-description"><p>We examine your ears and remove excess wax when appropriate, or refer you if it cannot be cleared safely.</p><a href="#faq-earwax" data-faq-link>Read about earwax care <span aria-hidden="true">→</span></a></div>
       </details>
       <details class="service-option" name="care-options">
         <summary>Tinnitus support</summary>
+        <figure class="figure service-photo" data-desktop-position="35% 45%">
+          <div class="frame"><img src="https://altamontefamilyhearing.com/assets/photos/AFH-C-173-800.webp" width="800" height="534" alt="Jaysee Soto discussing hearing-care options with a patient" loading="lazy" decoding="async" style="object-position:40% 45%"></div>
+          <figcaption>A consultation about hearing-care options.</figcaption>
+        </figure>
         <div class="service-description"><p>We assess ringing alongside your hearing. Options may include hearing aids when hearing loss is present, or a referral for further care.</p><a href="#faq-tinnitus" data-faq-link>Explore tinnitus guidance <span aria-hidden="true">→</span></a></div>
       </details>
       <details class="service-option" name="care-options">
         <summary>Help with hearing aids you already own</summary>
+        <figure class="figure service-photo" data-desktop-position="30% 45%">
+          <div class="frame"><img src="https://altamontefamilyhearing.com/assets/photos/AFH-C-125-800.webp" width="800" height="534" alt="Jaysee Soto working on a hearing aid at the clinic repair bench" loading="lazy" decoding="async" style="object-position:35% 45%"></div>
+          <figcaption>Hearing-aid maintenance at the clinic.</figcaption>
+        </figure>
         <div class="service-description"><p>Cleaning, troubleshooting, reprogramming and repairs for most major brands, including aids bought elsewhere.</p><a href="#faq-existing-aids" data-faq-link>See repair and support details <span aria-hidden="true">→</span></a></div>
       </details>
       <details class="service-option" name="care-options">
         <summary>Home &amp; care-facility visits</summary>
+        <figure class="figure service-photo" data-desktop-position="50% 25%">
+          <div class="frame"><img src="https://altamontefamilyhearing.com/assets/photos/staff-AE8A1494-800.webp" width="800" height="640" alt="Toni Trager, Hearing Aid Specialist who provides home visits" loading="lazy" decoding="async" style="object-position:50% 30%"></div>
+          <figcaption>Toni Trager provides home and care-facility visits.</figcaption>
+        </figure>
         <div class="service-description"><p>Hearing services across Greater Orlando when getting to the clinic is difficult. Call for availability and cost.</p><a href="#faq-home-visits" data-faq-link>Learn about home visits <span aria-hidden="true">→</span></a></div>
       </details>
     </div>
@@ -1509,6 +1544,50 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
     else if (a.getAttribute('href') && a.getAttribute('href').indexOf('tel:') === 0) track('phone_click', { location:where });
     else if (a.hasAttribute('data-track')) track(a.getAttribute('data-track'), { location:where });
   });
+
+  /* Match the desktop photograph to the selected care option.
+     Native details also expose the corresponding mobile photograph without JavaScript. */
+  var options = document.getElementById('care-options');
+  if (options){
+    var panels = Array.from(options.querySelectorAll('.service-option'));
+    var photo = options.querySelector('.options-photo');
+    var image = photo.querySelector('img');
+    var caption = photo.querySelector('figcaption');
+    var imageRequest = 0;
+    function showCareImage(panel){
+      var source = panel.querySelector('.service-photo img');
+      var description = panel.querySelector('.service-photo figcaption');
+      var position = panel.querySelector('.service-photo').dataset.desktopPosition;
+      var request = ++imageRequest;
+      if (image.getAttribute('src') === source.getAttribute('src')) return;
+      // Keep the current image visible until the replacement is ready.
+      var incoming = new Image();
+      incoming.onload = function(){
+        if (request !== imageRequest) return;
+        image.classList.remove('image-arrived');
+        image.src = source.src;
+        image.alt = source.alt;
+        image.width = source.width;
+        image.height = source.height;
+        image.style.objectPosition = position;
+        caption.textContent = description.textContent;
+        // Restart the short reveal, with reduced-motion handled in CSS.
+        void image.offsetWidth;
+        image.classList.add('image-arrived');
+      };
+      incoming.src = source.src;
+    }
+    panels.forEach(function(panel){
+      panel.addEventListener('toggle', function(){
+        if (!panel.open) return;
+        // Enforce a single open panel in browsers without details-name support.
+        panels.forEach(function(other){ if (other !== panel) other.open = false; });
+        showCareImage(panel);
+      });
+    });
+    var initial = panels.find(function(panel){ return panel.open; });
+    if (initial) showCareImage(initial);
+  }
 
   /* Copyright year */
   var y = document.getElementById('year');
