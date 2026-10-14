@@ -291,8 +291,8 @@ a:hover{ color:var(--green-deep); }
 /* ==========================================================
    S04 EVALUATION — a clear visit, explained results
    ========================================================== */
-.eval-section{ padding-block:clamp(40px,5vw,72px); }
-.eval-grid{ display:grid; gap:32px; grid-template-areas:"head" "steps" "story" "cta"; }
+.eval-section{ padding-block:clamp(36px,4vw,56px); }
+.eval-grid{ display:grid; gap:24px; grid-template-areas:"head" "steps" "story" "leave" "cta"; }
 .eval-head{ grid-area:head; max-width:760px; }
 .eval-eyebrow{ display:flex; align-items:center; gap:10px; margin:0 0 16px; color:var(--green-deep); font-size:.8125rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; }
 .eval-eyebrow::before{ content:""; width:24px; height:2px; background:var(--gold); }
@@ -301,35 +301,45 @@ a:hover{ color:var(--green-deep); }
 .eval-head>p:last-child{ margin:18px 0 0; max-width:65ch; color:var(--muted); }
 .eval-story{ grid-area:story; display:grid; gap:22px; align-content:start; min-width:0; }
 .steps{ grid-area:steps; list-style:none; display:grid; gap:0; counter-reset:step; align-content:start; }
-.steps li{ position:relative; display:grid; grid-template-columns:44px minmax(0,1fr); gap:8px 20px; padding:0 0 28px; counter-increment:step; }
+.steps li{ position:relative; display:grid; grid-template-columns:44px minmax(0,1fr); gap:4px 20px; padding:0 0 20px; counter-increment:step; }
 .steps li:not(:last-child)::after{ content:""; position:absolute; top:52px; bottom:8px; left:21px; width:1px; background:#B5C9BF; }
 .steps li:last-child{ padding-bottom:0; }
 .steps li::before{ content:counter(step,decimal-leading-zero); grid-row:1 / span 2; width:44px; height:44px; border-radius:50%; background:var(--pine); color:var(--gold-soft); display:grid; place-items:center; font:500 1rem/1 var(--font-body); }
 .steps h3{ font-size:1.5rem; align-self:center; min-height:44px; display:flex; align-items:center; }
-.steps p{ margin:0; color:var(--muted); font-size:1.0625rem; line-height:1.65; }
+.steps p{ margin:0; color:var(--muted); font-size:1.0625rem; line-height:1.6; }
 .steps .eval-reassurance{ grid-column:2; margin-top:12px; padding:12px 16px; border-left:2px solid var(--green); background:#EEF3EC; color:var(--pine); font-size:1rem; }
 .figure{ margin:0; }
 .figure .frame{ background:var(--mist); border-radius:var(--r-photo); overflow:hidden; }
 .bg-mist .figure .frame{ background:#cddbd5; }
 .figure img{ width:100%; height:100%; object-fit:cover; }
 .figure figcaption{ margin-top:12px; font-size:.9375rem; line-height:1.5; color:var(--muted); max-width:56ch; }
+.eval-media{ width:100%; max-width:340px; margin-inline:auto; }
 .eval-media .frame{ aspect-ratio:4/5; border-radius:56px 20px 20px 20px; }
 .eval-media img{ object-position:50% 50%; }
 .eval-media figcaption{ font-size:.875rem; }
-.leave{ background:var(--paper); border:1px solid var(--line); border-radius:20px; padding:24px; }
+.leave{ grid-area:leave; background:var(--paper); border:1px solid var(--line); border-radius:20px; padding:24px; }
 .leave h3{ font-size:1.375rem; margin-bottom:16px; }
 .leave ul{ list-style:none; display:grid; gap:12px; }
 .leave li{ display:flex; gap:10px; align-items:flex-start; font-size:1rem; line-height:1.55; }
 .leave .icon{ width:18px; height:18px; color:var(--green); margin-top:3px; }
 .leave p{ margin:16px 0 0; padding-top:14px; border-top:1px solid var(--line); color:var(--muted); font-size:1rem; line-height:1.55; }
-.eval-cta{ grid-area:cta; display:flex; flex-wrap:wrap; align-items:center; gap:18px 32px; padding-top:28px; border-top:1px solid #B5C9BF; }
+.eval-cta{ grid-area:cta; display:flex; flex-wrap:wrap; align-items:center; gap:16px 28px; padding-top:20px; border-top:1px solid #B5C9BF; }
 .cost-note{ margin:0; max-width:62ch; font-size:1rem; line-height:1.6; color:var(--muted); }
 @media(min-width:640px) and (max-width:1023px){
- .eval-story{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:start; gap:24px; }
+ .eval-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-areas:"head head" "steps steps" "story leave" "cta cta"; }
+ .eval-media{ max-width:340px; }
 }
 @media(min-width:1024px){
- .eval-grid{ grid-template-columns:4fr 6fr; gap:36px clamp(40px,5vw,72px); grid-template-areas:"head head" "story steps" "cta cta"; }
- .steps li{ padding-bottom:32px; }
+ .eval-grid{ grid-template-columns:4fr 6fr; gap:24px clamp(36px,4vw,56px); grid-template-areas:"head head" "story steps" "leave leave" "cta cta"; }
+ .eval-head{ max-width:none; display:grid; grid-template-columns:1.1fr 1fr; column-gap:48px; align-items:end; }
+ .eval-eyebrow{ grid-column:1 / -1; margin-bottom:12px; }
+ .eval-head>p:last-child{ margin:0 0 4px; }
+ .eval-media{ max-width:none; }
+ .leave{ padding:20px 24px; }
+ .leave ul{ grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+ .leave h3{ margin-bottom:12px; }
+ .leave p{ margin-top:12px; padding-top:12px; }
+ .steps li:last-child{ padding-bottom:0; }
 }
 @media(max-width:520px){
  .eval-head h2{ font-size:2rem; }
@@ -775,6 +785,8 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
       <figcaption>An audiogram charts your hearing across pitches. We walk through it with you in plain language.</figcaption>
     </figure>
 
+    </div>
+
     <div class="leave">
       <h3>What you leave knowing</h3>
       <ul>
@@ -783,8 +795,6 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
         <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Whether earwax care, a medical referral or hearing aids make sense next.</span></li>
       </ul>
       <p>Your recommendations follow your results. Take the information home and decide when you're ready.</p>
-    </div>
-
     </div>
 
     <div class="eval-cta">
