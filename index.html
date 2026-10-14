@@ -292,7 +292,7 @@ a:hover{ color:var(--green-deep); }
    S04 EVALUATION — a clear visit, explained results
    ========================================================== */
 .eval-section{ padding-block:clamp(36px,4vw,56px); }
-.eval-grid{ display:grid; gap:24px; grid-template-areas:"head" "steps" "story" "leave" "cta"; }
+.eval-grid{ display:grid; gap:24px; grid-template-areas:"head" "steps" "testing" "story" "leave" "cta"; }
 .eval-head{ grid-area:head; max-width:760px; }
 .eval-eyebrow{ display:flex; align-items:center; gap:10px; margin:0 0 16px; color:var(--green-deep); font-size:.8125rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; }
 .eval-eyebrow::before{ content:""; width:24px; height:2px; background:var(--gold); }
@@ -331,11 +331,11 @@ a:hover{ color:var(--green-deep); }
 .eval-cta{ grid-area:cta; display:flex; flex-wrap:wrap; align-items:center; gap:16px 28px; padding-top:20px; border-top:1px solid #B5C9BF; }
 .cost-note{ margin:0; max-width:62ch; font-size:1.0625rem; line-height:1.55; color:var(--pine); }
 @media(min-width:640px) and (max-width:1023px){
- .eval-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-areas:"head head" "steps steps" "story leave" "cta cta"; }
+ .eval-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-areas:"head head" "steps steps" "testing testing" "story leave" "cta cta"; }
  .eval-media{ max-width:340px; }
 }
 @media(min-width:1024px){
- .eval-grid{ grid-template-columns:4fr 6fr; gap:24px clamp(36px,4vw,56px); grid-template-areas:"head head" "story steps" "leave leave" "cta cta"; }
+ .eval-grid{ grid-template-columns:4fr 6fr; gap:24px clamp(36px,4vw,56px); grid-template-areas:"head head" "story steps" "story testing" "leave leave" "cta cta"; }
  .eval-head{ max-width:none; display:block; }
  .eval-eyebrow{ grid-column:1 / -1; margin-bottom:12px; }
  .eval-head>p:last-child{ margin:14px 0 0; padding-left:0; max-width:76ch; }
@@ -772,6 +772,46 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
   .site-footer{ padding-bottom:calc(28px + var(--call-h) + env(safe-area-inset-bottom)); }
   html.dialog-open .call-bar, html.sched-visible .call-bar{ display:none; }
 }
+/* Whole-page refinement authorized October 15, 2026. */
+.eval-testing{ grid-area:testing; align-self:start; font-size:1rem; }
+.eval-testing .detail-body{ line-height:1.6; }
+.options-section{ padding-block:clamp(40px,5vw,72px); }
+.options-grid{ display:grid; grid-template-areas:"head" "options" "photo"; gap:24px; }
+.options-head{ grid-area:head; }
+.options-head h2{ max-width:none; }
+.options-head h2 em{ color:var(--green); }
+.options-head>p:last-child{ margin:16px 0 0; font-size:1.125rem; line-height:1.6; max-width:60ch; color:var(--muted); }
+.options-photo{ grid-area:photo; align-self:center; }
+.options-photo .frame{ aspect-ratio:16/9; max-height:240px; border-radius:56px 18px 56px 18px; }
+.options-photo img{ object-position:30% 45%; }
+.options-photo figcaption{ text-align:center; max-width:none; }
+.options-list{ grid-area:options; min-width:0; }
+.service-option{ border-top:1px solid var(--line); }
+.service-option:last-child{ border-bottom:1px solid var(--line); }
+.service-option summary{ display:flex; align-items:center; justify-content:space-between; gap:20px; list-style:none; cursor:pointer; min-height:64px; padding:18px 16px; font-size:1.125rem; font-weight:700; line-height:1.4; }
+.service-option summary::-webkit-details-marker{ display:none; }
+.service-option summary::after{ content:"+"; flex:none; font-size:1.5rem; font-weight:400; line-height:1; color:var(--green); }
+.service-option[open]{ background:var(--mist); }
+.service-option[open] summary::after{ content:"−"; }
+.service-description{ padding:0 16px 18px; font-size:1.0625rem; line-height:1.55; }
+.service-description p{ margin:0 0 8px; color:var(--muted); }
+.service-description a{ display:inline-flex; align-items:center; gap:10px; min-height:44px; font-size:1rem; font-weight:700; text-underline-offset:4px; }
+.profile-more{ margin-top:14px; font-size:1rem; }
+.profile-more .detail-body{ font-size:1rem; line-height:1.6; }
+.team-video{ display:flex; justify-content:center; gap:10px; margin-top:8px; font-size:1rem; text-align:center; }
+.review-full[open] .review-body{ text-align:left; }
+@media(min-width:1024px){
+ .options-grid{ grid-template-columns:.85fr 1.15fr; grid-template-areas:"photo head" "photo options"; gap:24px clamp(36px,5vw,72px); }
+ .options-photo .frame{ aspect-ratio:4/5; max-height:500px; }
+ .options-photo{ width:100%; max-width:430px; }
+}
+@media(max-width:520px){
+ .options-head h2{ font-size:2rem; }
+ .service-option summary{ padding-inline:12px; }
+ .service-description{ padding-inline:12px; }
+ .eval-media{ max-width:240px; }
+}
+
 </style>
 </head>
 <body>
@@ -822,7 +862,7 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
       <div class="hero-copy">
         <p class="hero-eyebrow">Concerned about hearing loss? · Altamonte&nbsp;Springs</p>
         <h1 id="hero-title">Trouble following conversations? <span class="hero-next">Find out why.</span></h1>
-        <p class="lead">Hearing people speak but missing the words? A comprehensive hearing evaluation at Altamonte Family Hearing helps you understand what's happening and explore options for clearer communication.</p>
+        <p class="lead">Hearing voices but missing words? Our hearing evaluation helps you understand your hearing and explore options for clearer conversations.</p>
         <p class="reassure">If you don't need hearing aids, we'll tell you.</p>
         <div class="btn-row hero-actions">
           <button class="btn btn-primary" type="button" data-open-booking>Book Appointment</button>
@@ -920,18 +960,22 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
       </li>
       <li>
         <h3>Ear exam</h3>
-        <p>We check your ear canals and eardrums with an otoscope, looking for earwax or anything that needs care before testing. If we find an issue, we'll explain what needs to happen first, including a medical referral when appropriate.</p>
+        <p>We check for earwax and other concerns before testing, and explain any care or medical referral needed first.</p>
       </li>
       <li>
         <h3>Hearing test</h3>
-        <p>Wearing headphones in the sound booth, you listen for tones at different pitches to find the softest sounds each ear hears. Words in quiet and background noise help us measure how well you understand speech.</p>
+        <p>In the sound booth, we test the sounds you can hear and how well you understand speech in quiet and background noise.</p>
       </li>
       <li>
         <h3>Results, explained</h3>
-        <p>We explain your audiogram—a chart of your hearing across pitches—and discuss what the results mean. A family member or friend is welcome to join.</p>
+        <p>We explain your hearing chart and what the results mean. A family member or friend is welcome to join.</p>
         <p class="eval-reassurance">If your hearing is within normal limits, we'll tell you that too.</p>
       </li>
     </ol>
+    <details class="more-detail eval-testing">
+      <summary>More about the ear exam and hearing test</summary>
+      <div class="detail-body"><p>We use an otoscope to look at your ear canals and eardrums. If we find something that needs attention before testing, we explain the next step, including a medical referral when appropriate.</p><p>Wearing headphones in the sound booth, you listen for tones at different pitches to find the softest sounds each ear hears. Speech testing uses words in quiet and background noise. Your audiogram records your hearing across pitches.</p></div>
+    </details>
 
     <div class="eval-story">
     <!-- IMG-CLINIC-01 : real clinic photo (AFH-B-3) - audiogram explanation. Native portrait; 4:5 at every size to preserve face, hands and chart. -->
@@ -941,7 +985,7 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
              alt="Jaysee Soto holding an audiogram, the chart used to explain hearing test results"
              loading="lazy" decoding="async">
       </div>
-      <figcaption>An audiogram charts your hearing across pitches. We walk through it with you in plain language.</figcaption>
+      <figcaption>Jaysee Soto explaining a hearing chart.</figcaption>
     </figure>
 
     </div>
@@ -965,13 +1009,50 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
   </div>
 </section>
 
+<!-- ======================= CARE OPTIONS — results-led pathways ======================= -->
+<section class="sec bg-paper options-section" id="care-options" aria-labelledby="options-title">
+  <div class="wrap options-grid">
+    <div class="options-head">
+      <p class="care-eyebrow">Care guided by your results</p>
+      <h2 id="options-title">The next step depends <em>on your hearing.</em></h2>
+      <p>Your results guide our recommendations—from earwax care and hearing-aid support to a medical referral when needed.</p>
+    </div>
+    <figure class="figure options-photo" data-img="IMG-CARE-OPTIONS-01">
+      <div class="frame"><img src="https://altamontefamilyhearing.com/assets/photos/AFH-C-159-800.webp" width="800" height="534" alt="A hearing aid being placed on a patient's ear at the clinic" loading="lazy" decoding="async"></div>
+      <figcaption>Hearing-aid fitting at Altamonte Family Hearing.</figcaption>
+    </figure>
+    <div class="options-list">
+      <details class="service-option" name="care-options" open>
+        <summary>Hearing-aid fittings &amp; verification</summary>
+        <div class="service-description"><p>Hearing aids chosen for your needs, with the sound checked in your ear and follow-up adjustments.</p><a href="#care">See how we check your fitting <span aria-hidden="true">→</span></a></div>
+      </details>
+      <details class="service-option" name="care-options">
+        <summary>Earwax care</summary>
+        <div class="service-description"><p>We examine your ears and remove excess wax when appropriate, or refer you if it cannot be cleared safely.</p><a href="#faq-earwax" data-faq-link>Read about earwax care <span aria-hidden="true">→</span></a></div>
+      </details>
+      <details class="service-option" name="care-options">
+        <summary>Tinnitus support</summary>
+        <div class="service-description"><p>We assess ringing alongside your hearing. Options may include hearing aids when hearing loss is present, or a referral for further care.</p><a href="#faq-tinnitus" data-faq-link>Explore tinnitus guidance <span aria-hidden="true">→</span></a></div>
+      </details>
+      <details class="service-option" name="care-options">
+        <summary>Help with hearing aids you already own</summary>
+        <div class="service-description"><p>Cleaning, troubleshooting, reprogramming and repairs for most major brands, including aids bought elsewhere.</p><a href="#faq-existing-aids" data-faq-link>See repair and support details <span aria-hidden="true">→</span></a></div>
+      </details>
+      <details class="service-option" name="care-options">
+        <summary>Home &amp; care-facility visits</summary>
+        <div class="service-description"><p>Hearing services across Greater Orlando when getting to the clinic is difficult. Call for availability and cost.</p><a href="#faq-home-visits" data-faq-link>Learn about home visits <span aria-hidden="true">→</span></a></div>
+      </details>
+    </div>
+  </div>
+</section>
+
 <!-- ======================= S05 OPTIONS + VERIFIED FITTING ======================= -->
 <section class="sec bg-cream care-section" id="care" aria-labelledby="care-title">
   <div class="wrap">
     <div class="care-head">
       <p class="care-eyebrow">Care after your evaluation</p>
       <h2 id="care-title">If hearing aids are right for you, <em>the fitting matters.</em></h2>
-      <p>Recommendations follow your results. When hearing aids are appropriate, we choose them for your needs, verify the fitting in your ear and support you as you adjust.</p>
+      <p>We match your hearing aids to your needs, check the fitting and support you as you adjust.</p>
     </div>
     <div class="care-top">
       <!-- IMG-CLINIC-02: actual Real Ear Measurement photo, 4:3 desktop and 3:2 mobile/tablet. Preserve hands, ear and probe context. -->
@@ -986,8 +1067,8 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
         <h3>Checked in your ear, not just on a screen</h3>
         <p>Every ear is different. Real Ear Measurement checks the sound your hearing aid delivers against targets based on your hearing test.</p>
         <ol class="mrr">
-          <li><strong>Measure</strong><span>A thin probe tube measures sound in your ear canal with the aid in place, using a calibrated speech signal at soft, average and loud levels.</span></li>
-          <li><strong>Adjust</strong><span>We compare the measurements with targets calculated from your hearing test, then adjust the hearing aid toward them.</span></li>
+          <li><strong>Measure</strong><span>A thin probe tube measures the sound delivered in your ear.</span></li>
+          <li><strong>Adjust</strong><span>We adjust the hearing aid toward targets based on your hearing test.</span></li>
           <li><strong>Re-check</strong><span>We measure again after adjusting and check that loud sounds stay comfortable.</span></li>
         </ol>
         <p class="care-limits">Hearing aids can make speech easier to follow, but none removes all background noise. Results and adjustment time vary.</p>
@@ -1012,7 +1093,7 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
 <details class="more-detail">
           <summary>Why we measure in your ear</summary>
           <div class="detail-body">
-            <p>Before fitting, Electroacoustic Analysis checks the hearing aid itself against the manufacturer's specifications. Real Ear Measurement then checks the sound delivered in your own ear.</p>
+            <p>Before fitting, Electroacoustic Analysis checks the hearing aid itself against the manufacturer's specifications. Real Ear Measurement then checks the sound delivered in your own ear. With the aid in place, a thin probe tube measures a calibrated speech signal at soft, average and loud levels.</p>
             <p>The size and shape of your ear canal, and the fit of the dome or earmold, change how much sound reaches you. Two people with the same audiogram and the same settings can end up with different sound levels.</p>
             <p>Fitting software relies on average ear canal values. Real Ear Measurement uses yours. It can also be used to check hearing aids you bought somewhere else. Jaysee is a HearingUp Certified Provider, a network built around best practices that include Real Ear Measurement.</p>
           </div>
@@ -1039,32 +1120,32 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
         <h2 id="team-title">Meet the people behind <em>your hearing care.</em></h2>
         <p>Altamonte Family Hearing is an independent, family-owned practice founded by Jaysee and Grace Soto. Two Florida-licensed Hearing Aid Specialists and a bilingual patient-support team help you from your first appointment through follow-up care.</p>
       </div>
-      <figure class="figure team-photo" data-img="IMG-TEAM-01"><div class="frame"><img src="https://altamontefamilyhearing.com/assets/photos/staff-AE8A1554-3.webp" alt="The Altamonte Family Hearing team standing in front of the clinic sign" loading="lazy" decoding="async"></div><figcaption>The Altamonte Family Hearing team.</figcaption></figure>
+      <figure class="figure team-photo" data-img="IMG-TEAM-01"><div class="frame"><img src="https://altamontefamilyhearing.com/assets/photos/staff-AE8A1554-3.webp" alt="The Altamonte Family Hearing team standing in front of the clinic sign" loading="lazy" decoding="async"></div><figcaption>The Altamonte Family Hearing team.</figcaption><a class="team-video text-link" href="https://www.youtube.com/watch?v=HxCXX0CgR9s" target="_blank" rel="noopener" data-track="welcome_video_click" aria-label="Watch our 2-minute welcome video on YouTube (opens in a new tab)"><span aria-hidden="true">▷</span><span>Watch our 2-minute welcome video</span></a></figure>
     </div>
     <div class="profiles">
       <article class="profile" aria-labelledby="jaysee-name">
         <div class="profile-photo" data-img="IMG-PROVIDER-01"><img src="https://altamontefamilyhearing.com/assets/photos/jaysee-portrait.webp" alt="Jaysee A. Soto, owner and Hearing Aid Specialist" loading="lazy" decoding="async"></div>
         <div class="profile-head"><h3 id="jaysee-name">Jaysee A. Soto</h3><p>Owner · Florida-licensed Hearing Aid Specialist</p></div>
         <div class="profile-body">
-          <p>In hearing care since 2013, Jaysee takes time to understand your listening difficulties, explain your results and help you make informed decisions. He founded the practice with his wife, Grace, and lives in the community it serves.</p>
+          <p>In hearing care since 2013, Jaysee helps you understand your results and make informed decisions.</p>
           <ul>
             <li><strong>Board Certified in Hearing Instrument Sciences</strong> (BC-HIS)</li>
             <li><strong>HearingUp Certified Provider</strong></li>
             <li><strong>Care in English and Spanish</strong></li>
           </ul>
-          <p class="profile-extra">HAS: Hearing Aid Specialist. Florida Hearing Society Board, District 5 Director.</p>
+          <details class="more-detail profile-more"><summary>More about Jaysee</summary><div class="detail-body"><p>Jaysee founded the practice with his wife, Grace, and lives in the community it serves. He takes time to understand your listening difficulties.</p><p>HAS: Hearing Aid Specialist. Florida Hearing Society Board, District 5 Director.</p></div></details>
         </div>
       </article>
       <article class="profile" aria-labelledby="toni-name">
         <div class="profile-photo" data-img="IMG-PROVIDER-02"><img src="https://cdn.sanity.io/images/p8cei03q/production/592d18eda5ba9c959fa4c2719d71cd0ff0e3f603-1800x1440.jpg?w=900&amp;auto=format" alt="Toni Trager, Hearing Aid Specialist" loading="lazy" decoding="async"></div>
         <div class="profile-head"><h3 id="toni-name">Toni Trager</h3><p>Florida-licensed Hearing Aid Specialist</p></div>
         <div class="profile-body">
-          <p>Toni has worn hearing aids since childhood and brings firsthand understanding of the adjustment process. Her calm approach gives patients time to ask questions and become comfortable with their hearing aids.</p>
+          <p>Toni has worn hearing aids since childhood and brings firsthand understanding to your care.</p>
           <ul>
             <li><strong>Home and care-facility visits</strong></li>
             <li><strong>Care in English</strong></li>
           </ul>
-          <p class="profile-extra">HAS: Hearing Aid Specialist. B.S. in Health Sciences, University of Central Florida.</p>
+          <details class="more-detail profile-more"><summary>More about Toni</summary><div class="detail-body"><p>Her calm approach gives patients time to ask questions and become comfortable with their hearing aids.</p><p>HAS: Hearing Aid Specialist. B.S. in Health Sciences, University of Central Florida.</p></div></details>
         </div>
       </article>
     </div>
@@ -1074,11 +1155,11 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
       <div class="coordinators">
         <article class="coordinator" aria-labelledby="grace-name">
           <div data-img="IMG-COORDINATOR-01"><img src="https://cdn.sanity.io/images/p8cei03q/production/4fac9632e53190ee3edd42029b0a9b78c58c05c7-1800x1440.jpg?w=900&amp;auto=format" alt="Grace Soto, co-owner and Patient Care Coordinator" loading="lazy" decoding="async"></div>
-          <div><h4 id="grace-name">Grace Soto</h4><p class="coord-role">Co-owner · Patient Care Coordinator</p><p class="coord-copy">Grace co-founded the practice with Jaysee. She helps with appointments, insurance questions, coordinating your care and follow-up visits.</p><p class="coord-language">English &amp; Spanish</p></div>
+          <div><h4 id="grace-name">Grace Soto</h4><p class="coord-role">Co-owner · Patient Care Coordinator</p><p class="coord-copy">Grace co-founded the practice with Jaysee and helps with scheduling, insurance questions and follow-up care.</p><p class="coord-language">English &amp; Spanish</p></div>
         </article>
         <article class="coordinator" aria-labelledby="francesca-name">
           <div data-img="IMG-COORDINATOR-02"><img src="https://cdn.sanity.io/images/p8cei03q/production/d470d108685dbdd5ac71c470a83983c6fe72314b-1800x1440.jpg?w=900&amp;auto=format" alt="Francesca Natal, Patient Care Coordinator" loading="lazy" decoding="async"></div>
-          <div><h4 id="francesca-name">Francesca Natal</h4><p class="coord-role">Patient Care Coordinator</p><p class="coord-copy">Francesca helps you schedule appointments, complete patient forms and understand what to bring. She answers practical questions so you feel prepared before arriving.</p><p class="coord-language">English &amp; Spanish</p></div>
+          <div><h4 id="francesca-name">Francesca Natal</h4><p class="coord-role">Patient Care Coordinator</p><p class="coord-copy">Francesca helps with appointments, forms and practical questions so you feel prepared for your visit.</p><p class="coord-language">English &amp; Spanish</p></div>
         </article>
       </div>
     </div>
@@ -1193,7 +1274,7 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
         </div>
       </details>
 
-<details>
+<details id="faq-home-visits">
         <summary>Do you offer home or care-facility visits?</summary>
         <div class="answer">
           <p>Yes. Toni brings portable testing equipment, a video otoscope and fitting supplies to homes and care facilities across the greater Orlando area, and sets up in the quietest available room. Some tests need the sound booth at our office, and we'll explain when that applies.</p>
@@ -1201,7 +1282,7 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
         </div>
       </details>
 
-<details>
+<details id="faq-existing-aids">
         <summary>Can you help with hearing aids bought elsewhere?</summary>
         <div class="answer">
           <p>Yes, for most major brands. We offer cleaning, troubleshooting, reprogramming and repairs, and we can use Real Ear Measurement to check how an existing fitting is performing.</p>
@@ -1250,7 +1331,7 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
         </div>
       </details>
 
-<details>
+<details id="faq-tinnitus">
         <summary>Can you help with ringing in my ears?</summary>
         <div class="answer">
           <p>Ringing, buzzing or humming often goes along with hearing loss. There's no universal cure, but some cases improve when an underlying cause is treated. For people who also have hearing loss, hearing aids, including models with built-in sound therapy, may make tinnitus less noticeable. Relief varies.</p>
