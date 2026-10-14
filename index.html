@@ -660,27 +660,45 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
 }
 
 /* ==========================================================
-   S10 APPOINTMENT
+   S10 APPOINTMENT — compact booking and practical help
    ========================================================== */
-.sched-head{ margin-bottom:clamp(28px, 4vw, 40px); }
-.sched-head h2{ max-width:20ch; }
-.sched-head p{ margin-top:16px; max-width:60ch; color:var(--on-dark-2); }
-.sched-grid{ display:grid; gap:24px; }
-.sched-card{ background:var(--paper); color:var(--pine); border-radius:var(--r-card); padding:clamp(12px, 2vw, 20px); box-shadow:0 18px 40px -22px rgba(0,0,0,.45); }
-.sched-card iframe{ display:block; width:100%; height:900px; border:0; border-radius:calc(var(--r-card) - 10px); background:#fff; }
-.sched-fallback{ margin:12px 8px 6px; font-size:1rem; color:var(--muted); max-width:none; }
-.sched-fallback a{ color:var(--green); }
-.sched-aside{ display:grid; gap:24px; align-content:start; }
-.sched-aside h3{ font-size:1.5rem; margin-bottom:12px; color:var(--on-dark); }
-.sched-aside ul{ list-style:none; display:grid; gap:12px; }
-.sched-aside li{ display:flex; gap:12px; align-items:flex-start; }
-.sched-aside li .icon{ color:var(--gold-soft); margin-top:4px; width:20px; height:20px; }
-.sched-aside .panel{ border:1px solid rgba(238,243,239,.25); border-radius:var(--r-photo); padding:20px 22px; }
-.sched-aside .panel p{ margin:0 0 .6em; color:var(--on-dark-2); font-size:1rem; }
-.sched-aside .panel p:last-child{ margin-bottom:0; }
+.booking-section{ padding-block:clamp(40px,4vw,64px); }
+.sched-head{ text-align:center; margin-bottom:28px; }
+.booking-eyebrow{ display:flex; justify-content:center; align-items:center; gap:10px; margin:0 0 14px; max-width:none; color:var(--gold-soft); font-size:.8125rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; }
+.booking-eyebrow::before{ content:""; width:24px; height:2px; background:var(--gold); }
+.sched-head h2{ max-width:none; line-height:1.16; }
+.sched-head h2 em{ color:var(--gold-soft); }
+.sched-head>p:last-child{ margin:16px auto 0; max-width:65ch; font-size:1.125rem; line-height:1.6; color:var(--on-dark-2); }
+.sched-grid{ display:grid; gap:24px; grid-template-areas:"help" "form" "prep"; align-items:start; }
+.sched-grid>div{ min-width:0; }
+.sched-card{ grid-area:form; background:var(--paper); color:var(--pine); border-radius:20px; padding:12px; }
+.sched-card>h3{ margin:8px 12px 16px; font:700 1.25rem/1.4 var(--font-body); }
+.sched-card iframe{ display:block; width:100%; height:620px; border:0; border-radius:10px; background:#fff; }
+.sched-fallback{ margin:14px 12px 8px; font-size:1rem; line-height:1.55; color:var(--muted); max-width:none; }
+.sched-fallback a{ color:var(--green); text-underline-offset:3px; }
+.sched-help{ grid-area:help; padding:24px; border:1px solid rgba(238,243,239,.25); border-radius:20px; background:#203A30; }
+.sched-help h3,.sched-prep h3{ margin:0 0 12px; font-size:1.5rem; line-height:1.25; color:var(--on-dark); }
 .big-phone{ display:inline-flex; align-items:center; gap:10px; font:700 1.5rem/1.2 var(--font-body); text-decoration:none; min-height:44px; }
-@media (min-width:1024px){
-  .sched-grid{ grid-template-columns:8fr 4fr; gap:clamp(28px, 3vw, 40px); align-items:start; }
+.sched-help .big-phone{ color:var(--gold-soft); font-size:1.625rem; }
+.sched-help .big-phone:hover{ text-decoration:underline; text-underline-offset:4px; }
+.sched-help>p{ margin:12px 0 0; font-size:1rem; line-height:1.6; color:var(--on-dark-2); max-width:none; }
+.sched-help>.callback-note{ padding-top:12px; border-top:1px solid rgba(238,243,239,.18); font-size:.9375rem; }
+.sched-prep{ grid-area:prep; }
+.sched-prep ul{ list-style:none; display:grid; gap:12px; }
+.sched-prep li{ display:flex; gap:10px; align-items:flex-start; font-size:1.0625rem; line-height:1.55; }
+.sched-prep .icon{ color:var(--gold-soft); margin-top:3px; width:18px; height:18px; }
+.companion-note{ margin:18px 0 0; padding-top:16px; border-top:1px solid rgba(238,243,239,.18); color:var(--on-dark-2); font-size:1rem; line-height:1.6; max-width:none; }
+.companion-note strong{ color:var(--on-dark); }
+@media(min-width:1024px){
+ .sched-grid{ grid-template-columns:8fr 4fr; grid-template-areas:"form help" "form prep"; gap:24px clamp(28px,3vw,40px); grid-template-rows:auto 1fr; }
+}
+@media(max-width:520px){
+ .sched-head h2{ font-size:2rem; }
+ .sched-help{ padding:20px; }
+ .sched-help .big-phone{ font-size:1.5rem; }
+ .sched-card{ padding:8px; }
+ .sched-card iframe{ height:640px; }
+ .sched-fallback{ margin-inline:8px; }
 }
 
 /* ==========================================================
@@ -1299,37 +1317,36 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
 </section>
 
 <!-- ======================= S10 APPOINTMENT / FINAL CTA ======================= -->
-<section class="sec bg-pine on-dark" id="schedule" aria-labelledby="sched-title">
+<section class="sec bg-pine on-dark booking-section" id="schedule" aria-labelledby="sched-title">
   <div class="wrap">
     <div class="sched-head">
-      <h2 id="sched-title">Schedule an Appointment</h2>
-      <p>Choose a time for your hearing evaluation. We'll explain your results and talk through your options. The first step is understanding your hearing, not buying hearing aids.</p>
+      <p class="booking-eyebrow">Your next step</p>
+      <h2 id="sched-title">Schedule <em>your hearing evaluation.</em></h2>
+      <p>Start with understanding your hearing. We’ll explain your results and help you explore the options that fit your needs.</p>
     </div>
-
     <div class="sched-grid">
+      <div class="sched-help" aria-labelledby="call-help-title">
+        <h3 id="call-help-title">Prefer to call?</h3>
+        <a class="big-phone" href="tel:+14078098154"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>407-809-8154</a>
+        <p>Most evaluations are complimentary. Call to confirm any cost for your appointment.</p>
+        <p class="callback-note">We return missed calls within one business day.</p>
+      </div>
       <div class="sched-card" id="sched-card">
-        <!-- Booking embed: src preserved exactly from the brief. title/width/height/loading added for accessibility and layout only. -->
+        <h3>Book online</h3>
+        <!-- Original booking destination retained; shorter frame keeps native iframe scrolling available. -->
         <iframe src="https://myhearingportal.com/?clinic=P2FwaUtleT1TMDd0THc0OEtTNVJROFdDcW1hTU40QWZjRFFCZHdySiZjbGluaWNOYW1lPUZMX2FmaCZmdWxsV2lkdGg9MQ=="
                 title="Book an appointment with Altamonte Family Hearing"
-                width="100%" height="900" loading="lazy" scrolling="yes"></iframe>
-        <p class="sched-fallback">Scheduler not loading? Call <a href="tel:+14078098154">407-809-8154</a> or use the <a href="https://altamontefamilyhearing.com/schedule" target="_blank" rel="noopener">scheduling page on our website</a>.</p>
+                width="100%" height="620" loading="lazy" scrolling="yes"></iframe>
+        <p class="sched-fallback">Scheduler not loading? <a href="https://altamontefamilyhearing.com/schedule" target="_blank" rel="noopener">Open our scheduling page</a> or call <a href="tel:+14078098154">407-809-8154</a>.</p>
       </div>
-
-      <div class="sched-aside">
-        <div>
-          <h3>What to bring</h3>
-          <ul>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Your insurance card, if you have one</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>A list of your medications</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Any hearing aids you currently wear</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>A family member or friend, if you'd like. A second set of ears helps at the results review.</span></li>
-          </ul>
-        </div>
-        <div class="panel">
-          <p>Most evaluations are complimentary. Call to confirm any cost for your appointment.</p>
-          <a class="big-phone" href="tel:+14078098154"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>407-809-8154</a>
-          <p>We return missed calls within one business day.</p>
-        </div>
+      <div class="sched-prep" aria-labelledby="prep-title">
+        <h3 id="prep-title">What to bring</h3>
+        <ul>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Your insurance card, if you have one</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>A list of your medications</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Any hearing aids you currently wear</span></li>
+        </ul>
+        <p class="companion-note"><strong>A family member or friend is welcome.</strong> Bring someone if you’d like a second set of ears for the results discussion.</p>
       </div>
     </div>
   </div>
