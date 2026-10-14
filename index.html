@@ -134,22 +134,27 @@ a:hover{ color:var(--green-deep); }
   background:var(--paper);
   border-bottom:1px solid var(--line);
 }
-.header-in{ display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:var(--header-h); }
-.logo{ display:block; flex:0 1 auto; min-width:0; }
-.logo img{ width:clamp(112px, 38vw, 170px); height:auto; }
+.header-in{ display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:var(--header-h); }
+.logo{ display:block; flex:none; width:clamp(140px, 38vw, 170px); }
+.logo img{ width:100%; height:auto; }
 .header-actions{ display:flex; align-items:center; gap:20px; flex:none; }
-.header-actions .btn{ min-height:48px; padding:0 18px; font-size:1rem; }
-.phone-link{ display:none; align-items:center; gap:8px; font-weight:700; color:var(--pine); text-decoration:none; min-height:44px; }
+.header-actions .btn{ flex:none; min-height:48px; padding:0 18px; font-size:1rem; white-space:nowrap; }
+.phone-link{ display:none; flex:none; align-items:center; gap:8px; font-weight:700; color:var(--pine); text-decoration:none; min-height:44px; white-space:nowrap; }
 .phone-link:hover{ color:var(--green); }
 .phone-link .icon{ color:var(--green); }
 .main-nav{ display:none; }
-@media (min-width:480px){ .logo img{ width:clamp(150px, 30vw, 190px); } .header-actions .btn{ padding:0 22px; } }
-@media (min-width:768px){ .phone-link{ display:inline-flex; } .logo img{ width:210px; } }
-@media (min-width:1024px){
-  .header-in{ display:grid; grid-template-columns:auto 1fr auto; gap:32px; }
-  .logo img{ width:250px; }
-  .main-nav{ display:flex; justify-self:center; gap:clamp(20px, 2.6vw, 40px); }
-  .main-nav a{ white-space:nowrap; display:inline-flex; align-items:center; min-height:44px; font-weight:500; font-size:1.0625rem; color:var(--pine); text-decoration:none; border-bottom:2px solid transparent; }
+@media (max-width:380px){
+  .header-in{ padding-inline:12px; gap:12px; }
+  .logo{ width:clamp(112px, 35vw, 132px); }
+  .header-actions .btn{ padding-inline:12px; }
+}
+@media (min-width:480px){ .logo{ width:190px; } .header-actions .btn{ padding:0 22px; } }
+@media (min-width:768px){ .phone-link{ display:inline-flex; } .logo{ width:192px; } }
+@media (min-width:1024px){ .logo{ width:228px; } }
+@media (min-width:1200px){
+  .header-in{ display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:24px; }
+  .main-nav{ display:flex; justify-self:center; gap:clamp(20px, 2vw, 28px); }
+  .main-nav a{ white-space:nowrap; display:inline-flex; align-items:center; min-height:44px; font-weight:500; font-size:1rem; color:var(--pine); text-decoration:none; border-bottom:2px solid transparent; }
   .main-nav a:hover{ color:var(--green); border-bottom-color:var(--gold); }
   .header-actions .btn{ min-height:52px; padding:0 26px; font-size:1.0625rem; }
 }
@@ -539,6 +544,7 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
   <div class="wrap header-in">
     <a class="logo" href="https://altamontefamilyhearing.com/">
       <img src="https://assets.cdn.filesafe.space/3o0LBBSuVEkoaohgGtT0/media/6ac7f45989da6e6f9bbdacc8.png"
+           width="2172" height="724"
            alt="Altamonte Family Hearing"
            onerror="this.onerror=null;this.src='https://altamontefamilyhearing.com/assets/logo-altamonte-626.png';">
     </a>
