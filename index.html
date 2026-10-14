@@ -604,25 +604,51 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
 }
 
 /* ==========================================================
-   S09 LOCATION
+   S09 LOCATION — practical visit planning
    ========================================================== */
-.loc-grid{ display:grid; gap:32px; }
-.address{ font-style:normal; font-size:1.25rem; line-height:1.5; margin-bottom:8px; }
+.location-section{ padding-block:clamp(40px,4vw,64px); }
+.location-head{ text-align:center; margin-bottom:28px; }
+.location-eyebrow{ display:flex; align-items:center; justify-content:center; gap:10px; margin:0 0 14px; max-width:none; color:var(--green-deep); font-size:.8125rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; }
+.location-eyebrow::before{ content:""; width:24px; height:2px; background:var(--gold); }
+.location-head h2{ max-width:none; line-height:1.16; }
+.location-head h2 em{ color:var(--green); }
+.location-head>p:last-child{ margin:16px auto 0; max-width:none; font-size:1.125rem; color:var(--muted); }
+.loc-grid{ display:grid; grid-template-areas:"address" "map" "hours"; gap:24px; align-items:start; }
+.loc-address{ grid-area:address; }
+.loc-hours{ grid-area:hours; }
+.loc-map{ grid-area:map; min-width:0; }
+.loc-address h3,.loc-hours h3{ margin:0 0 12px; font:700 1.125rem/1.4 var(--font-body); }
+.address{ font-style:normal; font-size:1.125rem; line-height:1.6; margin-bottom:8px; }
 .address strong{ font-weight:700; }
-.loc-note{ color:var(--muted); font-size:1rem; margin-bottom:24px; }
-.hours{ margin:0 0 24px; display:grid; gap:0; border-top:1px solid #b7c8c0; }
-.hours div{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:2px 20px; padding:12px 0; border-bottom:1px solid #b7c8c0; }
+.loc-note{ margin:8px 0 10px; font-size:1rem; line-height:1.55; color:var(--muted); }
+.loc-address .text-link{ font-size:1rem; }
+.appointment-note{ margin:0 0 12px; font-size:1rem; line-height:1.5; color:var(--green-deep); font-weight:700; }
+.hours{ margin:0; display:grid; gap:0; border-top:1px solid #B7C8C0; }
+.hours div{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:4px 16px; padding:12px 0; border-bottom:1px solid #B7C8C0; font-size:1.0625rem; line-height:1.5; }
 .hours dt{ font-weight:500; }
-.hours dd{ margin:0; font-weight:700; text-align:right; }
-.hours .walkin{ background:var(--paper); margin-inline:-12px; padding-inline:12px; border-radius:12px; border-bottom-color:transparent; }
-.loc-small{ font-size:1rem; color:var(--muted); max-width:52ch; }
-.map-frame{ position:relative; width:100%; aspect-ratio:4/3; min-height:300px; border-radius:var(--r-photo); overflow:hidden; background:#cddbd5; }
+.hours dd{ margin:0; font-weight:700; }
+.hours-zone{ margin:12px 0 0; max-width:none; color:var(--muted); font-size:.9375rem; line-height:1.5; }
+.map-frame{ position:relative; width:100%; aspect-ratio:4/3; min-height:280px; border-radius:20px; overflow:hidden; background:#CDDBD5; }
 .map-frame iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
 .map-fallback{ position:absolute; inset:0; display:grid; place-items:center; padding:24px; text-align:center; color:var(--muted); font-size:1rem; }
-.map-cta{ margin-top:16px; }
-@media (min-width:1024px){
-  .loc-grid{ grid-template-columns:5fr 7fr; gap:clamp(40px, 6vw, 72px); align-items:start; }
-  .map-frame{ aspect-ratio:16/10; }
+.map-cta{ margin-top:14px; }
+.location-notes{ display:grid; gap:20px; margin-top:28px; padding:24px; border:1px solid var(--line); border-radius:20px; background:var(--paper); }
+.location-notes h3{ font:700 1.125rem/1.4 var(--font-body); margin:0 0 8px; }
+.location-notes p{ margin:0; font-size:1rem; line-height:1.55; max-width:none; }
+.location-notes .text-link{ margin-top:4px; font-size:1rem; }
+@media(min-width:768px){
+ .location-notes{ grid-template-columns:1fr 1fr; gap:28px; }
+ .location-notes>div+div{ padding-left:28px; border-left:1px solid var(--line); }
+}
+@media(min-width:1024px){
+ .loc-grid{ grid-template-columns:5fr 7fr; grid-template-areas:"address map" "hours map"; gap:24px clamp(36px,4vw,56px); }
+ .map-frame{ aspect-ratio:16/10; }
+}
+@media(max-width:520px){
+ .location-head h2{ font-size:2rem; }
+ .map-cta .btn{ width:100%; }
+ .location-notes{ padding:20px; }
+ .location-notes>div+div{ padding-top:20px; border-top:1px solid var(--line); }
 }
 
 /* ==========================================================
@@ -1218,32 +1244,20 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
 </section>
 
 <!-- ======================= S09 LOCATION ======================= -->
-<section class="sec bg-mist" id="location" aria-labelledby="loc-title">
+<section class="sec bg-mist location-section" id="location" aria-labelledby="loc-title">
   <div class="wrap">
-    <div class="sec-head">
-      <h2 id="loc-title">Visit us in Altamonte Springs</h2>
+    <div class="location-head">
+      <p class="location-eyebrow">Find your local clinic</p>
+      <h2 id="loc-title">Plan your visit to <em>Altamonte Family Hearing.</em></h2>
+      <p>Inside One Senior Place, Altamonte Springs.</p>
     </div>
     <div class="loc-grid">
-      <div class="loc-info">
-        <address class="address">
-          <strong>Altamonte Family Hearing</strong><br>
-          715 Douglas Ave, Suite 45<br>
-          Altamonte Springs, FL 32714
-        </address>
+      <div class="loc-address">
+        <h3>Where to find us</h3>
+        <address class="address"><strong>Altamonte Family Hearing</strong><br>715 Douglas Ave, Suite 45<br>Altamonte Springs, FL 32714</address>
         <p class="loc-note">Inside One Senior Place, just north of Central Parkway.</p>
-
-        <dl class="hours">
-          <div><dt>Monday to Friday</dt><dd>9:00 am to 4:30 pm</dd></div>
-          <div><dt>Closed for lunch</dt><dd>12:00 to 1:00 pm</dd></div>
-          <div class="walkin"><dt>Walk-in cleanings and minor repairs</dt><dd>Mon to Fri, 1:00 to 2:00 pm</dd></div>
-          <div><dt>Saturday and Sunday</dt><dd>Closed</dd></div>
-        </dl>
-        <p class="loc-small">Hours are Eastern time. The walk-in hour is for hearing aid cleanings and minor repairs. Hearing evaluations are by appointment.</p>
-        <p class="loc-small">Can't get to the office? We also make home and care-facility visits across the greater Orlando area. Call for availability and cost.</p>
-        <p class="loc-small">Patients come to us from Lake Mary, Winter Park, Maitland, Casselberry, Longwood and Winter Springs, among other nearby communities.</p>
         <a class="text-link" href="tel:+14078098154"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call 407-809-8154</a>
       </div>
-
       <div class="loc-map">
         <div class="map-frame">
           <div class="map-fallback">Map unavailable. Use Get Directions below.</div>
@@ -1258,6 +1272,20 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
           </a>
         </div>
       </div>
+      <div class="loc-hours" aria-labelledby="hours-title">
+        <h3 id="hours-title">Office hours</h3>
+        <p class="appointment-note">Hearing evaluations are by appointment.</p>
+        <dl class="hours">
+          <div><dt>Monday–Friday</dt><dd>9:00 am–4:30 pm</dd></div>
+          <div><dt>Closed for lunch</dt><dd>12:00–1:00 pm</dd></div>
+          <div><dt>Saturday–Sunday</dt><dd>Closed</dd></div>
+        </dl>
+        <p class="hours-zone">All hours are Eastern time, local to the clinic.</p>
+      </div>
+    </div>
+    <div class="location-notes">
+      <div><h3>Walk-in cleanings &amp; minor repairs</h3><p><strong>Monday–Friday, 1:00–2:00 pm.</strong> This hour is for hearing aid cleanings and minor repairs, not hearing evaluations.</p></div>
+      <div><h3>Can’t get to the office?</h3><p>Home and care-facility visits are available across Greater Orlando. Call for availability and cost.</p><a class="text-link" href="#faq-access-title">See home-visit details in FAQs <span aria-hidden="true">→</span></a></div>
     </div>
   </div>
 </section>
