@@ -513,36 +513,50 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
 }
 
 /* ==========================================================
-   S07 REVIEWS
+   S07 REVIEWS — readable patient evidence
    ========================================================== */
-.rev-head{ display:grid; gap:20px; margin-bottom:clamp(28px, 4vw, 44px); align-items:end; }
-.rev-head h2{ max-width:20ch; }
-.agg{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
-.agg-num{ font:400 3rem/1 var(--font-head); color:var(--gold-soft); }
-.agg-meta{ display:grid; gap:2px; font-size:1rem; color:var(--on-dark); }
-.agg-meta .stars .star{ width:20px; height:20px; }
+.reviews-section{ padding-block:clamp(40px,4vw,64px); }
+.rev-head{ display:grid; gap:16px; margin-bottom:28px; }
+.reviews-eyebrow{ display:flex; gap:10px; align-items:center; margin:0; color:var(--gold-soft); font-size:.8125rem; letter-spacing:.09em; text-transform:uppercase; font-weight:700; }
+.reviews-eyebrow::before{ content:""; width:24px; height:2px; background:var(--gold); }
+.rev-head h2{ max-width:none; line-height:1.16; }
+.rev-head h2 em{ color:var(--gold-soft); }
+.reviews-rating{ display:inline-flex; align-items:center; gap:12px; width:fit-content; min-height:52px; max-width:100%; color:var(--on-dark); text-decoration:none; }
+.reviews-rating:hover{ color:var(--gold-soft); }
 .rev-grid{ display:grid; gap:20px; align-items:start; }
-.review{
-  background:var(--paper); color:var(--pine);
-  border-radius:var(--r-card); padding:clamp(22px, 3vw, 30px);
-  display:grid; gap:14px;
+.review{ display:flex; flex-direction:column; gap:14px; min-width:0; padding:26px; border-radius:20px; background:var(--paper); color:var(--pine); }
+.review-kicker{ margin:0; color:var(--muted); font-size:.8125rem; line-height:1.5; }
+.review-theme{ margin:0; font:700 1.125rem/1.4 var(--font-body); }
+.review-excerpt,.review-body{ margin:0; font-size:1.125rem; line-height:1.6; }
+.review-excerpt p,.review-body p{ margin:0 0 .85em; max-width:none; }
+.review-excerpt p:last-child,.review-body p:last-child{ margin-bottom:0; }
+.review-full summary{ width:fit-content; min-height:44px; display:flex; gap:0; align-items:center; cursor:pointer; list-style:none; font:700 1rem/1.5 var(--font-body); color:var(--green); text-decoration:underline; text-underline-offset:4px; }
+.review-full summary::-webkit-details-marker{ display:none; }
+.review-full summary:hover{ color:var(--green-deep); }
+.review-full .review-less{ display:none; }
+.review-full[open] .review-read{ display:none; }
+.review-full[open] .review-less{ display:inline; }
+.review:has(.review-full[open]) .review-excerpt{ display:none; }
+.review-complete-label{ display:none; }
+.review:has(.review-full[open]) .review-excerpt-label{ display:none; }
+.review:has(.review-full[open]) .review-complete-label{ display:inline; }
+.review-full .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+.review-full[open] .review-body{ margin-top:12px; }
+.review-head{ display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-top:2px; padding-top:16px; border-top:1px solid var(--line); }
+.reviewer{ margin:0; font-size:1rem; font-weight:700; }
+.review-head .star{ width:16px; height:16px; }
+.rev-foot{ margin-top:28px; display:grid; gap:16px; }
+.rev-foot .btn-row{ gap:14px 28px; }
+.review-all{ display:inline-flex; align-items:center; min-height:44px; color:var(--gold-soft); font-size:1rem; font-weight:700; text-underline-offset:4px; }
+.rev-note{ margin:0; font-size:.9375rem; line-height:1.55; color:var(--on-dark-2); max-width:none; }
+@media(min-width:1024px){
+ .rev-grid{ grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
 }
-.review-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
-.reviewer{ margin:0; font-weight:700; font-size:1.1875rem; line-height:1.3; }
-.review-src{ margin:2px 0 0; font-size:.9375rem; color:var(--muted); }
-.review-context{ margin:0; display:inline-block; justify-self:start; padding:4px 12px; border-radius:999px; background:var(--mist); font-size:.9375rem; line-height:1.4; color:var(--pine); }
-.review-body p{ margin:0 0 .85em; max-width:none; }
-.review-body p:last-child{ margin-bottom:0; }
-.js .review-body.clamped{ max-height:11.5em; overflow:hidden; position:relative; }
-.js .review-body.clamped::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:3.2em; background:linear-gradient(to bottom, rgba(255,253,248,0), var(--paper)); pointer-events:none; }
-.more{ justify-self:start; min-height:44px; padding:0; background:none; border:0; font:700 1rem var(--font-body); color:var(--green); text-decoration:underline; text-underline-offset:3px; cursor:pointer; }
-.more:hover{ color:var(--green-deep); }
-.rev-foot{ margin-top:clamp(28px, 4vw, 44px); display:grid; gap:20px; }
-.rev-foot .btn-row{ gap:14px 24px; }
-.rev-note{ margin:0; font-size:.9375rem; color:var(--on-dark-2); max-width:70ch; }
-@media (min-width:1024px){
-  .rev-head{ grid-template-columns:1fr auto; }
-  .rev-grid{ grid-template-columns:repeat(3,1fr); gap:24px; }
+@media(max-width:520px){
+ .rev-head h2{ font-size:2rem; }
+ .review{ padding:22px; }
+ .review-excerpt,.review-body{ font-size:1.0625rem; }
+ .rev-foot .btn,.rev-foot .btn-row{ width:100%; }
 }
 
 /* ==========================================================
@@ -1001,72 +1015,68 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
 </section>
 
 <!-- ======================= S07 REVIEWS ======================= -->
-<section class="sec bg-pine on-dark" id="reviews" aria-labelledby="reviews-title">
+<section class="sec bg-pine on-dark reviews-section" id="reviews" aria-labelledby="reviews-title">
   <div class="wrap">
     <div class="rev-head">
-      <h2 id="reviews-title">What patients and families say about their visits</h2>
-      <div class="agg">
-        <span class="agg-num" aria-hidden="true">5.0</span>
-        <div class="agg-meta">
-          <span class="stars" aria-hidden="true"><svg class="star"><use href="#i-star"/></svg><svg class="star"><use href="#i-star"/></svg><svg class="star"><use href="#i-star"/></svg><svg class="star"><use href="#i-star"/></svg><svg class="star"><use href="#i-star"/></svg></span>
-          <span><strong>5.0 out of 5</strong> on Google, from 150+ reviews</span>
-        </div>
-      </div>
+      <p class="reviews-eyebrow">Patient experiences</p>
+      <h2 id="reviews-title">Hearing care, <em>in our patients’ words.</em></h2>
+      <a class="reviews-rating" href="https://www.google.com/search?q=altamonte+family+hearing+center&rlz=1C1CHBD_enIN1092IN1158&oq=alta&gs_lcrp=EgZjaHJvbWUqCAgAEEUYJxg7MggIABBFGCcYOzIGCAEQRRg5MgoIAhAuGLEDGIAEMgoIAxAAGLEDGIAEMgoIBBAuGLEDGIAEMgoIBRAAGLEDGIAEMgcIBhAAGIAEMgcIBxAAGIAEMgcICBAAGIAEMgcICRAAGI8C0gEJMjU4OGowajE1qAIIsAIB8QWn6q3xrODXOPEFp-qt8azg1zg&sourceid=chrome&source=chrome.rb&ie=UTF-8#lrd=0x88e771506ecb647d:0xabcbd17d7a2f5be5,1,,,," target="_blank" rel="noopener" aria-label="Rated 5.0 out of 5 on Google, based on 150+ reviews. See all Google reviews.">
+          <img class="hero-google-mark" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAEf0lEQVR4Ae1XA3gjaxS9a9u2nX9mvZsM1kymz7Zt27b9XjJrK22fbdvMpA7q9n/3z/etp4M0WpzvO3Wbc+49994p7A84iLypU9vkidyioMTdERS5rQGB/IgsQVYHBL4mKPHhoMD/EhRJjiby92oiySqePr0DpBP0OmgYEy3ya1FcOYqkdhiQSFVQIFs0mfPQQw5pBKkEVvqwgMh/x4Qkgqxj2LnDky9cnjQEK/dG3GJNiEV5PSBxAyEZwOwej1GJJkCoWbRCbEYSl3WABmzwEizUnCJ/ckLEY1ufSbV4Nl+ak+9e/9gI3D37rHjcNCfGK0IT+IqAxH+PH7+Dc/OWJpFvghIpS5n4PIEbZndg2fBhbh8JypyTHjKy6V5xdDobo6kpmsTfh++LkiY+lnuJe9PGDq/WJO7uIue49mARhTJpxxYDu9IJFb/9SNnI67/aLDIN4gQWSsYD9h4Tn7DHg+jjnb7R5o+vMTUgkF//FSb0g0xCVXbTJVU5TWjF2ha08LiRBnnnizTnhMGQaajMbryeGYhxW1Nacll/XQOYeQUyDbWboW2Fv0klE78row92oXlzya7V3wSZiKqcpkuZYD1WqG1o/iFjYwbyZJ7LTAPZTe5iYuti5eZmtPiiAd9CpgLj42dCDU3kNL4SbEK8JUITy9BH+h3wN/rZ1EBu45npNuC6JVJQVwfCZgZqt0HXdBtgnPtAbTM9A7VmBtihywQDzutCnfdpA/Id0Z77dIRYB+IbYn9jZyYYOOQ62nTvDmQ32WZhjV6VdgM3RQpBDyjwTiPxRdktaq5Zw38ANiHcEr7eKsVbws/Efwdymy6uS/z32zrRpSvmUk5VqMOrTIIkwXVz6EwzA2j0OdBD7dvQpiKnSfme4jdsGkCnq0tj4mP0KVshSRBuibxlauDm6KlQFzDja7cLL81pRm9dS5jovenzHAYJBkZjhpUZmHVT2QCDB7pGC5n4v/1t6HGrRH3xjF53MXnFMxwSBOd1tDkO51cW8v+Z6b+U/o19f5aXL9wu1sjEHw7f0kFQT1x3HW2I0VGZQAv5vwDMQNSsQ5hAi9SIT3HFX3mtteuW8GqL6zMk317YDqyAU92vWTfhriGq52HyyhGdwQawg4v55y/80XXHHxZvQPhGsIpJr3iGoLCIdRNIrxLF9087fMrssS8e3UonKw15rzLKoXouwiXw5fbf4185js68931j8TeH/pp1V20rsAN8kWPMhevT4XVXI3/Fm/EhGnsPP/4eWVrXz/NqFp326CusyvrZvzUyH+IB7vw7TMQmlFOevYkKtwf32PvhOyBuUGiAnXg8lSYmvnwGdd397XYDK9mWAkT9TKie21NpwuE9tHr6g9nLyBO0CSQKmNOjTAY7YSSqcicbekg02OFiKzZpwr3uv3Elz4dkAyOlOFT31wmLjOouwarfMHL5Ia0hZcDZ4L3uubj3V+qsSKu34xNcEueR5Ye0g3SCHS5cufOIT7kV329Ccd+xBz68A1XsUuP7ELsLLH6xq61mHTvxJXdv2A9wEP8Dfp0Z4ksPIgkAAAAASUVORK5CYII=" width="28" height="28" alt="" aria-hidden="true">
+          <span class="hero-rating-score" aria-hidden="true">5.0</span>
+          <span class="hero-rating-detail">
+            <span class="stars" aria-hidden="true"><svg class="star"><use href="#i-star"/></svg><svg class="star"><use href="#i-star"/></svg><svg class="star"><use href="#i-star"/></svg><svg class="star"><use href="#i-star"/></svg><svg class="star"><use href="#i-star"/></svg></span>
+            <span>150+ Google reviews</span>
+          </span>
+        </a>
     </div>
-
     <div class="rev-grid">
-      <article class="review">
-        <header class="review-head">
-          <div>
-            <p class="reviewer">Anthony Valada</p>
-            <p class="review-src">Google review</p>
-          </div>
-          <span class="stars" role="img" aria-label="5 out of 5 stars"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><svg class="star" aria-hidden="true"><use href="#i-star"/></svg></span>
-        </header>
-        <div class="review-body" id="rv-1">
+      <article class="review" aria-labelledby="review-theme-1">
+        <p class="review-kicker"><span class="review-excerpt-label">Google review · excerpt</span><span class="review-complete-label">Google review · complete text</span></p>
+        <h3 id="review-theme-1" class="review-theme">Thorough evaluation</h3>
+        <blockquote class="review-excerpt"><p>The exam was complete in every way. It wasn't 15 minutes and here's your hearing aids. The hearing aids were set up to fit my needs .</p></blockquote>
+        <details class="review-full">
+          <summary><span class="review-read">Read full review</span><span class="review-less">Show less</span><span class="sr-only"> by Anthony Valada</span></summary>
+          <blockquote class="review-body" id="rv-1">
           <p>Jaysee Soto is a total professional that only wants to do the best. The exam was complete in every way. It wasn't 15 minutes and here's your hearing aids. The hearing aids were set up to fit my needs . The staff in the office was also great. I would recommend Jaycee and the staff at Altamonte Family Hearing to anyone needing hearing help !</p>
-        </div>
-        <button class="more" type="button" aria-expanded="false" aria-controls="rv-1" hidden>Read full review</button>
+        </blockquote>
+        </details>
+        <footer class="review-head"><p class="reviewer">Anthony Valada</p><span class="stars" role="img" aria-label="5 out of 5 stars"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><svg class="star" aria-hidden="true"><use href="#i-star"/></svg></span></footer>
       </article>
 
-      <article class="review">
-        <header class="review-head">
-          <div>
-            <p class="reviewer">Philip Zeitler</p>
-            <p class="review-src">Google review</p>
-          </div>
-          <span class="stars" role="img" aria-label="5 out of 5 stars"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><svg class="star" aria-hidden="true"><use href="#i-star"/></svg></span>
-        </header>
-        <div class="review-body" id="rv-2">
+      <article class="review" aria-labelledby="review-theme-2">
+        <p class="review-kicker"><span class="review-excerpt-label">Google review · excerpt</span><span class="review-complete-label">Google review · complete text</span></p>
+        <h3 id="review-theme-2" class="review-theme">Results explained to the family</h3>
+        <blockquote class="review-excerpt"><p>He spent a great deal of time performing very thorough hearing tests and, just as importantly, took the time to clearly explain the results in a way that we could all understand.</p></blockquote>
+        <details class="review-full">
+          <summary><span class="review-read">Read full review</span><span class="review-less">Show less</span><span class="sr-only"> by Philip Zeitler</span></summary>
+          <blockquote class="review-body" id="rv-2">
           <p>We had an excellent experience with Altamonte Family Hearing, and I can't thank them enough for the care they provided my dad. Jaysee Soto was absolutely wonderful throughout the entire process. He spent a great deal of time performing very thorough hearing tests and, just as importantly, took the time to clearly explain the results in a way that we could all understand.</p>
           <p>When it came time to set up and program my dad's new high-end ReSound hearing aids, Jaysee was incredibly patient and detail-oriented, making sure everything was perfectly tuned to my dad's needs. He also went above and beyond by showing my dad how to operate the hearing aids through his phone once they were paired, which gave him a lot of confidence using them.</p>
           <p>The level of professionalism, knowledge, and genuine care we experienced by everyone in the office made a huge difference. I highly recommend Altamonte Family Hearing and Jaysee Soto to anyone looking for top-quality hearing care and outstanding service.</p>
-        </div>
-        <button class="more" type="button" aria-expanded="false" aria-controls="rv-2" hidden>Read full review</button>
+        </blockquote>
+        </details>
+        <footer class="review-head"><p class="reviewer">Philip Zeitler</p><span class="stars" role="img" aria-label="5 out of 5 stars"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><svg class="star" aria-hidden="true"><use href="#i-star"/></svg></span></footer>
       </article>
 
-      <article class="review">
-        <header class="review-head">
-          <div>
-            <p class="reviewer">Emily Palo</p>
-            <p class="review-src">Google review</p>
-          </div>
-          <span class="stars" role="img" aria-label="5 out of 5 stars"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><svg class="star" aria-hidden="true"><use href="#i-star"/></svg></span>
-        </header>
-        <p class="review-context">Existing hearing aid repair visit</p>
-        <div class="review-body" id="rv-3">
+      <article class="review" aria-labelledby="review-theme-3">
+        <p class="review-kicker"><span class="review-excerpt-label">Google review · excerpt</span><span class="review-complete-label">Google review · complete text</span></p>
+        <h3 id="review-theme-3" class="review-theme">Existing hearing aid repair visit</h3>
+        <blockquote class="review-excerpt"><p>The staff are very friendly and helpful. I had mentioned that getting hearing aids has been hard and they immediately wanted to help with a solution. I really felt heard and cared for by the staff!</p></blockquote>
+        <details class="review-full">
+          <summary><span class="review-read">Read full review</span><span class="review-less">Show less</span><span class="sr-only"> by Emily Palo</span></summary>
+          <blockquote class="review-body" id="rv-3">
           <p>I want to start this review by saying this has by far been the best experience I have had with healthcare. About a month ago, I came across them by googling places that can repair hearing aids. I called them 5 minutes before closing time and they happily answered my call for help and immediately re-assured me that they can help. I came in today during the walk-in hours and showed them the aids and the issue. I was greeted by Jaysee and he re-assured me that things can be fixed, and all the same day! The staff are very friendly and helpful. I had mentioned that getting hearing aids has been hard and they immediately wanted to help with a solution. I really felt heard and cared for by the staff! Thank you so much! Your help has made a HUGE impact on my life. This is absolutely the place to go!!!!</p>
-        </div>
-        <button class="more" type="button" aria-expanded="false" aria-controls="rv-3" hidden>Read full review</button>
+        </blockquote>
+        </details>
+        <footer class="review-head"><p class="reviewer">Emily Palo</p><span class="stars" role="img" aria-label="5 out of 5 stars"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><svg class="star" aria-hidden="true"><use href="#i-star"/></svg></span></footer>
       </article>
     </div>
-
     <div class="rev-foot">
       <div class="btn-row">
-        <a class="btn btn-outline" style="color:var(--gold-soft);border-color:var(--gold-soft)" data-track="google_reviews_click" href="https://www.google.com/search?q=altamonte+family+hearing+center&rlz=1C1CHBD_enIN1092IN1158&oq=alta&gs_lcrp=EgZjaHJvbWUqCAgAEEUYJxg7MggIABBFGCcYOzIGCAEQRRg5MgoIAhAuGLEDGIAEMgoIAxAAGLEDGIAEMgoIBBAuGLEDGIAEMgoIBRAAGLEDGIAEMgcIBhAAGIAEMgcIBxAAGIAEMgcICBAAGIAEMgcICRAAGI8C0gEJMjU4OGowajE1qAIIsAIB8QWn6q3xrODXOPEFp-qt8azg1zg&sourceid=chrome&source=chrome.rb&ie=UTF-8#lrd=0x88e771506ecb647d:0xabcbd17d7a2f5be5,1,,,," target="_blank" rel="noopener">See all our Google reviews</a>
         <button class="btn btn-light" type="button" data-open-booking>Book Appointment</button>
+        <a class="review-all" data-track="google_reviews_click" href="https://www.google.com/search?q=altamonte+family+hearing+center&rlz=1C1CHBD_enIN1092IN1158&oq=alta&gs_lcrp=EgZjaHJvbWUqCAgAEEUYJxg7MggIABBFGCcYOzIGCAEQRRg5MgoIAhAuGLEDGIAEMgoIAxAAGLEDGIAEMgoIBBAuGLEDGIAEMgoIBRAAGLEDGIAEMgcIBhAAGIAEMgcIBxAAGIAEMgcICBAAGIAEMgcICRAAGI8C0gEJMjU4OGowajE1qAIIsAIB8QWn6q3xrODXOPEFp-qt8azg1zg&sourceid=chrome&source=chrome.rb&ie=UTF-8#lrd=0x88e771506ecb647d:0xabcbd17d7a2f5be5,1,,,," target="_blank" rel="noopener">See all our Google reviews</a>
       </div>
-      <p class="rev-note">Reviews are shown exactly as written on Google. Each is one patient's own experience; individual results vary.</p>
+      <p class="rev-note">Excerpts are taken from the original Google reviews; complete reviews are available above. These are individual experiences; results vary.</p>
     </div>
   </div>
 </section>
@@ -1375,36 +1385,7 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
     });
   });
 
-  /* Reviews: collapse long text with a complete-text expander (fail-open: full text shows without JS) */
-  var reviews = Array.prototype.slice.call(document.querySelectorAll('.review'));
-  function evaluate(){
-    reviews.forEach(function(r){
-      var body = r.querySelector('.review-body');
-      var btn = r.querySelector('.more');
-      if (!body || !btn) return;
-      if (btn.getAttribute('aria-expanded') === 'true') return;
-      body.classList.remove('clamped');
-      body.classList.add('clamped');
-      var overflows = body.scrollHeight > body.clientHeight + 4;
-      if (overflows){ btn.hidden = false; }
-      else { body.classList.remove('clamped'); btn.hidden = true; }
-    });
-  }
-  reviews.forEach(function(r){
-    var body = r.querySelector('.review-body');
-    var btn = r.querySelector('.more');
-    if (!body || !btn) return;
-    btn.addEventListener('click', function(){
-      var open = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', open ? 'false' : 'true');
-      body.classList.toggle('clamped', open);
-      btn.textContent = open ? 'Read full review' : 'Show less';
-    });
-  });
-  evaluate();
-  window.addEventListener('load', evaluate);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(evaluate);
-  var rt; window.addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(evaluate, 150); });
+
 })();
 </script>
 </body>
