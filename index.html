@@ -550,7 +550,10 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
 .review-all{ display:inline-flex; align-items:center; justify-content:center; text-align:center; min-height:44px; color:var(--gold-soft); font-size:1rem; font-weight:700; text-underline-offset:4px; }
 .rev-note{ margin:0; font-size:.9375rem; line-height:1.55; color:var(--on-dark-2); max-width:none; }
 @media(min-width:1024px){
- .rev-grid{ grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+ .rev-grid{ grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; align-items:stretch; }
+ .review-full{ margin-top:auto; }
+ .rev-grid:has(.review-full[open]){ align-items:start; }
+ .rev-grid:has(.review-full[open]) .review-full{ margin-top:0; }
 }
 @media(max-width:520px){
  .rev-head h2{ font-size:2rem; }
