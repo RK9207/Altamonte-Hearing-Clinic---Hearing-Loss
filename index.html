@@ -186,10 +186,11 @@ a:hover{ color:var(--green-deep); }
 .trust-badge strong{ font-weight:700; }
 .stars{ display:inline-flex; gap:2px; }
 .star{ width:18px; height:18px; fill:var(--gold); stroke:none; }
-.hero-rating{ display:inline-flex; align-items:center; gap:16px; min-height:52px; color:var(--on-dark); text-decoration:none; }
+.hero-rating{ display:inline-flex; align-items:center; gap:12px; min-height:52px; color:var(--on-dark); text-decoration:none; }
 .hero-rating:hover{ color:var(--gold-soft); }
-.hero-rating-score{ font:700 2.125rem/1 var(--font-body); letter-spacing:-.04em; }
-.hero-rating-detail{ display:grid; gap:6px; padding-left:16px; border-left:1px solid rgba(232,211,166,.35); font-size:.9375rem; line-height:1.4; }
+.hero-google-mark{ width:28px; height:28px; flex:none; }
+.hero-rating-score{ font:700 2rem/1 var(--font-body); letter-spacing:-.04em; }
+.hero-rating-detail{ display:grid; gap:5px; font-size:.9375rem; line-height:1.4; }
 .hero-rating-detail .star{ width:19px; height:19px; }
 .hero-rating:hover .hero-rating-detail>span:last-child{ text-decoration:underline; text-underline-offset:3px; }
 .hero-access{ margin:16px 0 0; color:var(--on-dark-2); font-size:.9375rem; line-height:1.6; }
@@ -611,10 +612,11 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
           <a class="hero-phone" href="tel:+14078098154"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call 407-809-8154</a>
         </div>
         <a class="hero-rating" href="#reviews" aria-label="Rated 5.0 out of 5 on Google, based on 150+ reviews. Read patient reviews.">
+          <img class="hero-google-mark" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAEf0lEQVR4Ae1XA3gjaxS9a9u2nX9mvZsM1kymz7Zt27b9XjJrK22fbdvMpA7q9n/3z/etp4M0WpzvO3Wbc+49994p7A84iLypU9vkidyioMTdERS5rQGB/IgsQVYHBL4mKPHhoMD/EhRJjiby92oiySqePr0DpBP0OmgYEy3ya1FcOYqkdhiQSFVQIFs0mfPQQw5pBKkEVvqwgMh/x4Qkgqxj2LnDky9cnjQEK/dG3GJNiEV5PSBxAyEZwOwej1GJJkCoWbRCbEYSl3WABmzwEizUnCJ/ckLEY1ufSbV4Nl+ak+9e/9gI3D37rHjcNCfGK0IT+IqAxH+PH7+Dc/OWJpFvghIpS5n4PIEbZndg2fBhbh8JypyTHjKy6V5xdDobo6kpmsTfh++LkiY+lnuJe9PGDq/WJO7uIue49mARhTJpxxYDu9IJFb/9SNnI67/aLDIN4gQWSsYD9h4Tn7DHg+jjnb7R5o+vMTUgkF//FSb0g0xCVXbTJVU5TWjF2ha08LiRBnnnizTnhMGQaajMbryeGYhxW1Nacll/XQOYeQUyDbWboW2Fv0klE78row92oXlzya7V3wSZiKqcpkuZYD1WqG1o/iFjYwbyZJ7LTAPZTe5iYuti5eZmtPiiAd9CpgLj42dCDU3kNL4SbEK8JUITy9BH+h3wN/rZ1EBu45npNuC6JVJQVwfCZgZqt0HXdBtgnPtAbTM9A7VmBtihywQDzutCnfdpA/Id0Z77dIRYB+IbYn9jZyYYOOQ62nTvDmQ32WZhjV6VdgM3RQpBDyjwTiPxRdktaq5Zw38ANiHcEr7eKsVbws/Efwdymy6uS/z32zrRpSvmUk5VqMOrTIIkwXVz6EwzA2j0OdBD7dvQpiKnSfme4jdsGkCnq0tj4mP0KVshSRBuibxlauDm6KlQFzDja7cLL81pRm9dS5jovenzHAYJBkZjhpUZmHVT2QCDB7pGC5n4v/1t6HGrRH3xjF53MXnFMxwSBOd1tDkO51cW8v+Z6b+U/o19f5aXL9wu1sjEHw7f0kFQT1x3HW2I0VGZQAv5vwDMQNSsQ5hAi9SIT3HFX3mtteuW8GqL6zMk317YDqyAU92vWTfhriGq52HyyhGdwQawg4v55y/80XXHHxZvQPhGsIpJr3iGoLCIdRNIrxLF9087fMrssS8e3UonKw15rzLKoXouwiXw5fbf4185js68931j8TeH/pp1V20rsAN8kWPMhevT4XVXI3/Fm/EhGnsPP/4eWVrXz/NqFp326CusyvrZvzUyH+IB7vw7TMQmlFOevYkKtwf32PvhOyBuUGiAnXg8lSYmvnwGdd397XYDK9mWAkT9TKie21NpwuE9tHr6g9nLyBO0CSQKmNOjTAY7YSSqcicbekg02OFiKzZpwr3uv3Elz4dkAyOlOFT31wmLjOouwarfMHL5Ia0hZcDZ4L3uubj3V+qsSKu34xNcEueR5Ye0g3SCHS5cufOIT7kV329Ccd+xBz68A1XsUuP7ELsLLH6xq61mHTvxJXdv2A9wEP8Dfp0Z4ksPIgkAAAAASUVORK5CYII=" width="28" height="28" alt="" aria-hidden="true">
           <span class="hero-rating-score" aria-hidden="true">5.0</span>
           <span class="hero-rating-detail">
             <span class="stars" aria-hidden="true"><svg class="star"><use href="#i-star"/></svg><svg class="star"><use href="#i-star"/></svg><svg class="star"><use href="#i-star"/></svg><svg class="star"><use href="#i-star"/></svg><svg class="star"><use href="#i-star"/></svg></span>
-            <span>150+ reviews on Google</span>
+            <span>150+ Google reviews</span>
           </span>
         </a>
       </div>
