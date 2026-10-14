@@ -331,10 +331,10 @@ a:hover{ color:var(--green-deep); }
 }
 @media(min-width:1024px){
  .eval-grid{ grid-template-columns:4fr 6fr; gap:24px clamp(36px,4vw,56px); grid-template-areas:"head head" "story steps" "leave leave" "cta cta"; }
- .eval-head{ max-width:none; display:grid; grid-template-columns:4fr 6fr; column-gap:clamp(36px,4vw,56px); align-items:center; }
+ .eval-head{ max-width:none; display:block; }
  .eval-eyebrow{ grid-column:1 / -1; margin-bottom:12px; }
- .eval-head>p:last-child{ margin:0; padding-left:64px; }
- .eval-head h2{ font-size:2.375rem; max-width:none; }
+ .eval-head>p:last-child{ margin:14px 0 0; padding-left:0; max-width:76ch; }
+ .eval-head h2{ font-size:2.375rem; max-width:30ch; }
  .eval-cta{ display:grid; grid-template-columns:auto minmax(0,1fr); }
  .cost-note{ max-width:none; }
  .eval-media{ max-width:none; }
