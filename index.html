@@ -832,6 +832,52 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
  @keyframes care-image-in{ from{opacity:.6} to{opacity:1} }
 }
 
+/* Welcome video: authentic homepage assets, accessible full-video dialog. */
+.welcome-section{ padding-block:clamp(36px,4.5vw,64px); border-top:1px solid rgba(232,211,166,.18); }
+.welcome-grid{ display:grid; grid-template-columns:minmax(0,1fr); gap:28px; align-items:center; }
+.welcome-copy{ min-width:0; }
+.welcome-eyebrow{ display:flex; gap:10px; align-items:center; margin:0 0 18px; color:var(--gold-soft); font-size:.8125rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+.welcome-eyebrow::before{ content:""; width:24px; height:2px; background:var(--gold); }
+.welcome-copy h2{ max-width:22ch; font-size:clamp(2rem,2.7vw,3rem); line-height:1.15; }
+.welcome-copy h2 em{ color:var(--gold-soft); }
+.welcome-copy>p:last-child{ margin:20px 0 0; max-width:50ch; color:var(--on-dark-2); font-size:1.125rem; line-height:1.6; }
+.welcome-preview{ position:relative; aspect-ratio:16/9; min-width:0; overflow:hidden; border:6px solid #31483D; border-radius:48px 24px 48px 24px; background:var(--pine); }
+.welcome-preview video{ display:block; width:100%; height:100%; object-fit:cover; }
+.welcome-launch{ position:absolute; inset:0; display:flex; align-items:flex-end; gap:16px; padding:24px; text-decoration:none; color:var(--on-dark); background:linear-gradient(transparent 35%,rgba(14,33,25,.9)); }
+.welcome-launch:hover{ color:#fff; }
+.welcome-launch:focus-visible{ outline:3px solid var(--gold-soft); outline-offset:-7px; border-radius:36px 14px 36px 14px; }
+.welcome-play{ display:grid; place-items:center; width:72px; height:72px; flex:0 0 72px; border-radius:50%; color:var(--pine); background:var(--gold-soft); }
+.welcome-play svg{ width:30px; height:30px; }
+.welcome-launch-copy{ display:grid; gap:6px; }
+.welcome-launch-copy strong{ font-size:1.125rem; line-height:1.3; }
+.welcome-launch-copy>span{ font-size:.9375rem; line-height:1.45; color:var(--on-dark-2); }
+.welcome-toggle{ position:absolute; top:16px; left:16px; display:grid; place-items:center; width:44px; height:44px; border-radius:50%; border:1px solid rgba(238,243,239,.55); background:rgba(26,48,40,.8); color:var(--on-dark); font:700 1rem/1 var(--font-body); cursor:pointer; }
+.welcome-toggle[hidden]{ display:none; }
+.welcome-dialog{ width:min(960px,calc(100% - 32px)); max-height:calc(100dvh - 32px); padding:0; border:0; border-radius:20px; background:var(--paper); color:var(--pine); overflow:auto; }
+.welcome-dialog::backdrop{ background:rgba(10,25,19,.85); }
+.welcome-dialog-bar{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 20px; }
+.welcome-dialog-bar h2{ font-size:1.375rem; }
+.welcome-dialog-player{ aspect-ratio:16/9; background:#0e2119; }
+.welcome-dialog-player iframe{ display:block; width:100%; height:100%; border:0; }
+.welcome-dialog-foot{ margin:0; padding:12px 20px; font-size:.9375rem; line-height:1.5; max-width:none; }
+@media(min-width:900px){
+ .welcome-grid{ grid-template-columns:1.15fr 1fr; gap:clamp(36px,5vw,72px); }
+ .welcome-preview{ grid-column:1; grid-row:1; }
+ .welcome-copy{ grid-column:2; grid-row:1; }
+}
+@media(max-width:520px){
+ .welcome-preview{ border-width:4px; border-radius:32px 16px 32px 16px; }
+ .welcome-launch{ padding:16px; gap:12px; }
+ .welcome-play{ width:52px; height:52px; flex-basis:52px; }
+ .welcome-play svg{ width:25px; height:25px; }
+ .welcome-launch-copy strong{ font-size:1rem; }
+ .welcome-launch-copy>span{ font-size:.8125rem; }
+ .welcome-toggle{ top:8px; left:8px; }
+ .welcome-dialog{ width:calc(100% - 20px); }
+ .welcome-dialog-bar{ padding-inline:14px; }
+ .welcome-dialog-bar h2{ font-size:1.125rem; }
+}
+
 </style>
 </head>
 <body>
@@ -927,6 +973,27 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
         <p>Included with hearing aids bought from our office.</p>
       </li>
     </ul>
+  </div>
+</section>
+
+<!-- ======================= WELCOME VIDEO — meet the clinic before your visit ======================= -->
+<section class="welcome-section bg-pine on-dark" id="welcome-video" aria-labelledby="welcome-title">
+  <div class="wrap welcome-grid">
+    <div class="welcome-copy">
+      <p class="welcome-eyebrow">Welcome video</p>
+      <h2 id="welcome-title">Meet the experts <em>behind your hearing care.</em></h2>
+      <p>Take a look inside our practice and meet your hearing care team. Learn what to expect at your first visit, from discussing your concerns to reviewing your results and next steps.</p>
+    </div>
+    <div class="welcome-preview" data-img="IMG-WELCOME-VIDEO-01">
+      <video id="welcome-preview" muted playsinline preload="none" poster="https://altamontefamilyhearing.com/assets/video/welcome-crop-poster.webp" aria-hidden="true" tabindex="-1">
+        <source data-src="https://altamontefamilyhearing.com/assets/video/welcome-crop-loop.mp4" type="video/mp4">
+      </video>
+      <a class="welcome-launch" href="https://www.youtube.com/watch?v=HxCXX0CgR9s" target="_blank" rel="noopener" data-open-video data-track="welcome_video_open" aria-haspopup="dialog" aria-controls="welcome-dialog" aria-label="Watch the two-minute Altamonte Family Hearing welcome video">
+        <span class="welcome-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="welcome-launch-copy"><strong>Watch our welcome video</strong><span>2 minutes with Jaysee: a look inside the practice and your first visit.</span></span>
+      </a>
+      <button class="welcome-toggle" type="button" aria-label="Pause the muted video preview" hidden>Ⅱ</button>
+    </div>
   </div>
 </section>
 
@@ -1176,7 +1243,7 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
         <h2 id="team-title">Meet the people behind <em>your hearing care.</em></h2>
         <p>Altamonte Family Hearing is an independent, family-owned practice founded by Jaysee and Grace Soto. Two Florida-licensed Hearing Aid Specialists and a bilingual patient-support team help you from your first appointment through follow-up care.</p>
       </div>
-      <figure class="figure team-photo" data-img="IMG-TEAM-01"><div class="frame"><img src="https://altamontefamilyhearing.com/assets/photos/staff-AE8A1554-3.webp" alt="The Altamonte Family Hearing team standing in front of the clinic sign" loading="lazy" decoding="async"></div><figcaption>The Altamonte Family Hearing team.</figcaption><a class="team-video text-link" href="https://www.youtube.com/watch?v=HxCXX0CgR9s" target="_blank" rel="noopener" data-track="welcome_video_click" aria-label="Watch our 2-minute welcome video on YouTube (opens in a new tab)"><span aria-hidden="true">▷</span><span>Watch our 2-minute welcome video</span></a></figure>
+      <figure class="figure team-photo" data-img="IMG-TEAM-01"><div class="frame"><img src="https://altamontefamilyhearing.com/assets/photos/staff-AE8A1554-3.webp" alt="The Altamonte Family Hearing team standing in front of the clinic sign" loading="lazy" decoding="async"></div><figcaption>The Altamonte Family Hearing team.</figcaption><a class="team-video text-link" href="https://www.youtube.com/watch?v=HxCXX0CgR9s" target="_blank" rel="noopener" data-track="welcome_video_open" data-open-video aria-haspopup="dialog" aria-controls="welcome-dialog" aria-label="Watch our two-minute welcome video"><span aria-hidden="true">▷</span><span>Watch our 2-minute welcome video</span></a></figure>
     </div>
     <div class="profiles">
       <article class="profile" aria-labelledby="jaysee-name">
@@ -1528,6 +1595,13 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
 <!-- ======================= P01 MOBILE CALL BAR ======================= -->
 <a class="call-bar" href="tel:+14078098154"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call 407-809-8154</a>
 
+<!-- The full player is created on demand, so it does not load during browsing. -->
+<dialog class="welcome-dialog" id="welcome-dialog" aria-labelledby="welcome-dialog-title">
+  <div class="welcome-dialog-bar"><h2 id="welcome-dialog-title">Welcome to Altamonte Family Hearing</h2><button class="dialog-close" type="button" data-close-video autofocus><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>Close</button></div>
+  <div class="welcome-dialog-player"></div>
+  <p class="welcome-dialog-foot">Video not loading? <a href="https://www.youtube.com/watch?v=HxCXX0CgR9s" target="_blank" rel="noopener">Watch on YouTube</a>.</p>
+</dialog>
+
 <!-- ======================= BOOKING DIALOG ======================= -->
 <dialog class="dialog" id="booking-dialog" aria-labelledby="dialog-title">
   <div class="dialog-bar">
@@ -1603,6 +1677,66 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
     });
     var initial = panels.find(function(panel){ return panel.open; });
     if (initial) showCareImage(initial);
+  }
+
+  /* Welcome preview and full video: mute the teaser, load the player on intent. */
+  var welcomeDialog = document.getElementById('welcome-dialog');
+  var preview = document.getElementById('welcome-preview');
+  var previewToggle = document.querySelector('.welcome-toggle');
+  var motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var previewVisible = false, previewPausedByUser = false, previewPlays = 0;
+  function updatePreviewControl(){
+    previewToggle.textContent = preview.paused ? '▷' : 'Ⅱ';
+    previewToggle.setAttribute('aria-label', preview.paused ? 'Play the muted video preview' : 'Pause the muted video preview');
+  }
+  function syncWelcomePreview(){
+    if (!previewVisible || previewPausedByUser || motionPreference.matches || welcomeDialog.open || previewPlays >= 2){
+      preview.pause();
+      if (motionPreference.matches || previewPlays >= 2) previewToggle.hidden = true;
+      return;
+    }
+    var source = preview.querySelector('source');
+    if (!source.getAttribute('src')){ source.src = source.dataset.src; preview.load(); }
+    if (preview.ended) preview.currentTime = 0;
+    var playing = preview.play();
+    if (playing && playing.catch) playing.catch(function(){ previewToggle.hidden = true; });
+  }
+  if (preview && welcomeDialog){
+    preview.muted = true;
+    preview.addEventListener('playing', function(){ previewToggle.hidden = false; updatePreviewControl(); });
+    preview.addEventListener('pause', updatePreviewControl);
+    preview.addEventListener('ended', function(){ previewPlays++; syncWelcomePreview(); });
+    previewToggle.addEventListener('click', function(){
+      previewPausedByUser = !preview.paused;
+      if (previewPausedByUser) preview.pause(); else syncWelcomePreview();
+      updatePreviewControl();
+    });
+    if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(entries){ previewVisible = entries[0].isIntersecting; syncWelcomePreview(); }, {threshold:.2}).observe(preview);
+    }
+    if (motionPreference.addEventListener) motionPreference.addEventListener('change', syncWelcomePreview);
+    document.querySelectorAll('[data-open-video]').forEach(function(trigger){
+      trigger.addEventListener('click', function(e){
+        if (typeof welcomeDialog.showModal !== 'function') return;
+        e.preventDefault();
+        var player = document.createElement('iframe');
+        player.src = 'https://www.youtube-nocookie.com/embed/HxCXX0CgR9s?autoplay=1&rel=0&cc_load_policy=1';
+        player.title = 'Altamonte Family Hearing welcome video';
+        player.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+        player.allowFullscreen = true;
+        welcomeDialog.querySelector('.welcome-dialog-player').replaceChildren(player);
+        welcomeDialog.showModal();
+        root.classList.add('dialog-open');
+        syncWelcomePreview();
+      });
+    });
+    welcomeDialog.querySelector('[data-close-video]').addEventListener('click', function(){ welcomeDialog.close(); });
+    welcomeDialog.addEventListener('click', function(e){ if (e.target === welcomeDialog) welcomeDialog.close(); });
+    welcomeDialog.addEventListener('close', function(){
+      welcomeDialog.querySelector('.welcome-dialog-player').replaceChildren();
+      root.classList.remove('dialog-open');
+      syncWelcomePreview();
+    });
   }
 
   /* Copyright year */
