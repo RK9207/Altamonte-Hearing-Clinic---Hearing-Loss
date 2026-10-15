@@ -134,30 +134,41 @@ a:hover{ color:var(--green-deep); }
   background:var(--paper);
   border-bottom:1px solid var(--line);
 }
-.header-in{ display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:var(--header-h); }
-.logo{ display:block; flex:none; width:clamp(140px, 38vw, 170px); }
-.logo img{ width:100%; height:auto; }
-.header-actions{ display:flex; align-items:center; gap:20px; flex:none; }
-.header-actions .btn{ flex:none; min-height:48px; padding:0 18px; font-size:1rem; white-space:nowrap; }
-.phone-link{ display:none; flex:none; align-items:center; gap:8px; font-weight:700; color:var(--pine); text-decoration:none; min-height:44px; white-space:nowrap; }
+.header-in{ display:grid; grid-template-columns:minmax(0,1fr) auto auto; align-items:center; gap:8px; min-height:72px; }
+.logo{ display:block; width:clamp(96px,28vw,170px); max-width:100%; }
+.logo img{ width:100%; height:56px; object-fit:contain; }
+.header-actions{ display:flex; align-items:center; gap:20px; grid-column:2; grid-row:1; }
+.header-actions .btn{ min-height:44px; padding:0 12px; font-size:.875rem; white-space:nowrap; }
+.phone-link{ display:none; align-items:center; gap:8px; font-weight:700; color:var(--pine); text-decoration:none; min-height:44px; white-space:nowrap; }
 .phone-link:hover{ color:var(--green); }
 .phone-link .icon{ color:var(--green); }
-.main-nav{ display:none; }
-@media (max-width:380px){
-  .header-in{ padding-inline:12px; gap:12px; }
-  .logo{ width:clamp(112px, 35vw, 132px); }
-  .header-actions .btn{ padding-inline:12px; }
+.nav-toggle{ grid-column:3; grid-row:1; display:grid; place-items:center; width:44px; height:44px; padding:10px; border:1px solid var(--line); border-radius:50%; background:transparent; color:var(--green); cursor:pointer; }
+.nav-toggle svg{ width:22px; height:22px; }
+.nav-toggle .nav-close{ display:none; }
+.nav-toggle[aria-expanded="true"] .nav-menu{ display:none; }
+.nav-toggle[aria-expanded="true"] .nav-close{ display:block; }
+.main-nav a{ display:flex; align-items:center; min-height:48px; padding:10px 12px; font-size:1rem; font-weight:500; color:var(--pine); text-decoration:none; border-radius:8px; }
+.main-nav a:hover{ background:#EDF3E9; color:var(--green); }
+.main-nav a:last-child{ color:var(--green); font-weight:700; }
+@media(max-width:1023px){
+ .main-nav{ display:none; position:absolute; top:100%; left:0; right:0; grid-template-columns:repeat(2,minmax(0,1fr)); gap:4px 12px; padding:16px var(--gutter) 24px; max-height:calc(100dvh - 144px); overflow-y:auto; background:var(--paper); border-block:1px solid var(--line); box-shadow:0 16px 24px rgba(26,48,40,.12); }
+ .main-nav.is-open{ display:grid; }
 }
-@media (min-width:480px){ .logo{ width:190px; } .header-actions .btn{ padding:0 22px; } }
-@media (min-width:768px){ .phone-link{ display:inline-flex; } .logo{ width:192px; } }
-@media (min-width:1024px){ .logo{ width:228px; } }
-@media (min-width:1200px){
-  .header-in{ display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:24px; }
-  .main-nav{ display:flex; justify-self:center; gap:clamp(20px, 2vw, 28px); }
-  .main-nav a{ white-space:nowrap; display:inline-flex; align-items:center; min-height:44px; font-weight:500; font-size:1rem; color:var(--pine); text-decoration:none; border-bottom:2px solid transparent; }
-  .main-nav a:hover{ color:var(--green); border-bottom-color:var(--gold); }
-  .header-actions .btn{ min-height:52px; padding:0 26px; font-size:1.0625rem; }
+@media(max-width:380px){ .header-in{ padding-inline:12px; } .header-actions .btn{ width:120px; padding-inline:8px; font-size:.875rem; white-space:normal; } }
+@media(min-width:480px){ .logo{ width:190px; } .header-actions .btn{ padding-inline:22px; font-size:1rem; } }
+@media(min-width:768px){ .phone-link{ display:inline-flex; } .logo{ width:192px; } }
+@media(min-width:1024px){
+ :root{ --header-h:130px; }
+ .header-in{ grid-template-columns:auto 1fr auto; grid-template-rows:76px auto; min-height:128px; column-gap:24px; row-gap:0; }
+ .logo{ width:216px; grid-row:1; }
+ .logo img{ height:72px; }
+ .header-actions{ grid-column:3; justify-self:end; }
+ .header-actions .btn{ min-height:48px; padding-inline:24px; font-size:1rem; }
+ .nav-toggle{ display:none; }
+ .main-nav{ grid-column:1 / -1; grid-row:2; display:flex; justify-content:space-between; gap:4px; padding-block:2px; border-top:1px solid var(--line); }
+ .main-nav a{ min-height:48px; padding:8px 10px; font-size:.875rem; white-space:nowrap; }
 }
+@media(min-width:1200px){ .main-nav a{ font-size:.9375rem; padding-inline:12px; } }
 
 /* ==========================================================
    S02 HERO — editorial clinic introduction
@@ -1039,12 +1050,23 @@ h1,h2,h3{ text-wrap:balance; }
            alt="Altamonte Family Hearing"
            onerror="this.onerror=null;this.src='https://altamontefamilyhearing.com/assets/logo-altamonte-626.png';">
     </a>
-    <nav class="main-nav" aria-label="Page sections">
-      <a href="#what-to-expect">What to expect</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="page-navigation" aria-label="Open navigation menu">
+      <svg class="nav-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg class="nav-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+    </button>
+    <nav class="main-nav" id="page-navigation" aria-label="Page sections">
+      <a href="#welcome-video">Welcome video</a>
+      <a href="#signs">Hearing signs</a>
+      <a href="#what-to-expect">Your evaluation</a>
+      <a href="#care-options">Services</a>
+      <a href="#care">Hearing aids</a>
       <a href="#team">Our team</a>
       <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQs</a>
       <a href="#location">Location</a>
+      <a href="#schedule">Request a visit</a>
     </nav>
+    <noscript><style>.nav-toggle{display:none}@media(max-width:1023px){.main-nav{display:grid;position:static;grid-column:1 / -1;grid-row:2;max-height:none;box-shadow:none}}</style></noscript>
     <div class="header-actions">
       <a class="phone-link" href="tel:+14078098154"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span>407-809-8154</span></a>
       <button class="btn btn-primary" type="button" data-open-booking>Book Appointment</button>
@@ -1769,6 +1791,48 @@ h1,h2,h3{ text-wrap:balance; }
 <script>
 (function(){
   var root = document.documentElement;
+
+  /* Collapsible section navigation; links also work without JavaScript. */
+  var navToggle = document.querySelector('.nav-toggle');
+  var pageNav = document.getElementById('page-navigation');
+  var desktopNav = window.matchMedia('(min-width:1024px)');
+  function closeNav(returnFocus){
+    pageNav.classList.remove('is-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', 'Open navigation menu');
+    if (returnFocus) navToggle.focus();
+  }
+  navToggle.addEventListener('click', function(){
+    var open = navToggle.getAttribute('aria-expanded') !== 'true';
+    pageNav.classList.toggle('is-open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+    navToggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+  });
+  pageNav.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      closeNav(false);
+      if (!desktopNav.matches){
+        var target = document.getElementById(link.hash.slice(1));
+        if (target){
+          if (!target.hasAttribute('tabindex')){
+            target.setAttribute('tabindex', '-1');
+            target.addEventListener('blur', function(){ target.removeAttribute('tabindex'); }, { once:true });
+          }
+          target.focus({ preventScroll:true });
+        }
+      }
+    });
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') closeNav(true);
+  });
+  document.addEventListener('click', function(e){
+    if (!e.target.closest('.site-header')) closeNav(false);
+  });
+  document.querySelector('.site-header').addEventListener('focusout', function(){
+    setTimeout(function(){ if (!document.activeElement.closest('.site-header')) closeNav(false); }, 0);
+  });
+  desktopNav.addEventListener('change', function(){ closeNav(false); });
 
   /* Intent events (no health details collected). Pushes to dataLayer for GTM/GHL; a click is intent, not a confirmed booking. */
   function track(name, extra){
