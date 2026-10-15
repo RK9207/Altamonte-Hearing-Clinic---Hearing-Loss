@@ -660,6 +660,10 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
  .loc-grid{ grid-template-columns:5fr 7fr; grid-template-areas:"address map" "hours map"; gap:24px clamp(36px,4vw,56px); }
  .map-frame{ aspect-ratio:16/10; }
 }
+@media(max-width:767px){
+ .location-eyebrow{ justify-content:flex-start; text-align:left; }
+ .location-head h2{ text-align:left; }
+}
 @media(max-width:520px){
  .location-head h2{ font-size:2rem; }
  .loc-address h3,.loc-hours h3{ font-size:1.5rem; }
