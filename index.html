@@ -1141,6 +1141,71 @@ h1,h2,h3{ text-wrap:balance; }
  .eval-interactive .steps li{ transition:none; }
 }
 
+
+/* VERIFIED FITTING — a focused demonstration and a clear ongoing-care benefit. */
+.care-section{ padding-block:clamp(48px,6vw,88px); background:var(--cream); }
+.care-head{ margin-bottom:32px; }
+.care-head h2{ max-width:none; font-size:clamp(2rem,3.2vw,3rem); line-height:1.14; letter-spacing:-.015em; }
+.care-head>p:last-child{ max-width:none; margin-top:18px; color:var(--muted); line-height:1.65; }
+.care-top{ gap:30px; padding:26px; border:1px solid #344F40; border-radius:28px; background:#203A30; color:var(--on-dark); align-items:center; }
+.care-top>div{ min-width:0; }
+.care-top .care-media .frame{ aspect-ratio:auto; border:6px solid rgba(255,253,248,.92); border-radius:44px 18px 18px 18px; background:var(--paper); }
+.care-top .care-media img{ display:block; width:100%; height:auto; object-fit:contain; }
+.care-top .care-media figcaption{ max-width:none; margin-top:14px; font-size:.9375rem; line-height:1.55; color:#D0DDCF; }
+.care-proof{ margin-top:18px; padding-top:16px; border-color:rgba(232,211,166,.22); color:#D0DDCF; }
+.care-proof strong{ color:var(--gold-soft); }
+.care-copy h3{ margin-bottom:16px; font-size:clamp(1.5rem,2.3vw,2.125rem); line-height:1.18; color:var(--paper); }
+.care-copy>p{ color:#E1E9DF; line-height:1.65; }
+.care-top .mrr{ margin-top:24px; }
+.care-top .mrr li{ grid-template-columns:36px minmax(0,1fr); gap:6px 16px; padding:18px 0; border-color:rgba(232,211,166,.22); }
+.care-top .mrr li::before{ display:grid; place-items:center; width:36px; height:36px; padding:0; border:1px solid rgba(232,211,166,.42); border-radius:50%; background:rgba(232,211,166,.06); color:var(--gold-soft); font:500 .9375rem/1 var(--font-body); }
+.care-top .mrr strong{ align-self:center; min-height:36px; display:flex; align-items:center; color:var(--paper); font-size:1.25rem; }
+.care-top .mrr span{ color:#D0DDCF; font-size:1.0625rem; line-height:1.6; }
+.care-copy>.care-limits{ margin-top:2px; padding-top:16px; border-color:rgba(232,211,166,.22); color:#D0DDCF; font-size:1rem; line-height:1.6; }
+.care-band{ grid-template-columns:minmax(0,1fr); gap:28px; align-items:start; margin-top:36px; background:none; border:0; border-radius:0; overflow:visible; }
+.care-choice{ padding:4px 0; background:none; }
+.care-choice h3{ margin-bottom:16px; font-size:1.75rem; line-height:1.2; }
+.care-choice p{ margin-bottom:0; color:var(--muted); font-size:1.125rem; line-height:1.65; }
+.care-section .care-details{ grid-template-columns:minmax(0,1fr); gap:12px; margin-top:24px; }
+.care-section .care-details details{ border-color:#CDD8CA; border-radius:14px; background:var(--paper); }
+.care-section .care-details summary{ padding:17px 20px; font-size:1rem; font-weight:700; line-height:1.45; }
+.care-section .care-details details[open]{ border-color:#88A58D; }
+.care-section .care-details .detail-body{ padding:2px 20px 20px; color:var(--pine); font-size:1.0625rem; line-height:1.65; }
+.care-section .care-details .detail-body p{ font-size:inherit; color:inherit; margin-bottom:16px; }
+.care-section .care-details .detail-body p:last-child{ margin-bottom:0; }
+.care-section .care-details .detail-body .brands{ color:var(--green-deep); font-size:1rem; }
+.care-support{ padding:28px; background:#EFE5CF; color:var(--pine); border:1px solid #DED0B0; border-radius:24px; }
+.care-support h3{ display:flex; align-items:center; gap:22px; max-width:none; margin:0 0 22px; color:var(--pine); font:400 1.625rem/1.16 var(--font-head); }
+.care-support h3 .care-years{ flex:none; color:#89642D; font:400 6rem/.9 var(--font-head); letter-spacing:-.05em; }
+.care-support>p{ margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid #D4C5A3; color:var(--pine); font-size:1.0625rem; line-height:1.6; }
+.care-support ul{ gap:14px; }
+.care-support li{ gap:12px; color:var(--pine); font-size:1.0625rem; line-height:1.6; }
+.care-support .icon{ flex:0 0 20px; width:20px; height:20px; margin-top:3px; color:var(--green); }
+.care-foot{ display:flex; flex-wrap:wrap; gap:18px 28px; margin-top:32px; padding-top:24px; border-color:#CAD6C8; }
+.care-scope{ max-width:none; color:var(--muted); }
+@media(min-width:900px){
+ .care-top{ grid-template-columns:1fr 1fr; gap:40px; padding:36px; }
+ .care-band{ grid-template-columns:1fr 1fr; gap:40px; margin-top:40px; }
+ .care-support{ padding:32px; }
+}
+@media(min-width:1200px){
+ .care-top{ gap:48px; padding:40px; }
+ .care-band{ gap:48px; }
+}
+@media(max-width:520px){
+ .care-head{ margin-bottom:26px; }
+ .care-top{ gap:26px; padding:20px; border-radius:22px; }
+ .care-top .care-media .frame{ border-width:4px; border-radius:32px 14px 14px 14px; }
+ .care-top .mrr li{ grid-template-columns:32px minmax(0,1fr); column-gap:12px; }
+ .care-top .mrr li::before{ width:32px; height:32px; }
+ .care-top .mrr strong{ min-height:32px; font-size:1.1875rem; }
+ .care-support{ padding:24px; border-radius:22px; }
+ .care-support h3{ gap:18px; font-size:1.5rem; }
+ .care-support h3 .care-years{ font-size:5.25rem; }
+ .care-foot .btn,.care-foot .btn-row{ width:100%; }
+ .care-scope{ width:100%; text-align:center; }
+}
+
 </style>
 </head>
 <body>
@@ -1463,10 +1528,10 @@ h1,h2,h3{ text-wrap:balance; }
       <p>We discuss where hearing is hardest for you—conversations, phone calls or television—and which options may help.</p>
     </div>
     <div class="care-top">
-      <!-- IMG-CLINIC-02: actual Real Ear Measurement photo, 4:3 desktop and 3:2 mobile/tablet. Preserve hands, ear and probe context. -->
+      <!-- IMG-CLINIC-02: genuine Real Ear Measurement photo, shown at its full natural ratio to retain headroom, hands and probe context. -->
       <div>
         <figure class="figure care-media" data-img="IMG-CLINIC-02">
-          <div class="frame"><img src="https://altamontefamilyhearing.com/assets/photos/AFH-C-196.webp" alt="Jaysee Soto placing a thin probe tube at a patient's ear during Real Ear Measurement" loading="lazy" decoding="async"></div>
+          <div class="frame"><img src="https://altamontefamilyhearing.com/assets/photos/AFH-C-196.webp" width="1800" height="1201" alt="Jaysee Soto placing a thin probe tube at a patient's ear during Real Ear Measurement" loading="lazy" decoding="async"></div>
           <figcaption>Real Ear Measurement checks sound in the ear canal with the hearing aid in place.</figcaption>
         </figure>
         <p class="care-proof"><strong>Jaysee Soto</strong> · HearingUp Certified Provider</p>
@@ -1487,16 +1552,6 @@ h1,h2,h3{ text-wrap:balance; }
         <h3>Chosen for your everyday life</h3>
         <p>We compare options against your hearing, daily routine, preferences and budget. We're not tied to one manufacturer. We also check the physical fit and make adjustments for comfort.</p>
 
-      </div>
-      <div class="care-support">
-        <h3>Five years of professional care</h3>
-        <p>Included with hearing aids bought from our office, at every technology level.</p>
-        <ul>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Follow-up visits over the first few weeks to fine-tune as your brain adjusts.</span></li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Coaching on inserting and removing aids, daily care, and phone pairing or app features when compatible.</span></li>
-        </ul>
-      </div>
-    </div>
     <div class="care-details">
 <details class="more-detail">
           <summary>Why we measure in your ear</summary>
@@ -1511,6 +1566,16 @@ h1,h2,h3{ text-wrap:balance; }
         <div class="detail-body"><p class="brands">Phonak · Oticon · ReSound · Signia · Starkey · Widex</p><p>Styles range from behind-the-ear to nearly invisible in-the-canal. Suitability depends on your hearing and ear anatomy. Rechargeable models and Bluetooth streaming, including hands-free calls, are available; features vary by model and technology level.</p></div>
       </details>
 
+    </div>
+      </div>
+      <div class="care-support">
+        <h3><span class="care-years">5</span><span>years of<br>professional care</span></h3>
+        <p>Included with hearing aids bought from our office, at every technology level.</p>
+        <ul>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Follow-up visits over the first few weeks to fine-tune as your brain adjusts.</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Coaching on inserting and removing aids, daily care, and phone pairing or app features when compatible.</span></li>
+        </ul>
+      </div>
     </div>
     <div class="care-foot">
       <div class="btn-row"><button class="btn btn-primary" type="button" data-open-booking>Book Appointment</button></div>
