@@ -134,7 +134,7 @@ a:hover{ color:var(--green-deep); }
   background:var(--paper);
   border-bottom:1px solid var(--line);
 }
-.header-in{ display:grid; grid-template-columns:minmax(0,1fr) auto auto; align-items:center; gap:8px; min-height:72px; }
+.header-in{ display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:8px; min-height:72px; }
 .logo{ display:block; width:clamp(96px,28vw,170px); max-width:100%; }
 .logo img{ width:100%; height:56px; object-fit:contain; }
 .header-actions{ display:flex; align-items:center; gap:20px; grid-column:2; grid-row:1; }
@@ -142,17 +142,11 @@ a:hover{ color:var(--green-deep); }
 .phone-link{ display:none; align-items:center; gap:8px; font-weight:700; color:var(--pine); text-decoration:none; min-height:44px; white-space:nowrap; }
 .phone-link:hover{ color:var(--green); }
 .phone-link .icon{ color:var(--green); }
-.nav-toggle{ grid-column:3; grid-row:1; display:grid; place-items:center; width:44px; height:44px; padding:10px; border:1px solid var(--line); border-radius:50%; background:transparent; color:var(--green); cursor:pointer; }
-.nav-toggle svg{ width:22px; height:22px; }
-.nav-toggle .nav-close{ display:none; }
-.nav-toggle[aria-expanded="true"] .nav-menu{ display:none; }
-.nav-toggle[aria-expanded="true"] .nav-close{ display:block; }
 .main-nav a{ display:flex; align-items:center; min-height:48px; padding:10px 12px; font-size:1rem; font-weight:500; color:var(--pine); text-decoration:none; border-radius:8px; }
 .main-nav a:hover{ background:#EDF3E9; color:var(--green); }
 .main-nav a:last-child{ color:var(--green); font-weight:700; }
 @media(max-width:1023px){
- .main-nav{ display:none; position:absolute; top:100%; left:0; right:0; grid-template-columns:repeat(2,minmax(0,1fr)); gap:4px 12px; padding:16px var(--gutter) 24px; max-height:calc(100dvh - 144px); overflow-y:auto; background:var(--paper); border-block:1px solid var(--line); box-shadow:0 16px 24px rgba(26,48,40,.12); }
- .main-nav.is-open{ display:grid; }
+ .main-nav, .header-actions .phone-link{ display:none; }
 }
 @media(max-width:380px){ .header-in{ padding-inline:12px; } .header-actions .btn{ width:120px; padding-inline:8px; font-size:.875rem; white-space:normal; } }
 @media(min-width:480px){ .logo{ width:190px; } .header-actions .btn{ padding-inline:22px; font-size:1rem; } }
@@ -164,7 +158,6 @@ a:hover{ color:var(--green-deep); }
  .logo img{ height:72px; }
  .header-actions{ grid-column:3; justify-self:end; }
  .header-actions .btn{ min-height:48px; padding-inline:24px; font-size:1rem; }
- .nav-toggle{ display:none; }
  .main-nav{ grid-column:1 / -1; grid-row:2; display:flex; justify-content:space-between; gap:4px; padding-block:2px; border-top:1px solid var(--line); }
  .main-nav a{ min-height:48px; padding:8px 10px; font-size:.875rem; white-space:nowrap; }
 }
@@ -778,10 +771,10 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
     position:fixed; left:0; right:0; bottom:0; z-index:40;
     height:calc(var(--call-h) + env(safe-area-inset-bottom));
     padding:0 20px env(safe-area-inset-bottom);
-    background:var(--green); color:var(--gold-soft);
+    background:var(--green); color:#FFFFFF;
     font:700 1.0625rem/1 var(--font-body); text-decoration:none;
   }
-  .call-bar:hover{ color:var(--gold-soft); }
+  .call-bar:hover{ color:#FFFFFF; }
   .call-bar:focus-visible{ outline:3px solid var(--gold-soft); outline-offset:-6px; }
   .site-footer{ padding-bottom:calc(28px + var(--call-h) + env(safe-area-inset-bottom)); }
   html.dialog-open .call-bar, html.sched-visible .call-bar{ display:none; }
@@ -1278,10 +1271,6 @@ h1,h2,h3{ text-wrap:balance; }
            alt="Altamonte Family Hearing"
            onerror="this.onerror=null;this.src='https://assets.cdn.filesafe.space/3o0LBBSuVEkoaohgGtT0/media/6ad1190df26156acedfb2229.png';">
     </a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="page-navigation" aria-label="Open navigation menu">
-      <svg class="nav-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-      <svg class="nav-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
-    </button>
     <nav class="main-nav" id="page-navigation" aria-label="Page sections">
       <a href="#welcome-video">Welcome video</a>
       <a href="#signs">Hearing signs</a>
@@ -1294,7 +1283,6 @@ h1,h2,h3{ text-wrap:balance; }
       <a href="#location">Location</a>
       <a href="#schedule">Request a visit</a>
     </nav>
-    <noscript><style>.nav-toggle{display:none}@media(max-width:1023px){.main-nav{display:grid;position:static;grid-column:1 / -1;grid-row:2;max-height:none;box-shadow:none}}</style></noscript>
     <div class="header-actions">
       <a class="phone-link" href="tel:+14078098154"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span>407-809-8154</span></a>
       <button class="btn btn-primary" type="button" data-open-booking>Book Appointment</button>
@@ -1310,7 +1298,7 @@ h1,h2,h3{ text-wrap:balance; }
     <div class="hero-grid">
       <div class="hero-copy">
         <p class="hero-eyebrow">Concerned about hearing loss? · Altamonte&nbsp;Springs</p>
-        <h1 id="hero-title">Trouble following conversations? <span class="hero-next">Find out why.</span></h1>
+        <h1 id="hero-title">Trouble following Conversations? <span class="hero-next">Find out why.</span></h1>
         <p class="lead">Hearing voices but missing words? Our hearing evaluation helps you understand your hearing and explore options for clearer conversations.</p>
         <p class="reassure">If you don't need hearing aids, we'll tell you.</p>
         <div class="btn-row hero-actions">
@@ -2037,48 +2025,6 @@ h1,h2,h3{ text-wrap:balance; }
 <script>
 (function(){
   var root = document.documentElement;
-
-  /* Collapsible section navigation; links also work without JavaScript. */
-  var navToggle = document.querySelector('.nav-toggle');
-  var pageNav = document.getElementById('page-navigation');
-  var desktopNav = window.matchMedia('(min-width:1024px)');
-  function closeNav(returnFocus){
-    pageNav.classList.remove('is-open');
-    navToggle.setAttribute('aria-expanded', 'false');
-    navToggle.setAttribute('aria-label', 'Open navigation menu');
-    if (returnFocus) navToggle.focus();
-  }
-  navToggle.addEventListener('click', function(){
-    var open = navToggle.getAttribute('aria-expanded') !== 'true';
-    pageNav.classList.toggle('is-open', open);
-    navToggle.setAttribute('aria-expanded', String(open));
-    navToggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
-  });
-  pageNav.querySelectorAll('a').forEach(function(link){
-    link.addEventListener('click', function(){
-      closeNav(false);
-      if (!desktopNav.matches){
-        var target = document.getElementById(link.hash.slice(1));
-        if (target){
-          if (!target.hasAttribute('tabindex')){
-            target.setAttribute('tabindex', '-1');
-            target.addEventListener('blur', function(){ target.removeAttribute('tabindex'); }, { once:true });
-          }
-          target.focus({ preventScroll:true });
-        }
-      }
-    });
-  });
-  document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') closeNav(true);
-  });
-  document.addEventListener('click', function(e){
-    if (!e.target.closest('.site-header')) closeNav(false);
-  });
-  document.querySelector('.site-header').addEventListener('focusout', function(){
-    setTimeout(function(){ if (!document.activeElement.closest('.site-header')) closeNav(false); }, 0);
-  });
-  desktopNav.addEventListener('change', function(){ closeNav(false); });
 
   /* Intent events (no health details collected). Pushes to dataLayer for GTM/GHL; a click is intent, not a confirmed booking. */
   function track(name, extra){
