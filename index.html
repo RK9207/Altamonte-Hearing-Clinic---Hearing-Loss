@@ -1026,10 +1026,10 @@ h1,h2,h3{ text-wrap:balance; }
 /* EVALUATION — warm editorial layout, four clear stages and a distinct outcomes band. */
 .eval-section{ background:#F5F4EC; padding-block:clamp(48px,6vw,88px); }
 .eval-grid{ grid-template-columns:minmax(0,1fr); grid-template-areas:"head" "story" "steps" "testing" "leave" "cta"; gap:28px; }
-.eval-head{ display:block; max-width:860px; margin-inline:auto; text-align:center; }
-.eval-eyebrow{ justify-content:center; margin-bottom:16px; }
-.eval-head h2{ max-width:25ch; margin-inline:auto; font-size:clamp(2rem,3.4vw,3.25rem); line-height:1.12; letter-spacing:-.02em; }
-.eval-head>p:last-child{ max-width:64ch; margin:20px auto 0; color:var(--muted); font-size:1.125rem; line-height:1.65; }
+.eval-head{ display:block; width:100%; max-width:860px; margin-inline:0; text-align:left; }
+.eval-eyebrow{ justify-content:flex-start; margin-bottom:16px; }
+.eval-head h2{ max-width:25ch; margin-inline:0; font-size:clamp(2rem,3.4vw,3.25rem); line-height:1.12; letter-spacing:-.02em; }
+.eval-head>p:last-child{ max-width:64ch; margin:20px 0 0; color:var(--muted); font-size:1.125rem; line-height:1.65; }
 .eval-story{ gap:18px; align-content:start; }
 .eval-media{ width:100%; max-width:320px; margin-inline:auto; }
 .eval-media .frame{ aspect-ratio:4/5; border:8px solid var(--paper); border-radius:80px 24px 24px 24px; box-shadow:0 18px 40px -24px rgba(26,48,40,.3); background:var(--mist); }
