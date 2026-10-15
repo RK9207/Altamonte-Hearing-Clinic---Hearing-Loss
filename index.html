@@ -1225,17 +1225,28 @@ h1,h2,h3{ text-wrap:balance; }
 @media(min-width:1200px){ .care-top{ column-gap:48px; } }
 
 
-/* The clinic’s gold HearingUp stamp, attributed to Jaysee beside his fitting photo. */
+/* Prominent HearingUp stamp beside the verification headline. */
 .care-proof{ display:flex; align-items:center; justify-content:space-between; gap:20px; }
 .care-proof-copy{ flex:1; min-width:0; margin:0; color:#D0DDCF; font-size:1rem; line-height:1.5; }
 .care-proof-copy strong{ display:block; margin-bottom:4px; font-size:1.0625rem; }
 .care-proof-copy>span{ display:block; }
-.hearingup-badge{ display:grid; place-items:center; flex:0 0 92px; width:92px; height:92px; padding:8px; border-radius:50%; background:var(--gold); color:var(--pine); text-align:center; text-decoration:none; font:700 .72rem/1.15 var(--font-body); letter-spacing:.04em; text-transform:uppercase; }
+.hearingup-badge{ display:grid; place-items:center; flex:0 0 108px; width:108px; height:108px; padding:8px; border-radius:50%; background:var(--gold); color:var(--pine); text-align:center; text-decoration:none; font:700 .8125rem/1.15 var(--font-body); letter-spacing:.04em; text-transform:uppercase; }
 .hearingup-badge:hover{ background:var(--gold-soft); color:var(--pine); }
 .hearingup-badge:focus-visible{ outline:3px solid var(--paper); outline-offset:4px; }
 @media(max-width:520px){
  .care-proof{ gap:14px; }
- .hearingup-badge{ flex-basis:80px; width:80px; height:80px; font-size:.625rem; }
+ .hearingup-badge{ flex-basis:84px; width:84px; height:84px; font-size:.6875rem; }
+}
+
+
+.care-verification-head{ display:grid; grid-template-columns:minmax(0,1fr) 108px; align-items:center; column-gap:28px; row-gap:14px; }
+.care-verification-head h3{ grid-column:1; grid-row:1; margin:0; }
+.care-verification-head p{ grid-column:1; grid-row:2; }
+.care-verification-head .hearingup-badge{ grid-column:2; grid-row:1 / span 2; justify-self:end; }
+@media(max-width:520px){
+ .care-verification-head{ grid-template-columns:minmax(0,1fr) 84px; column-gap:14px; row-gap:18px; }
+ .care-verification-head .hearingup-badge{ grid-row:1; align-self:start; }
+ .care-verification-head p{ grid-column:1 / -1; }
 }
 
 </style>
@@ -1563,6 +1574,7 @@ h1,h2,h3{ text-wrap:balance; }
       <div class="care-verification-head">
         <h3 id="fitting-verification">Checked in your ear, not just on a screen</h3>
         <p>Every ear is different. Real Ear Measurement checks the sound your hearing aid delivers against targets based on your hearing test.</p>
+          <a class="hearingup-badge" href="https://altamontefamilyhearing.com/hearingup-jaysee-soto" target="_blank" rel="noopener" aria-label="Learn about Jaysee Soto’s HearingUp Certified Provider credential (opens in a new tab)"><span aria-hidden="true">HearingUp<br>Certified<br>Provider</span></a>
       </div>
       <!-- IMG-CLINIC-02: genuine Real Ear Measurement photo, shown at its full natural ratio to retain headroom, hands and probe context. -->
       <div class="care-visual">
@@ -1572,7 +1584,6 @@ h1,h2,h3{ text-wrap:balance; }
         </figure>
         <div class="care-proof">
           <p class="care-proof-copy"><strong>Jaysee Soto</strong><span>HearingUp Certified Provider</span></p>
-          <a class="hearingup-badge" href="https://altamontefamilyhearing.com/hearingup-jaysee-soto" target="_blank" rel="noopener" aria-label="Learn about Jaysee Soto’s HearingUp Certified Provider credential (opens in a new tab)"><span aria-hidden="true">HearingUp<br>Certified<br>Provider</span></a>
         </div>
       </div>
       <div class="care-copy">
