@@ -1022,6 +1022,75 @@ h1,h2,h3{ text-wrap:balance; }
  .service-option:first-child .service-photo .frame{ aspect-ratio:4/5; max-height:none; max-width:280px; margin-inline:auto; }
 }
 
+
+/* EVALUATION — warm editorial layout, four clear stages and a distinct outcomes band. */
+.eval-section{ background:#F5F4EC; padding-block:clamp(48px,6vw,88px); }
+.eval-grid{ grid-template-columns:minmax(0,1fr); grid-template-areas:"head" "story" "steps" "testing" "leave" "cta"; gap:28px; }
+.eval-head{ display:block; max-width:860px; margin-inline:auto; text-align:center; }
+.eval-eyebrow{ justify-content:center; margin-bottom:16px; }
+.eval-head h2{ max-width:25ch; margin-inline:auto; font-size:clamp(2rem,3.4vw,3.25rem); line-height:1.12; letter-spacing:-.02em; }
+.eval-head>p:last-child{ max-width:64ch; margin:20px auto 0; color:var(--muted); font-size:1.125rem; line-height:1.65; }
+.eval-story{ gap:18px; align-content:start; }
+.eval-media{ width:100%; max-width:320px; margin-inline:auto; }
+.eval-media .frame{ aspect-ratio:4/5; border:8px solid var(--paper); border-radius:80px 24px 24px 24px; box-shadow:0 18px 40px -24px rgba(26,48,40,.3); background:var(--mist); }
+.eval-media img{ object-fit:cover; object-position:50% 50%; }
+.eval-media figcaption{ text-align:center; max-width:none; margin-top:12px; color:var(--muted); }
+.eval-reassurance{ display:flex; align-items:flex-start; gap:12px; width:100%; max-width:420px; margin:0 auto; padding:4px 8px; color:var(--green-deep); font-size:1.0625rem; line-height:1.55; }
+.eval-reassurance>.icon{ flex:0 0 24px; width:24px; height:24px; margin-top:2px; padding:4px; border:1px solid #B6CDBA; border-radius:50%; }
+.eval-section .steps{ display:grid; grid-template-columns:minmax(0,1fr); gap:0; align-content:stretch; }
+.eval-section .steps li{ display:block; padding:24px 0; border-top:1px solid #C9D4C6; }
+.eval-section .steps li::before{ display:block; width:auto; height:auto; margin-bottom:14px; border:0; border-radius:0; box-shadow:none; background:none; color:#9C7436; font:400 2.5rem/1 var(--font-head); }
+.eval-section .steps li::after{ display:none; }
+.eval-section .steps h3{ display:block; min-height:0; margin:0 0 12px; color:var(--pine); font:700 1.25rem/1.35 var(--font-body); }
+.eval-section .steps p{ margin:0; color:var(--muted); font-size:1.0625rem; line-height:1.65; }
+.eval-testing{ align-self:start; margin:0; background:transparent!important; border-color:#C9D4C6!important; border-radius:14px!important; }
+.eval-testing summary{ padding:16px 18px!important; font-size:1rem; }
+.eval-section .leave{ background:#203A30; border:0; border-radius:26px; padding:28px 24px; color:var(--on-dark); }
+.eval-section .leave h3{ display:block; margin:0 0 28px; color:var(--gold-soft); font-size:1.75rem; line-height:1.2; }
+.eval-section .leave h3::after{ display:none; }
+.eval-section .leave ul{ grid-template-columns:minmax(0,1fr); gap:22px; }
+.eval-section .leave li{ display:flex; gap:14px; padding:0; border:0; }
+.eval-section .leave li>div{ display:block; }
+.eval-section .leave-icon{ width:32px; height:32px; flex-basis:32px; border:1px solid rgba(232,211,166,.38); background:transparent; color:var(--gold-soft); }
+.eval-section .leave li strong{ display:block; min-height:0; margin:2px 0 8px; color:var(--paper); font-size:1.0625rem; line-height:1.4; }
+.eval-section .leave li p{ color:#D5E0D6; font-size:1rem; line-height:1.6; }
+.eval-section .leave-note{ margin:26px 0 0; padding:20px 0 0; border-top:1px solid rgba(232,211,166,.2); border-radius:0; background:none; color:#D5E0D6; font-size:1rem; line-height:1.6; }
+.eval-section .leave-note strong{ color:var(--gold-soft); }
+.eval-cta{ display:flex; justify-content:center; align-items:center; gap:18px 28px; padding:4px 0 0; border:0; }
+.eval-cta .cost-note{ max-width:66ch; margin:0; color:var(--muted); font-size:1rem; line-height:1.6; }
+@media(min-width:600px){
+ .eval-section .steps{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px 32px; }
+ .eval-section .steps li{ padding:26px 0; }
+ .eval-section .leave ul{ grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+ .eval-section .leave li{ display:block; }
+ .eval-section .leave-icon{ margin-bottom:14px; }
+ .eval-section .leave li+li{ border-left:1px solid rgba(232,211,166,.2); padding-left:24px; }
+}
+@media(min-width:1024px){
+ .eval-grid{ grid-template-columns:4fr 6fr; grid-template-areas:"head head" "story steps" "story testing" "leave leave" "cta cta"; column-gap:64px; row-gap:28px; }
+ .eval-head{ margin-bottom:16px; }
+ .eval-media{ max-width:none; }
+ .eval-section .steps{ gap:8px 36px; }
+ .eval-section .steps li{ padding-block:24px; }
+ .eval-section .steps li::before{ margin-bottom:18px; font-size:3rem; }
+ .eval-section .steps h3{ font-size:1.375rem; }
+ .eval-section .steps p{ font-size:1.125rem; }
+ .eval-section .leave{ margin-top:16px; padding:36px 40px; }
+ .eval-section .leave h3{ margin-bottom:30px; font-size:2rem; }
+ .eval-section .leave ul{ gap:32px; }
+ .eval-section .leave li+li{ padding-left:32px; }
+}
+@media(max-width:520px){
+ .eval-head h2{ max-width:22ch; }
+ .eval-section .steps li{ display:grid; grid-template-columns:40px minmax(0,1fr); gap:8px 16px; padding:24px 0; }
+ .eval-section .steps li::before{ grid-column:1; grid-row:1 / span 2; margin:0; font-size:2rem; }
+ .eval-section .steps h3{ grid-column:2; margin:0; }
+ .eval-section .steps p{ grid-column:2; }
+ .eval-section .leave{ padding:28px 22px; border-radius:22px; }
+ .eval-cta{ gap:16px; text-align:center; }
+ .eval-cta .btn-row,.eval-cta .btn{ width:100%; }
+}
+
 </style>
 </head>
 <body>
@@ -1211,7 +1280,7 @@ h1,h2,h3{ text-wrap:balance; }
       <li>
         <h3>Results, explained</h3>
         <p>We explain your hearing chart and what the results mean. A family member or friend is welcome to join.</p>
-        <p class="eval-reassurance">If your hearing is within normal limits, we'll tell you that too.</p>
+
       </li>
     </ol>
     <details class="more-detail eval-testing">
@@ -1229,7 +1298,7 @@ h1,h2,h3{ text-wrap:balance; }
       </div>
       <figcaption>Jaysee Soto explaining a hearing chart.</figcaption>
     </figure>
-
+      <p class="eval-reassurance"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>If your hearing is within normal limits, we'll tell you that too.</span></p>
     </div>
 
     <div class="leave" aria-labelledby="leave-title">
