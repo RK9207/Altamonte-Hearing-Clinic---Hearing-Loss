@@ -673,7 +673,7 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
 .sched-grid>div{ min-width:0; }
 .sched-card{ grid-area:form; background:var(--paper); color:var(--pine); border-radius:20px; padding:12px; }
 .sched-card>h3{ margin:8px 12px 16px; font:700 1.25rem/1.4 var(--font-body); }
-.sched-card iframe{ display:block; width:100%; height:620px; border:0; border-radius:10px; background:#fff; }
+.sched-card iframe{ display:block; width:100%; min-height:651px; border:0; border-radius:8px; background:#fff; }
 .sched-fallback{ margin:14px 12px 8px; font-size:1rem; line-height:1.55; color:var(--muted); max-width:none; }
 .sched-fallback a{ color:var(--green); text-underline-offset:3px; }
 .sched-help{ grid-area:help; padding:24px; border:1px solid rgba(238,243,239,.25); border-radius:20px; background:#203A30; }
@@ -697,7 +697,6 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
  .sched-help{ padding:20px; }
  .sched-help .big-phone{ font-size:1.5rem; }
  .sched-card{ padding:8px; }
- .sched-card iframe{ height:640px; }
  .sched-fallback{ margin-inline:8px; }
 }
 
@@ -1671,12 +1670,28 @@ h1,h2,h3{ text-wrap:balance; }
         <p class="callback-note">We return missed calls within one business day.</p>
       </div>
       <div class="sched-card" id="sched-card">
-        <h3>Book online</h3>
-        <!-- Original booking destination retained; shorter frame keeps native iframe scrolling available. -->
-        <iframe src="https://myhearingportal.com/?clinic=P2FwaUtleT1TMDd0THc0OEtTNVJROFdDcW1hTU40QWZjRFFCZHdySiZjbGluaWNOYW1lPUZMX2FmaCZmdWxsV2lkdGg9MQ=="
-                title="Book an appointment with Altamonte Family Hearing"
-                width="100%" height="620" loading="lazy" scrolling="yes"></iframe>
-        <p class="sched-fallback">Scheduler not loading? <a href="https://altamontefamilyhearing.com/schedule" target="_blank" rel="noopener">Open our scheduling page</a> or call <a href="tel:+14078098154">407-809-8154</a>.</p>
+        <h3>Appointment form</h3>
+        <iframe
+          src="https://api.onspirepulse.com/widget/form/9P0fYXcIRrGrj2vgNs7b"
+          style="width:100%;height:100%;border:none;border-radius:8px"
+          id="inline-9P0fYXcIRrGrj2vgNs7b"
+          data-layout="{'id':'INLINE'}"
+          data-trigger-type="alwaysShow"
+          data-trigger-value=""
+          data-activation-type="alwaysActivated"
+          data-activation-value=""
+          data-deactivation-type="neverDeactivate"
+          data-deactivation-value=""
+          data-form-name="Hearing Loss"
+          data-height="651"
+          data-layout-iframe-id="inline-9P0fYXcIRrGrj2vgNs7b"
+          data-form-id="9P0fYXcIRrGrj2vgNs7b"
+          data-cookie-consent="true"
+          data-cookie-consent-provider="auto"
+          title="Hearing Loss">
+        </iframe>
+        <script src="https://api.onspirepulse.com/js/form_embed.js"></script>
+        <p class="sched-fallback">Form not loading? <a href="https://api.onspirepulse.com/widget/form/9P0fYXcIRrGrj2vgNs7b" target="_blank" rel="noopener">Open the form in a new tab</a> or call <a href="tel:+14078098154">407-809-8154</a>.</p>
       </div>
       <div class="sched-prep" aria-labelledby="prep-title">
         <h3 id="prep-title">What to bring</h3>
