@@ -1207,6 +1207,23 @@ h1,h2,h3{ text-wrap:balance; }
  .care-scope{ width:100%; text-align:center; }
 }
 
+
+/* Shared introduction and footer balance the verification photograph and stages. */
+.care-top{ grid-template-columns:minmax(0,1fr); grid-template-areas:"intro" "photo" "stages" "note"; gap:24px; align-items:stretch; }
+.care-verification-head{ grid-area:intro; padding-bottom:24px; border-bottom:1px solid rgba(232,211,166,.22); }
+.care-verification-head h3{ margin:0 0 14px; color:var(--paper); font-size:clamp(1.5rem,2.3vw,2.125rem); line-height:1.18; }
+.care-verification-head p{ max-width:none; margin:0; color:#E1E9DF; font-size:1.125rem; line-height:1.65; }
+.care-visual{ grid-area:photo; align-self:stretch; display:flex; flex-direction:column; justify-content:space-between; }
+.care-top .care-copy{ grid-area:stages; display:flex; align-self:stretch; }
+.care-top .mrr{ flex:1; margin:0; grid-template-rows:repeat(3,minmax(0,1fr)); }
+.care-top .mrr li{ align-content:center; border-top:0; border-bottom:1px solid rgba(232,211,166,.22); }
+.care-top .mrr li:last-child{ border-bottom:0; }
+.care-top>.care-limits{ grid-area:note; max-width:none; margin:0; padding-top:20px; border-top:1px solid rgba(232,211,166,.22); color:#D0DDCF; font-size:1rem; line-height:1.6; }
+@media(min-width:900px){
+ .care-top{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); grid-template-areas:"intro intro" "photo stages" "note note"; gap:28px 40px; }
+}
+@media(min-width:1200px){ .care-top{ column-gap:48px; } }
+
 </style>
 </head>
 <body>
@@ -1529,8 +1546,12 @@ h1,h2,h3{ text-wrap:balance; }
       <p>We discuss where hearing is hardest for you—conversations, phone calls or television—and which options may help.</p>
     </div>
     <div class="care-top">
+      <div class="care-verification-head">
+        <h3 id="fitting-verification">Checked in your ear, not just on a screen</h3>
+        <p>Every ear is different. Real Ear Measurement checks the sound your hearing aid delivers against targets based on your hearing test.</p>
+      </div>
       <!-- IMG-CLINIC-02: genuine Real Ear Measurement photo, shown at its full natural ratio to retain headroom, hands and probe context. -->
-      <div>
+      <div class="care-visual">
         <figure class="figure care-media" data-img="IMG-CLINIC-02">
           <div class="frame"><img src="https://altamontefamilyhearing.com/assets/photos/AFH-C-196.webp" width="1800" height="1201" alt="Jaysee Soto placing a thin probe tube at a patient's ear during Real Ear Measurement" loading="lazy" decoding="async"></div>
           <figcaption>Real Ear Measurement checks sound in the ear canal with the hearing aid in place.</figcaption>
@@ -1538,15 +1559,15 @@ h1,h2,h3{ text-wrap:balance; }
         <p class="care-proof"><strong>Jaysee Soto</strong> · HearingUp Certified Provider</p>
       </div>
       <div class="care-copy">
-        <h3 id="fitting-verification">Checked in your ear, not just on a screen</h3>
-        <p>Every ear is different. Real Ear Measurement checks the sound your hearing aid delivers against targets based on your hearing test.</p>
+
         <ol class="mrr">
           <li><strong>Measure</strong><span>A thin probe tube measures the sound delivered in your ear.</span></li>
           <li><strong>Adjust</strong><span>We adjust the hearing aid toward targets based on your hearing test.</span></li>
           <li><strong>Re-check</strong><span>We measure again after adjusting and check that loud sounds stay comfortable.</span></li>
         </ol>
-        <p class="care-limits">Hearing aids can make speech easier to follow, but none removes all background noise. Results and adjustment time vary.</p>
+
       </div>
+<p class="care-limits">Hearing aids can make speech easier to follow, but none removes all background noise. Results and adjustment time vary.</p>
     </div>
     <div class="care-band">
       <div class="care-choice">
