@@ -880,6 +880,133 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
 
 .welcome-benefits{ grid-column:1 / -1; margin-top:8px; }
 
+/* ==========================================================
+   GRAPHIC DESIGN REFINEMENT — October 15, 2026
+   Brand-led visual hierarchy; preserves copy and interactions.
+   ========================================================== */
+:root{ --surface-sage:#F0F4ED; --line-warm:#DED8CB; }
+h1,h2,h3{ text-wrap:balance; }
+.site-header{ background:rgba(255,253,248,.97); box-shadow:0 2px 18px rgba(26,48,40,.035); }
+.hero{ background:radial-gradient(ellipse at 90% 12%,rgba(203,160,82,.09),transparent 57%),var(--pine); padding-top:clamp(40px,4.6vw,72px); }
+.hero-copy h1{ font-size:clamp(2.5rem,4.5vw,4.6rem); line-height:1.06; }
+.hero-copy .lead{ color:#E5EDE7; }
+.hero-media .frame{ border:1px solid rgba(232,211,166,.22); box-shadow:0 18px 50px rgba(5,20,13,.16); }
+.hero-media figcaption{ color:var(--on-dark-2); }
+.hero .btn-primary{ background:var(--gold-soft); }
+.hero .btn-primary:hover{ background:#F4E4BE; }
+.welcome-section{ background:#203A30; }
+.welcome-preview{ border-color:#496052; }
+.welcome-benefits{ padding-top:28px; }
+.hero-benefits li{ display:grid; grid-template-columns:42px minmax(0,1fr); gap:4px 14px; align-content:start; }
+.benefit-icon{ grid-column:1; grid-row:1 / span 2; display:grid; place-items:center; width:42px; height:42px; border-radius:50%; border:1px solid rgba(232,211,166,.35); background:rgba(232,211,166,.045); color:var(--gold-soft); }
+.benefit-icon .icon{ width:23px; height:23px; }
+.hero-benefits strong,.hero-benefits p{ grid-column:2; }
+.hero-benefits strong{ margin-bottom:4px; }
+.signs-section,.options-section,.team-section,.faq-section{ background:var(--paper); }
+.signs-panel{ background:linear-gradient(135deg,#F1F5EE,#E9F0E7); border-color:#CEDCD0; border-radius:28px; }
+.signs-icon{ border-color:#CADACE; }
+.signs-list h3{ margin-bottom:8px; }
+.urgent{ border-radius:18px; }
+.eval-section{ background:#E4ECE6; }
+.eval-media .frame{ border-radius:64px 20px 20px 20px; border:1px solid rgba(26,48,40,.12); }
+.steps li::before{ color:var(--gold-soft); border:1px solid #47634F; box-shadow:0 0 0 4px rgba(255,253,248,.5); }
+.steps li:not(:last-child)::after{ background:#AFBFAF; }
+.leave{ border-color:#C4D3C7; border-radius:24px; padding:28px; }
+.leave h3{ font-size:1.625rem; }
+.leave h3::after{ width:56px; background:var(--gold); }
+.leave-icon{ background:#E5EFE4; border:1px solid #D2E0D0; }
+.leave-note{ background:#EBF1E7; }
+.options-list{ counter-reset:care-option; }
+.service-option{ counter-increment:care-option; border-color:var(--line-warm); }
+.service-option summary{ position:relative; padding:17px 16px 17px 58px; min-height:68px; gap:20px; }
+.service-option summary::before{ content:counter(care-option,decimal-leading-zero); position:absolute; top:23px; left:16px; color:#607267; font:500 .75rem/1.5 var(--font-body); letter-spacing:.04em; }
+.service-option summary::after{ display:grid; place-items:center; width:28px; height:28px; border-radius:50%; border:1px solid #D0DACF; background:var(--paper); font-size:1.25rem; }
+.service-option[open]{ background:#EDF3E9; box-shadow:inset 3px 0 var(--green); border-radius:0 16px 16px 0; }
+.service-option[open] summary{ color:var(--green-deep); }
+.service-option[open] summary::before{ color:var(--green); }
+.service-option[open] summary::after{ background:var(--green); border-color:var(--green); color:var(--paper); }
+.service-description{ padding-left:58px; padding-bottom:22px; }
+.service-description p{ color:#455D4E; }
+.options-photo .frame{ border-radius:72px 24px 72px 24px; border:1px solid #D2DDD1; }
+.care-section{ background:var(--cream); }
+.care-media .frame{ border-radius:64px 20px 20px 20px; }
+.mrr li{ padding-block:16px; }
+.mrr li::before{ color:var(--green); }
+.care-band{ border-radius:24px; border-color:#C8D5C6; }
+.care-choice{ background:var(--paper); }
+.care-support{ background:#203A30; }
+.care-support h3{ max-width:22ch; }
+.care-details summary,.profile-more summary,.eval-testing summary{ font-weight:500; }
+.team-photo .frame{ border-radius:64px 20px 20px 20px; }
+.profile{ position:relative; background:var(--cream); border-color:#D4DDD0; border-radius:24px; border-top:3px solid #B9CDB9; }
+.profile-photo{ border-radius:44px 12px 12px 12px; }
+.profile-more{ border-radius:12px!important; background:var(--paper)!important; }
+.profile-more summary{ padding:12px 16px!important; }
+.support-team{ background:#EDF3E9; border-color:#CDDDCB; border-radius:24px; }
+.reviews-section{ background:radial-gradient(ellipse at 50% 0,rgba(203,160,82,.07),transparent 65%),#18382C; }
+.reviews-rating{ padding:12px 20px; border:1px solid rgba(232,211,166,.24); border-radius:16px; }
+.rev-head{ gap:20px; margin-bottom:36px; }
+.review{ border-radius:24px; border:1px solid #E4DED0; border-top:3px solid var(--gold-soft); padding-top:28px; }
+.review-kicker{ letter-spacing:.035em; }
+.review-theme{ color:var(--green-deep); }
+.review-head{ border-color:#D7DCCD; }
+.faq-group>h3{ border-bottom:1px solid var(--gold); padding-bottom:18px; }
+.faq details{ border-color:#D6DDD1; }
+.faq details[open]{ background:#EEF3E9; }
+.faq summary{ padding-block:18px; }
+.location-section{ background:#E4ECE6; }
+.map-frame{ border:6px solid var(--paper); border-radius:26px; }
+.location-notes{ border-radius:24px; border-color:#C4D2C2; }
+.booking-section{ background:radial-gradient(ellipse at 75% 0,rgba(203,160,82,.065),transparent 65%),var(--pine); }
+.sched-card{ border:1px solid #DCDCCB; border-radius:24px; }
+.sched-help{ border-color:rgba(232,211,166,.3); background:#203A30; border-radius:24px; }
+.sched-prep h3{ color:var(--gold-soft); }
+.site-footer{ border-top-color:rgba(232,211,166,.2); }
+@media(min-width:1024px){
+ .signs-section,.options-section,.team-section,.reviews-section,.faq-section,.location-section,.booking-section{ padding-block:72px; }
+ .eval-section,.care-section{ padding-block:64px; }
+ .hero-grid{ align-items:center; }
+ .welcome-grid{ row-gap:36px; }
+ .signs-intro h2,.eval-head h2,.care-head h2,.team-top h2,.rev-head h2,.faq-heading h2,.location-head h2,.sched-head h2,.options-head h2{ font-size:clamp(2.375rem,2.8vw,2.85rem); letter-spacing:-.015em; line-height:1.15; }
+ .options-grid{ grid-template-columns:.92fr 1.08fr; column-gap:clamp(40px,5vw,64px); }
+ .options-photo{ max-width:460px; }
+ .options-photo .frame{ max-height:560px; }
+ .team-top{ margin-bottom:36px; }
+ .profiles{ gap:24px; }
+ .profile{ padding:28px; }
+ .faq-heading,.location-head,.sched-head{ margin-bottom:36px; }
+}
+@media(max-width:767px){
+ .hero-benefits li{ padding-block:20px; }
+ .hero-benefits li:first-child{ padding-top:4px; }
+ .welcome-benefits{ padding-top:20px; }
+ .leave{ padding:22px; }
+}
+@media(max-width:520px){
+ .hero-copy h1{ font-size:clamp(2.25rem,9.8vw,2.75rem); }
+ .service-option summary{ padding-left:48px; padding-right:12px; gap:12px; }
+ .service-option summary::before{ left:14px; }
+ .service-description{ padding-inline:16px; }
+ .service-option summary::after{ width:26px; height:26px; }
+ .profile{ padding:20px; }
+ .hero-media .frame{ box-shadow:none; }
+}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+ .btn{ transition:background-color .18s,color .18s,border-color .18s,transform .18s; }
+ .btn:hover{ transform:translateY(-1px); }
+ .service-option:not([open]) summary:hover{ background:#F4F6EE; }
+ .welcome-play{ transition:transform .2s; }
+ .welcome-launch:hover .welcome-play{ transform:scale(1.05); }
+}
+
+.profile{ grid-template-rows:auto 1fr; }
+.profile-body{ display:flex; flex-direction:column; }
+.profile-body ul{ margin-bottom:16px; }
+.profile-body .profile-more{ margin-top:auto; }
+@media(max-width:1023px){
+ .service-option:first-child .service-photo .frame{ aspect-ratio:4/5; max-height:none; max-width:280px; margin-inline:auto; }
+}
+
 </style>
 </head>
 <body>
@@ -983,15 +1110,15 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
       <button class="welcome-toggle" type="button" aria-label="Pause the muted video preview" hidden>Ⅱ</button>
     </div>
     <ul class="hero-benefits welcome-benefits" aria-label="The care behind your next step">
-      <li>
+      <li><span class="benefit-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2M16 5a3 3 0 0 1 0 6M21 20v-2a6 6 0 0 0-3-5.2"/></svg></span>
         <strong>Independent &amp; family-owned</strong>
         <p>Two Florida-licensed Hearing Aid Specialists.</p>
       </li>
-      <li>
+      <li><span class="benefit-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4 3 7 8 9 5-2 8-5 8-9V6z"/><path d="m8 12 3 3 5-6"/></svg></span>
         <strong>Fittings verified in your ear</strong>
         <p>Real Ear Measurement verifies aid fittings.</p>
       </li>
-      <li>
+      <li><span class="benefit-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4M17 3v4M3 11h18m-14 5 2 2 4-4"/></svg></span>
         <strong>5 years of professional care</strong>
         <p>Included with hearing aids bought from our office.</p>
       </li>
