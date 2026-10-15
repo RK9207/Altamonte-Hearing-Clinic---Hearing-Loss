@@ -231,7 +231,8 @@ a:hover{ color:var(--green-deep); }
 }
 @media (max-width:767px){
   .hero-copy{ text-align:center; }
-  .hero-eyebrow{ justify-content:center; }
+  .hero-eyebrow{ display:block; text-align:center; }
+  .hero-eyebrow::before{ display:inline-block; margin-right:8px; vertical-align:.15em; }
   .hero-actions{ justify-content:center; }
   .hero-copy h1, .hero-copy .lead, .hero-copy .reassure{ margin-inline:auto; }
   .hero-rating{ display:flex; width:fit-content; max-width:100%; margin-inline:auto; }
