@@ -1090,6 +1090,57 @@ h1,h2,h3{ text-wrap:balance; }
  .eval-cta .btn-row,.eval-cta .btn{ width:100%; }
 }
 
+
+/* Select a visit stage: native buttons and one shared, load-safe clinic photograph. */
+.eval-grid{ grid-template-columns:minmax(0,1fr); grid-template-areas:"head" "visit" "leave" "cta"; }
+.eval-visit{ grid-area:visit; display:grid; grid-template-columns:minmax(0,1fr); grid-template-areas:"story" "steps" "testing"; gap:28px; min-width:0; }
+.eval-visit>*{ min-width:0; }
+.eval-stages{ grid-area:steps; min-width:0; }
+.eval-stage-hint{ display:none; }
+.eval-stage-button{ border:0; padding:0; background:none; color:inherit; font:inherit; text-align:inherit; }
+.eval-stage-button:disabled{ opacity:1; color:inherit; }
+.eval-stage-visual[hidden],.eval-photo-status[hidden]{ display:none; }
+.eval-stage-visual{ grid-column:1 / -1; min-width:0; margin-top:18px; }
+.eval-photo-status{ margin:12px 0 0; font-size:.9375rem; color:var(--muted); }
+.eval-interactive .eval-stage-hint{ display:block; margin:0 0 16px; max-width:none; color:var(--muted); font-size:.9375rem; line-height:1.5; }
+.eval-interactive .steps{ gap:16px; }
+.eval-interactive .steps li{ position:relative; padding:22px; border:1px solid #D4DDCE; border-radius:16px; background:rgba(255,253,248,.62); transition:background-color .18s,border-color .18s; }
+.eval-interactive .steps li:hover{ border-color:#92AF96; background:var(--paper); }
+.eval-interactive .steps li.is-selected{ border-color:var(--green); background:#E9F0E5; box-shadow:inset 3px 0 var(--green); }
+.eval-interactive .steps li.is-selected h3{ color:var(--green-deep); }
+.eval-interactive .steps li.is-pending{ border-color:var(--gold); }
+.eval-interactive .eval-stage-button{ cursor:pointer; }
+.eval-interactive .eval-stage-button::after{ content:""; position:absolute; inset:0; border-radius:16px; }
+.eval-interactive .eval-stage-button:focus-visible{ outline:0; }
+.eval-interactive .steps li:focus-within{ outline:3px solid var(--green); outline-offset:4px; }
+@media(min-width:768px){
+ .eval-interactive .eval-visit{ grid-template-columns:4fr 6fr; grid-template-areas:"story steps" "story testing"; column-gap:32px; }
+ .eval-interactive .eval-media{ max-width:none; }
+ .eval-interactive .steps{ grid-template-columns:minmax(0,1fr); }
+}
+@media(min-width:1024px){
+ .eval-interactive .eval-visit{ column-gap:56px; }
+ .eval-interactive .steps{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+ .eval-interactive .steps li{ padding:24px; }
+}
+@media(min-width:768px) and (min-height:800px){
+ .eval-interactive .eval-story{ position:sticky; top:calc(var(--header-h) + 20px); align-self:start; }
+}
+@media(max-width:767px){
+ .eval-interactive .eval-visit{ grid-template-areas:"steps" "story" "testing"; }
+ .eval-interactive .steps{ grid-template-columns:minmax(0,1fr); }
+ .eval-interactive .eval-story{ gap:0; }
+ .eval-stage-visual .eval-media{ max-width:320px; }
+ .eval-stage-visual .eval-media .frame{ border-width:6px; border-radius:44px 16px 16px 16px; }
+ .eval-stage-visual figcaption{ font-size:.875rem; }
+}
+@media(prefers-reduced-motion:no-preference){
+ .eval-media img.image-arrived{ animation:care-image-in .2s ease-out; }
+}
+@media(prefers-reduced-motion:reduce){
+ .eval-interactive .steps li{ transition:none; }
+}
+
 </style>
 </head>
 <body>
@@ -1263,42 +1314,52 @@ h1,h2,h3{ text-wrap:balance; }
       <p>Hearing evaluations for adults of all ages. We explain each step, from your listening concerns to your results, so you know what to expect.</p>
     </div>
 
+    <div class="eval-visit">
+    <div class="eval-stages">
+      <p class="eval-stage-hint">Select a step to see what your visit looks like.</p>
     <ol class="steps">
       <li>
-        <h3>Consultation</h3>
-        <p>We talk through your hearing history, your overall health, and the situations where hearing is hardest for you.</p>
+        <h3><button class="eval-stage-button" type="button" disabled aria-pressed="true" aria-controls="eval-stage-photo" aria-describedby="eval-desc-consultation" data-eval-stage="consultation" data-photo="https://altamontefamilyhearing.com/assets/photos/AFH-C-31.webp" data-width="1800" data-height="1441" data-position="35% 0%" data-alt="A patient talking with Jaysee Soto across the consultation desk" data-caption="Consultation: talking through your hearing concerns.">Consultation</button></h3>
+        <p id="eval-desc-consultation">We talk through your hearing history, your overall health, and the situations where hearing is hardest for you.</p>
+        <div class="eval-stage-visual" hidden></div>
       </li>
       <li>
-        <h3>Ear exam</h3>
-        <p>We check for earwax and other concerns before testing, and explain any care or medical referral needed first.</p>
+        <h3><button class="eval-stage-button" type="button" disabled aria-pressed="false" aria-controls="eval-stage-photo" aria-describedby="eval-desc-ear-exam" data-eval-stage="ear-exam" data-photo="https://altamontefamilyhearing.com/assets/photos/AFH-C-16.webp" data-width="1600" data-height="1067" data-position="55% 0%" data-alt="Jaysee Soto examining a patient’s ear with an otoscope" data-caption="Ear exam: checking the ear before hearing testing.">Ear exam</button></h3>
+        <p id="eval-desc-ear-exam">We check for earwax and other concerns before testing, and explain any care or medical referral needed first.</p>
+        <div class="eval-stage-visual" hidden></div>
       </li>
       <li>
-        <h3>Hearing test</h3>
-        <p>In the sound booth, we test the sounds you can hear and how well you understand speech in quiet and background noise.</p>
+        <h3><button class="eval-stage-button" type="button" disabled aria-pressed="false" aria-controls="eval-stage-photo" aria-describedby="eval-desc-hearing-test" data-eval-stage="hearing-test" data-photo="https://altamontefamilyhearing.com/assets/photos/AFH-C-45.webp" data-width="1800" data-height="1201" data-position="65% 0%" data-alt="Jaysee Soto helping a patient with headphones in the clinic sound booth" data-caption="Hearing test: preparing for testing in the clinic sound booth.">Hearing test</button></h3>
+        <p id="eval-desc-hearing-test">In the sound booth, we test the sounds you can hear and how well you understand speech in quiet and background noise.</p>
+        <div class="eval-stage-visual" hidden></div>
       </li>
       <li>
-        <h3>Results, explained</h3>
-        <p>We explain your hearing chart and what the results mean. A family member or friend is welcome to join.</p>
+        <h3><button class="eval-stage-button" type="button" disabled aria-pressed="false" aria-controls="eval-stage-photo" aria-describedby="eval-desc-results" data-eval-stage="results" data-photo="https://altamontefamilyhearing.com/assets/photos/AFH-C-173.webp" data-width="1600" data-height="1067" data-position="30% 0%" data-alt="A patient discussing hearing-care questions with Jaysee Soto at the clinic" data-caption="Results, explained: time to talk through your questions.">Results, explained</button></h3>
+        <p id="eval-desc-results">We explain your hearing chart and what the results mean. A family member or friend is welcome to join.</p>
 
+        <div class="eval-stage-visual" hidden></div>
       </li>
     </ol>
+    </div>
     <details class="more-detail eval-testing">
       <summary>More about the ear exam and hearing test</summary>
       <div class="detail-body"><p>We use an otoscope to look at your ear canals and eardrums. If we find something that needs attention before testing, we explain the next step, including a medical referral when appropriate.</p><p>Wearing headphones in the sound booth, you listen for tones at different pitches to find the softest sounds each ear hears. Speech testing uses words in quiet and background noise. Your audiogram records your hearing across pitches.</p></div>
     </details>
 
     <div class="eval-story">
-    <!-- IMG-CLINIC-01 : genuine hearing-test photo (AFH-C-45). Full source height retains headroom; horizontal crop centers both people. -->
-    <figure class="figure eval-media" data-img="IMG-CLINIC-01">
+    <!-- IMG-CLINIC-01 : shared genuine clinic photograph, matched to the selected visit stage. -->
+    <figure class="figure eval-media" id="eval-stage-photo" data-img="IMG-CLINIC-01">
       <div class="frame">
-        <img src="https://altamontefamilyhearing.com/assets/photos/AFH-C-45.webp"
-             width="1800" height="1201"
-             alt="Jaysee Soto helping a patient with headphones in the clinic sound booth"
+        <img src="https://altamontefamilyhearing.com/assets/photos/AFH-C-31.webp"
+             width="1800" height="1441" style="object-position:35% 0%"
+             alt="A patient talking with Jaysee Soto across the consultation desk"
              loading="lazy" decoding="async">
       </div>
-      <figcaption>Jaysee Soto preparing a patient for a hearing test.</figcaption>
+      <figcaption aria-live="polite" aria-atomic="true">Consultation: talking through your hearing concerns.</figcaption>
+      <p class="eval-photo-status" role="status" hidden></p>
     </figure>
       <p class="eval-reassurance"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>If your hearing is within normal limits, we'll tell you that too.</span></p>
+    </div>
     </div>
 
     <div class="leave" aria-labelledby="leave-title">
@@ -1916,6 +1977,90 @@ h1,h2,h3{ text-wrap:balance; }
     else if (a.getAttribute('href') && a.getAttribute('href').indexOf('tel:') === 0) track('phone_click', { location:where });
     else if (a.hasAttribute('data-track')) track(a.getAttribute('data-track'), { location:where });
   });
+
+  /* Four visit stages share one photo; mobile places it beside the selected description. */
+  var evaluation = document.getElementById('what-to-expect');
+  if (evaluation){
+    var stageButtons = Array.from(evaluation.querySelectorAll('[data-eval-stage]'));
+    var stageCards = stageButtons.map(function(button){ return button.closest('li'); });
+    var stageFigure = evaluation.querySelector('.eval-media');
+    var stageImage = stageFigure.querySelector('img');
+    var stageCaption = stageFigure.querySelector('figcaption');
+    var stageStatus = stageFigure.querySelector('.eval-photo-status');
+    var stageStory = evaluation.querySelector('.eval-story');
+    var mobileStage = window.matchMedia('(max-width:767px)');
+    var selectedStage = 0, stageRequest = 0;
+    function placeStagePhoto(keepPosition){
+      var card = stageCards[selectedStage];
+      var before = card.getBoundingClientRect().top;
+      stageCards.forEach(function(other){ other.querySelector('.eval-stage-visual').hidden = true; });
+      if (mobileStage.matches){
+        var slot = card.querySelector('.eval-stage-visual');
+        slot.hidden = false;
+        slot.appendChild(stageFigure);
+      } else {
+        stageStory.insertBefore(stageFigure, stageStory.firstChild);
+      }
+      if (keepPosition && mobileStage.matches){
+        var offset = card.getBoundingClientRect().top - before;
+        var oldBehavior = root.style.scrollBehavior;
+        root.style.scrollBehavior = 'auto';
+        window.scrollBy(0, offset);
+        root.style.scrollBehavior = oldBehavior;
+      }
+    }
+    function clearStagePending(){
+      stageCards.forEach(function(card){ card.classList.remove('is-pending'); });
+      stageFigure.removeAttribute('aria-busy');
+    }
+    function chooseStage(index){
+      var request = ++stageRequest;
+      clearStagePending();
+      stageStatus.hidden = true;
+      if (index === selectedStage) return;
+      var button = stageButtons[index];
+      stageCards[index].classList.add('is-pending');
+      stageFigure.setAttribute('aria-busy', 'true');
+      var incoming = new Image();
+      incoming.onload = function(){
+        var decoded = incoming.decode ? incoming.decode().catch(function(){}) : Promise.resolve();
+        decoded.then(function(){
+          if (request !== stageRequest) return;
+          clearStagePending();
+          selectedStage = index;
+          stageButtons.forEach(function(other, i){
+            other.setAttribute('aria-pressed', String(i === index));
+            stageCards[i].classList.toggle('is-selected', i === index);
+          });
+          stageImage.classList.remove('image-arrived');
+          stageImage.src = button.dataset.photo;
+          stageImage.width = Number(button.dataset.width);
+          stageImage.height = Number(button.dataset.height);
+          stageImage.alt = button.dataset.alt;
+          stageImage.style.objectPosition = button.dataset.position;
+          stageCaption.textContent = button.dataset.caption;
+          placeStagePhoto(true);
+          void stageImage.offsetWidth;
+          stageImage.classList.add('image-arrived');
+        });
+      };
+      incoming.onerror = function(){
+        if (request !== stageRequest) return;
+        clearStagePending();
+        stageStatus.textContent = 'That photo is temporarily unavailable. Please choose another step or try again.';
+        stageStatus.hidden = false;
+      };
+      incoming.src = button.dataset.photo;
+    }
+    evaluation.classList.add('eval-interactive');
+    stageCards[0].classList.add('is-selected');
+    stageButtons.forEach(function(button, index){
+      button.disabled = false;
+      button.addEventListener('click', function(){ chooseStage(index); });
+    });
+    placeStagePhoto(false);
+    mobileStage.addEventListener('change', function(){ placeStagePhoto(false); });
+  }
 
   /* Match the desktop photograph to the selected care option.
      Native details also expose the corresponding mobile photograph without JavaScript. */
