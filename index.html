@@ -150,6 +150,12 @@ a:hover{ color:var(--green-deep); }
 }
 @media(max-width:380px){ .header-in{ padding-inline:12px; } .header-actions .btn{ width:120px; padding-inline:8px; font-size:.875rem; white-space:normal; } }
 @media(min-width:480px){ .logo{ width:190px; } .header-actions .btn{ padding-inline:22px; font-size:1rem; } }
+@media(max-width:767px){
+ :root{ --header-h:84px; }
+ .logo{ width:clamp(144px,42vw,255px); }
+ .logo img{ height:84px; }
+}
+@media(min-width:480px) and (max-width:767px){ .logo{ width:285px; } }
 @media(min-width:768px){ .phone-link{ display:inline-flex; } .logo{ width:192px; } }
 @media(min-width:1024px){
  :root{ --header-h:130px; }
