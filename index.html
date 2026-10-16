@@ -689,6 +689,10 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
 }
 @media(min-width:1024px){
  .loc-grid{ grid-template-columns:5fr 7fr; grid-template-areas:"address map" "hours map"; gap:24px clamp(36px,4vw,56px); }
+ .loc-map{ align-self:stretch; display:flex; flex-direction:column; }
+ .loc-map .map-frame{ flex:1; min-height:350px; }
+ .loc-map #location-altamonte-springs-map{ position:absolute; inset:0; height:100%; }
+ .loc-map .map-cta{ flex:none; }
 }
 @media(max-width:767px){
  .location-eyebrow{ justify-content:flex-start; text-align:left; }
@@ -2341,6 +2345,10 @@ h1,h2,h3{ text-wrap:balance; }
       map.on('load', function(){ loaded = true; status.hidden = true; });
       map.on('error', function(){ if (!loaded) unavailable(); });
       OapMaps.initTracking(map);
+      // Keep the canvas fitted when column height or responsive layout changes.
+      if ('ResizeObserver' in window){
+        new ResizeObserver(function(){ map.resize(); }).observe(container);
+      }
     } catch(error){ unavailable(); }
   }
   if (document.readyState === 'loading'){
