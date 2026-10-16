@@ -119,7 +119,7 @@ p{margin:0 0 18px;}
         <h2 id="privacy-requests-title">Privacy questions and requests</h2>
         <p>To ask about this website policy or information you have provided to us, contact Altamonte Family Hearing:</p>
         <address class="contact-details">
-          <p><strong>Phone:</strong> <a href="tel:+14079496737">407-949-6737</a></p>
+          <p><strong>Phone:</strong> <a href="tel:+14078098154">407-809-8154</a></p>
           <p><strong>Mail:</strong> Altamonte Family Hearing, 715 Douglas Ave, Suite 45, Altamonte Springs, FL 32714</p>
         </address>
         <p>You can also contact us to ask how to request access to, correction of or deletion of information you have provided. We will explain the process that applies to your request.</p>
@@ -134,7 +134,7 @@ p{margin:0 0 18px;}
 <footer class="site-footer">
   <div class="wrap footer-in">
     <p>© 2026 Altamonte Family Hearing | All rights reserved.</p>
-    <a href="tel:+14079496737">Call 407-949-6737</a>
+    <a href="tel:+14078098154">Call 407-809-8154</a>
   </div>
 </footer>
 </body>
