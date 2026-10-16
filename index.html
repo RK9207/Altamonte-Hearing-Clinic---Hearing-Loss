@@ -665,6 +665,7 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
 .loc-map .map-card{ position:absolute; z-index:2; top:12px; left:12px; background:#FFF; color:var(--pine); padding:12px 14px; border-radius:6px; box-shadow:0 1px 4px rgba(0,0,0,.15); }
 .loc-map .map-card p,.loc-map .map-card a{ font-size:15px; line-height:1.5; margin:0; }
 .loc-map .map-card p{ margin-bottom:8px; }
+.loc-map .map-card-links{ display:flex; align-items:center; gap:20px; }
 .loc-map .map-card a{ display:inline-block; color:#1a73e8; text-decoration:none; font-weight:600; padding:6px 0; min-height:24px; }
 .loc-map .map-card a:hover,.loc-map .map-card a:focus{ text-decoration:underline; }
 .loc-map .maplibregl-popup{ z-index:3; }
@@ -1935,8 +1936,11 @@ h1,h2,h3{ text-wrap:balance; }
           <div id="location-altamonte-springs-map" role="region" aria-label="Interactive map showing Altamonte Family Hearing in Altamonte Springs"></div>
           <div class="map-card">
             <p><strong>Altamonte Family Hearing</strong><br>715 Douglas Ave #45,<br>Altamonte Springs, FL 32714</p>
+            <div class="map-card-links">
             <a aria-label="Get directions to this location on Google Maps (opens in a new tab)" target="_blank" rel="noopener" data-track="directions_click"
                href="https://maps.google.com/maps/dir//Altamonte+Family+Hearing+715+Douglas+Ave+%2345+Altamonte+Springs,+FL+32714/@28.676125,-81.3896501,17z/data=!4m5!4m4!1m0!1m2!1m1!1s0x88e771506ecb647d:0xabcbd17d7a2f5be5">Directions</a>
+              <a href="https://www.google.com/maps?cid=12379218337608981477" target="_blank" rel="noopener" data-track="location_map_click" aria-label="View Altamonte Family Hearing on Google Maps (opens in a new tab)">Location</a>
+            </div>
           </div>
           <p class="oap-map-status" role="status">Loading map. Directions are available below.</p>
         </div>
