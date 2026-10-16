@@ -523,6 +523,17 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
  .coordinator+ .coordinator{ border-top:1px solid var(--line); padding-top:20px; }
 }
 
+/* Manufacturer strip: supplied GHL composite image, shown in full. */
+.manufacturer-strip{ padding-block:32px; background:var(--paper); border-top:1px solid var(--line); }
+.manufacturer-strip .wrap{ display:grid; gap:20px; align-items:center; }
+.manufacturer-strip h2{ margin:0; max-width:none; font-size:1.375rem; line-height:1.3; }
+.manufacturer-strip h2 em{ color:var(--green); }
+.manufacturer-strip img{ display:block; width:100%; height:auto; min-width:0; object-fit:contain; }
+@media(min-width:1024px){
+ .manufacturer-strip{ padding-block:40px; }
+ .manufacturer-strip .wrap{ grid-template-columns:minmax(0,280px) minmax(0,1fr); gap:36px; }
+}
+
 /* ==========================================================
    S07 REVIEWS — readable patient evidence
    ========================================================== */
@@ -1687,6 +1698,14 @@ h1,h2,h3{ text-wrap:balance; }
       </div>
     </div>
     <p class="referral">Our specialists are licensed Hearing Aid Specialists, not physicians. If your results indicate a need for medical attention, we'll explain and refer you to an ENT physician or another provider.</p>
+  </div>
+</section>
+
+<!-- Manufacturer names: user-supplied GHL logo strip. -->
+<section class="manufacturer-strip" aria-labelledby="manufacturers-title">
+  <div class="wrap">
+    <h2 id="manufacturers-title">Hearing technology matched to <em>your hearing and lifestyle.</em></h2>
+    <img src="https://assets.cdn.filesafe.space/3o0LBBSuVEkoaohgGtT0/media/6ad1cf153cacdd9117617869.png" width="928" height="115" alt="Hearing aid manufacturers: Phonak, Oticon, ReSound GN, Signia, Starkey and Widex" loading="lazy" decoding="async">
   </div>
 </section>
 
