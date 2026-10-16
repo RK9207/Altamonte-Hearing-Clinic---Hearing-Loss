@@ -141,7 +141,7 @@ p{margin:0 0 18px;}
       <section class="policy-section" id="contact-us" aria-labelledby="contact-us-title">
         <h2 id="contact-us-title">Contact us</h2>
         <p>For questions about these terms, contact:</p>
-        <address class="contact-details"><p><strong>Altamonte Family Hearing</strong><br>715 Douglas Ave, Suite 45<br>Altamonte Springs, FL 32714<br>Phone: <a href="tel:+14079496737"><strong>407-949-6737</strong></a></p><p><a href="https://altamontefamilyhearing.com/contact"><strong>Contact our office</strong></a></p></address>
+        <address class="contact-details"><p><strong>Altamonte Family Hearing</strong><br>715 Douglas Ave, Suite 45<br>Altamonte Springs, FL 32714<br>Phone: <a href="tel:+14078098154"><strong>407-809-8154</strong></a></p><p><a href="https://altamontefamilyhearing.com/contact"><strong>Contact our office</strong></a></p></address>
       </section>
     </div>
   </div>
@@ -149,7 +149,7 @@ p{margin:0 0 18px;}
 <footer class="site-footer">
   <div class="wrap footer-in">
     <p>© 2026 Altamonte Family Hearing | All rights reserved.</p>
-    <a href="tel:+14079496737">Call 407-949-6737</a>
+    <a href="tel:+14078098154">Call 407-809-8154</a>
   </div>
 </footer>
 </body>
