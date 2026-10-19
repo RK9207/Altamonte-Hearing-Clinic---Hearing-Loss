@@ -885,6 +885,25 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
  @keyframes care-image-in{ from{opacity:.6} to{opacity:1} }
 }
 
+/* Walk-in support beneath the changing service photographs. */
+.service-walkin{ display:grid; grid-template-columns:96px minmax(0,1fr); gap:16px; align-items:center; margin-top:32px; padding:20px; border:1px solid var(--line); border-radius:20px; background:linear-gradient(115deg,#E0E9E4,#FBF7ED); }
+.service-walkin>img{ display:block; width:100%; height:auto; aspect-ratio:3/2; object-fit:cover; border-radius:12px; }
+.service-walkin-copy{ min-width:0; }
+.service-walkin h3{ margin:0 0 8px; font-size:1.375rem; line-height:1.3; }
+.service-walkin-copy p{ max-width:none; margin:0; color:var(--muted); font-size:1rem; line-height:1.55; }
+.service-walkin-copy .walkin-scope{ margin-top:6px; font-size:.875rem; }
+.service-walkin-hours{ grid-column:1 / -1; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:6px 12px; align-items:center; padding-top:16px; border-top:1px solid #C9D3C9; }
+.walkin-day{ display:block; font-size:.9375rem; font-weight:700; line-height:1.4; }
+.walkin-time{ grid-column:2; grid-row:1 / span 2; display:block; font:400 clamp(1.25rem,3vw,1.75rem)/1.2 var(--font-head); color:var(--green); white-space:nowrap; }
+.walkin-badge{ display:block; width:fit-content; padding:5px 8px; border-radius:4px; background:var(--green); color:#FFF; font-size:.75rem; font-weight:700; line-height:1.4; }
+@media(min-width:600px){ .service-walkin{ grid-template-columns:160px minmax(0,1fr); gap:20px 24px; } .service-walkin h3{ font-size:1.5rem; } }
+@media(min-width:1024px){
+ .service-walkin{ grid-template-columns:180px minmax(0,1fr) auto; }
+ .service-walkin-hours{ display:block; grid-column:auto; padding:0 0 0 24px; border-top:0; border-left:1px solid #C9D3C9; }
+ .walkin-time{ margin-top:5px; }
+ .walkin-badge{ margin-top:8px; }
+}
+
 /* Welcome video: authentic homepage assets, accessible full-video dialog. */
 .welcome-section{ padding-block:clamp(36px,4.5vw,64px); border-top:1px solid rgba(232,211,166,.18); }
 .welcome-grid{ display:grid; grid-template-columns:minmax(0,1fr); gap:28px; align-items:center; }
@@ -967,16 +986,16 @@ h1,h2,h3{ text-wrap:balance; }
 .leave h3::after{ width:56px; background:var(--gold); }
 .leave-icon{ background:#E5EFE4; border:1px solid #D2E0D0; }
 .leave-note{ background:#EBF1E7; }
-.options-list{ counter-reset:care-option; }
-.service-option{ counter-increment:care-option; border-color:var(--line-warm); }
-.service-option summary{ position:relative; padding:17px 16px 17px 58px; min-height:68px; gap:20px; }
-.service-option summary::before{ content:counter(care-option,decimal-leading-zero); position:absolute; top:23px; left:16px; color:#607267; font:500 .75rem/1.5 var(--font-body); letter-spacing:.04em; }
+.service-option{ border-color:var(--line-warm); }
+.service-option summary{ position:relative; display:grid; grid-template-columns:32px minmax(0,1fr) 28px; padding:17px 16px; min-height:68px; gap:14px; }
+.service-icon{ display:grid; place-items:center; width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,#ECE5D1,#DFEAE3); color:var(--green-deep); }
+.service-icon svg{ width:21px; height:21px; }
+.service-label{ min-width:0; }
 .service-option summary::after{ display:grid; place-items:center; width:28px; height:28px; border-radius:50%; border:1px solid #D0DACF; background:var(--paper); font-size:1.25rem; }
 .service-option[open]{ background:#EDF3E9; box-shadow:inset 3px 0 var(--green); border-radius:0 16px 16px 0; }
 .service-option[open] summary{ color:var(--green-deep); }
-.service-option[open] summary::before{ color:var(--green); }
 .service-option[open] summary::after{ background:var(--green); border-color:var(--green); color:var(--paper); }
-.service-description{ padding-left:58px; padding-bottom:22px; }
+.service-description{ padding-left:62px; padding-bottom:22px; }
 .service-description p{ color:#455D4E; }
 .options-photo .frame{ border-radius:72px 24px 72px 24px; border:1px solid #D2DDD1; }
 .care-section{ background:var(--cream); }
@@ -1019,9 +1038,9 @@ h1,h2,h3{ text-wrap:balance; }
  .hero-grid{ align-items:center; }
  .welcome-grid{ row-gap:36px; }
  .signs-intro h2,.eval-head h2,.care-head h2,.team-top h2,.rev-head h2,.faq-heading h2,.location-head h2,.sched-head h2,.options-head h2{ font-size:clamp(2.375rem,2.8vw,2.85rem); letter-spacing:-.015em; line-height:1.15; }
- .options-grid{ grid-template-columns:.92fr 1.08fr; column-gap:clamp(40px,5vw,64px); }
- .options-photo{ max-width:460px; }
- .options-photo .frame{ max-height:560px; }
+ .options-grid{ grid-template-columns:1fr 1.08fr; column-gap:clamp(36px,4vw,56px); }
+ .options-photo{ max-width:none; }
+ .options-photo .frame{ aspect-ratio:4/5; max-height:none; }
  .team-top{ margin-bottom:36px; }
  .profiles{ gap:24px; }
  .profile{ padding:28px; }
@@ -1035,8 +1054,8 @@ h1,h2,h3{ text-wrap:balance; }
 }
 @media(max-width:520px){
  .hero-copy h1{ font-size:clamp(2.25rem,9.8vw,2.75rem); }
- .service-option summary{ padding-left:48px; padding-right:12px; gap:12px; }
- .service-option summary::before{ left:14px; }
+ .service-option summary{ grid-template-columns:30px minmax(0,1fr) 26px; padding-inline:12px; gap:12px; }
+ .service-icon{ width:30px; height:30px; }
  .service-description{ padding-inline:16px; }
  .service-option summary::after{ width:26px; height:26px; }
  .profile{ padding:20px; }
@@ -1540,7 +1559,7 @@ h1,h2,h3{ text-wrap:balance; }
     </figure>
     <div class="options-list">
       <details class="service-option" name="care-options" open>
-        <summary>Hearing tests</summary>
+        <summary><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 0 1 12 0c0 4-4 4-4 7a3 3 0 0 1-6 0M9 9a3 3 0 0 1 6 0c0 2-3 2-3 5"/></svg></span><span class="service-label">Hearing tests</span></summary>
         <figure class="figure service-photo" data-desktop-position="50% 45%">
           <div class="frame"><img src="https://assets.cdn.filesafe.space/3o0LBBSuVEkoaohgGtT0/media/6ad11b21fbcf4d3801940f3a.webp" width="800" height="1199" alt="Jaysee Soto preparing a patient for testing in the clinic sound booth" loading="lazy" decoding="async" style="object-position:50% 45%"></div>
           <figcaption>Preparing for a hearing test in the clinic sound booth.</figcaption>
@@ -1548,7 +1567,7 @@ h1,h2,h3{ text-wrap:balance; }
         <div class="service-description"><p>A comprehensive hearing evaluation by our Florida-licensed Hearing Aid Specialists, with sound-booth testing and your results explained before you leave.</p><a href="#what-to-expect">See what your evaluation includes <span aria-hidden="true">→</span></a></div>
       </details>
       <details class="service-option" name="care-options">
-        <summary>Hearing aid fittings</summary>
+        <summary><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v6m0 4v8M12 3v11m0 4v3M19 3v3m0 4v11M2 9h6m1 5h6m1-8h6"/></svg></span><span class="service-label">Hearing aid fittings</span></summary>
         <figure class="figure service-photo" data-desktop-position="30% 45%">
           <div class="frame"><img src="https://assets.cdn.filesafe.space/3o0LBBSuVEkoaohgGtT0/media/6ad12473b3c1e3eb190b55ae.webp" width="800" height="534" alt="A hearing aid being placed on a patient's ear at the clinic" loading="lazy" decoding="async" style="object-position:30% 45%"></div>
           <figcaption>Hearing-aid fitting at Altamonte Family Hearing.</figcaption>
@@ -1556,7 +1575,7 @@ h1,h2,h3{ text-wrap:balance; }
         <div class="service-description"><p>Hearing aids chosen for your needs, with the sound checked in your ear and follow-up adjustments.</p><a href="#care">See how we check your fitting <span aria-hidden="true">→</span></a></div>
       </details>
       <details class="service-option" name="care-options">
-        <summary>Real Ear Measurement</summary>
+        <summary><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3"/></svg></span><span class="service-label">Real Ear Measurement</span></summary>
         <figure class="figure service-photo" data-desktop-position="50% 45%">
           <div class="frame"><img src="https://assets.cdn.filesafe.space/3o0LBBSuVEkoaohgGtT0/media/6ad11bc8c10790ebd6e43bbf.webp" width="800" height="534" alt="Jaysee Soto placing a Real Ear Measurement probe tube at a patient's ear" loading="lazy" decoding="async" style="object-position:50% 45%"></div>
           <figcaption>Checking hearing-aid sound in the patient’s own ear.</figcaption>
@@ -1564,7 +1583,7 @@ h1,h2,h3{ text-wrap:balance; }
         <div class="service-description"><p>We measure hearing-aid sound in your ear and compare it with targets based on your hearing test to guide adjustments.</p><a href="#fitting-verification">See how Real Ear Measurement works <span aria-hidden="true">→</span></a></div>
       </details>
       <details class="service-option" name="care-options">
-        <summary>Hearing aid repair</summary>
+        <summary><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a5 5 0 0 0-6.4 6.4L3 18a2.1 2.1 0 0 0 3 3l5.3-5.3a5 5 0 0 0 6.4-6.4l-3 3-3-3z"/></svg></span><span class="service-label">Hearing aid repair</span></summary>
         <figure class="figure service-photo" data-desktop-position="30% 45%">
           <div class="frame"><img src="https://assets.cdn.filesafe.space/3o0LBBSuVEkoaohgGtT0/media/6ad11c2cf26156acedfb8611.webp" width="800" height="534" alt="Jaysee Soto working on a hearing aid at the clinic repair bench" loading="lazy" decoding="async" style="object-position:35% 45%"></div>
           <figcaption>Hearing-aid maintenance at the clinic.</figcaption>
@@ -1572,7 +1591,7 @@ h1,h2,h3{ text-wrap:balance; }
         <div class="service-description"><p>Cleaning, troubleshooting, reprogramming and repairs for most major brands, including aids bought elsewhere.</p><a href="#faq-existing-aids" data-faq-link>See repair and support details <span aria-hidden="true">→</span></a></div>
       </details>
       <details class="service-option" name="care-options">
-        <summary>Earwax removal</summary>
+        <summary><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3C9 7 5 11 5 15a7 7 0 0 0 14 0c0-4-4-8-7-12zM9 14c-1 2 0 4 2 4"/></svg></span><span class="service-label">Earwax removal</span></summary>
         <figure class="figure service-photo" data-desktop-position="58% 45%">
           <div class="frame"><img src="https://assets.cdn.filesafe.space/3o0LBBSuVEkoaohgGtT0/media/6ad11c7cf26156acedfb9076.webp" width="800" height="534" alt="The clinic team providing earwax care to a seated patient" loading="lazy" decoding="async" style="object-position:50% 40%"></div>
           <figcaption>Earwax care at Altamonte Family Hearing.</figcaption>
@@ -1580,7 +1599,7 @@ h1,h2,h3{ text-wrap:balance; }
         <div class="service-description"><p>We examine your ears and remove excess wax when appropriate, or refer you if it cannot be cleared safely.</p><a href="#faq-earwax" data-faq-link>Read about earwax care <span aria-hidden="true">→</span></a></div>
       </details>
       <details class="service-option" name="care-options">
-        <summary>Tinnitus</summary>
+        <summary><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h3l3-7 4 14 4-14 3 7h3"/></svg></span><span class="service-label">Tinnitus</span></summary>
         <figure class="figure service-photo" data-desktop-position="35% 45%">
           <div class="frame"><img src="https://assets.cdn.filesafe.space/3o0LBBSuVEkoaohgGtT0/media/6ad11cb1c10790ebd6e45b1b.webp" width="800" height="534" alt="Jaysee Soto discussing hearing-care options with a patient" loading="lazy" decoding="async" style="object-position:40% 45%"></div>
           <figcaption>A consultation about hearing-care options.</figcaption>
@@ -1588,7 +1607,7 @@ h1,h2,h3{ text-wrap:balance; }
         <div class="service-description"><p>We assess ringing alongside your hearing. Options may include hearing aids when hearing loss is present, or a referral for further care.</p><a href="#faq-tinnitus" data-faq-link>Explore tinnitus guidance <span aria-hidden="true">→</span></a></div>
       </details>
       <details class="service-option" name="care-options">
-        <summary>Mobile hearing services</summary>
+        <summary><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-8h6v8"/></svg></span><span class="service-label">Mobile hearing services</span></summary>
         <figure class="figure service-photo" data-desktop-position="50% 25%">
           <div class="frame"><img src="https://assets.cdn.filesafe.space/3o0LBBSuVEkoaohgGtT0/media/6ad11ce7f7b44c381ceba6fe.webp" width="800" height="640" alt="Toni Trager, Hearing Aid Specialist who provides home visits" loading="lazy" decoding="async" style="object-position:50% 30%"></div>
           <figcaption>Toni Trager provides home and care-facility visits.</figcaption>
@@ -1596,6 +1615,21 @@ h1,h2,h3{ text-wrap:balance; }
         <div class="service-description"><p>Hearing services across Greater Orlando when getting to the clinic is difficult. Call for availability and cost.</p><a href="#faq-home-visits" data-faq-link>Learn about home visits <span aria-hidden="true">→</span></a></div>
       </details>
     </div>
+  </div>
+  <div class="wrap">
+    <aside class="service-walkin" aria-labelledby="walkin-services-title">
+      <img src="https://assets.cdn.filesafe.space/3o0LBBSuVEkoaohgGtT0/media/6ad11c2cf26156acedfb8611.webp" width="800" height="534" alt="Jaysee Soto working on a hearing aid at the clinic repair bench" loading="lazy" decoding="async">
+      <div class="service-walkin-copy">
+        <h3 id="walkin-services-title">Walk-in cleaning and minor repairs</h3>
+        <p>Bring your hearing aids—even if you bought them elsewhere.</p>
+        <p class="walkin-scope">This hour is for hearing aid cleanings and minor repairs, not hearing evaluations.</p>
+      </div>
+      <div class="service-walkin-hours">
+        <span class="walkin-day">Monday–Friday</span>
+        <strong class="walkin-time">1:00–2:00 pm</strong>
+        <span class="walkin-badge">No appointment needed</span>
+      </div>
+    </aside>
   </div>
 </section>
 
