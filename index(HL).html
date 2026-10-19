@@ -1310,6 +1310,17 @@ h1,h2,h3{ text-wrap:balance; }
  .care-verification-head p{ grid-column:1 / -1; }
 }
 
+
+/* Compact fitting close with booking aligned to the care box. */
+.care-section{ padding-bottom:32px; }
+.care-band{ padding-bottom:24px; border-bottom:1px solid #CAD6C8; }
+.care-foot{ margin:0; padding:0; border:0; }
+@media(min-width:900px){
+ .care-band{ grid-template-areas:"choice support" "booking support"; grid-template-rows:1fr auto; row-gap:24px; }
+ .care-choice{ grid-area:choice; padding-bottom:0; }
+ .care-support{ grid-area:support; align-self:stretch; }
+ .care-foot{ grid-area:booking; align-self:end; }
+}
 </style>
 </head>
 <body>
@@ -1697,9 +1708,9 @@ h1,h2,h3{ text-wrap:balance; }
           <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Coaching on inserting and removing aids, daily care, and phone pairing or app features when compatible.</span></li>
         </ul>
       </div>
-    </div>
-    <div class="care-foot">
-      <div class="btn-row"><button class="btn btn-primary" type="button" data-open-booking>Book Appointment</button></div>
+      <div class="care-foot">
+        <div class="btn-row"><button class="btn btn-primary" type="button" data-open-booking>Book Appointment</button></div>
+      </div>
     </div>
   </div>
 </section>
