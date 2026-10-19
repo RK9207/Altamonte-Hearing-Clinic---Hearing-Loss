@@ -926,11 +926,10 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
 .welcome-launch-copy>span{ font-size:.9375rem; line-height:1.45; color:#FFFFFF; }
 .welcome-dialog{ width:min(960px,calc(100% - 32px)); max-height:calc(100dvh - 32px); padding:0; border:0; border-radius:20px; background:var(--paper); color:var(--pine); overflow:auto; }
 .welcome-dialog::backdrop{ background:rgba(10,25,19,.85); }
-.welcome-dialog-bar{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 20px; }
-.welcome-dialog-bar h2{ font-size:1.375rem; }
 .welcome-dialog-player{ aspect-ratio:16/9; background:#0e2119; }
 .welcome-dialog-player iframe{ display:block; width:100%; height:100%; border:0; }
-.welcome-dialog-foot{ margin:0; padding:12px 20px; font-size:.9375rem; line-height:1.5; max-width:none; }
+.welcome-dialog-foot{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; margin:0; padding:12px 20px; font-size:.9375rem; line-height:1.5; max-width:none; }
+.welcome-dialog-foot p{ margin:0; font:inherit; }
 @media(min-width:900px){
  .welcome-grid{ grid-template-columns:1.15fr 1fr; gap:clamp(36px,5vw,72px); }
  .welcome-preview{ grid-column:1; grid-row:1; }
@@ -944,8 +943,6 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
  .welcome-launch-copy strong{ font-size:1rem; }
  .welcome-launch-copy>span{ font-size:.8125rem; }
  .welcome-dialog{ width:calc(100% - 20px); }
- .welcome-dialog-bar{ padding-inline:14px; }
- .welcome-dialog-bar h2{ font-size:1.125rem; }
 }
 
 .welcome-benefits{ grid-column:1 / -1; margin-top:8px; }
@@ -2103,10 +2100,9 @@ h1,h2,h3{ text-wrap:balance; }
 <a class="call-bar" href="tel:+14078098154"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call 407-809-8154</a>
 
 <!-- The full player is created on demand, so it does not load during browsing. -->
-<dialog class="welcome-dialog" id="welcome-dialog" aria-labelledby="welcome-dialog-title">
-  <div class="welcome-dialog-bar"><h2 id="welcome-dialog-title">Welcome to Altamonte Family Hearing</h2><button class="dialog-close" type="button" data-close-video autofocus><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>Close</button></div>
+<dialog class="welcome-dialog" id="welcome-dialog" aria-label="Altamonte Family Hearing welcome video">
   <div class="welcome-dialog-player"></div>
-  <p class="welcome-dialog-foot">Video not loading? <a href="https://www.youtube.com/watch?v=HxCXX0CgR9s" target="_blank" rel="noopener">Watch on YouTube</a>.</p>
+  <div class="welcome-dialog-foot"><p>Video not loading? <a href="https://www.youtube.com/watch?v=HxCXX0CgR9s" target="_blank" rel="noopener">Watch on YouTube</a>.</p><button class="dialog-close" type="button" data-close-video autofocus><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>Close</button></div>
 </dialog>
 
 <!-- ======================= BOOKING DIALOG ======================= -->
