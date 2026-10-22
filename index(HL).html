@@ -1271,9 +1271,9 @@ h1,h2,h3{ text-wrap:balance; }
 .care-verification-head p{ max-width:none; margin:0; color:#E1E9DF; font-size:1.125rem; line-height:1.65; }
 .care-visual{ grid-area:photo; align-self:stretch; display:flex; flex-direction:column; justify-content:space-between; }
 .care-top .care-copy{ grid-area:stages; display:flex; align-self:stretch; }
-.care-top .mrr{ flex:1; margin:0; grid-template-rows:repeat(3,minmax(0,1fr)); }
-.care-top .mrr li{ align-content:center; border-top:0; border-bottom:1px solid rgba(232,211,166,.22); }
-.care-top .mrr li:last-child{ border-bottom:0; }
+.care-top .mrr{ flex:1; display:flex; flex-direction:column; justify-content:space-between; gap:24px; margin:0; }
+.care-top .mrr li{ align-content:start; padding:0 0 24px; border-top:0; border-bottom:1px solid rgba(232,211,166,.22); }
+.care-top .mrr li:last-child{ padding-bottom:0; border-bottom:0; }
 .care-top>.care-limits{ grid-area:note; max-width:none; margin:0; padding-top:20px; border-top:1px solid rgba(232,211,166,.22); color:#D0DDCF; font-size:1rem; line-height:1.6; }
 @media(min-width:900px){
  .care-top{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); grid-template-areas:"intro intro" "photo stages" "note note"; gap:28px 40px; }
