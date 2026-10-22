@@ -1105,26 +1105,23 @@ h1,h2,h3{ text-wrap:balance; }
 .eval-testing{ align-self:start; margin:0; background:transparent!important; border-color:#C9D4C6!important; border-radius:14px!important; }
 .eval-testing summary{ padding:16px 18px!important; font-size:1rem; }
 .eval-section .leave{ background:#203A30; border:0; border-radius:26px; padding:28px 24px; color:var(--on-dark); }
-.eval-section .leave h3{ display:block; margin:0 0 28px; color:var(--gold-soft); font-size:1.75rem; line-height:1.2; }
+.eval-section .leave h3{ display:block; margin:0 0 20px; color:var(--gold-soft); font-size:1.75rem; line-height:1.2; }
 .eval-section .leave h3::after{ display:none; }
 .eval-section .leave ul{ grid-template-columns:minmax(0,1fr); gap:22px; }
-.eval-section .leave li{ display:flex; gap:14px; padding:0; border:0; }
-.eval-section .leave li>div{ display:block; }
+.eval-section .leave li{ display:grid; grid-template-columns:32px minmax(0,1fr); gap:6px 12px; align-items:center; align-content:start; padding:0; border:0; }
+.eval-section .leave li>div{ display:contents; }
 .eval-section .leave-icon{ width:32px; height:32px; flex-basis:32px; border:2px solid #FFD987; background:rgba(255,217,135,.08); color:#FFD987; }
 .eval-section .leave-icon .icon{ stroke-width:3; }
-.eval-section .leave li strong{ display:block; min-height:0; margin:2px 0 8px; color:var(--paper); font-size:1.0625rem; line-height:1.4; }
-.eval-section .leave li p{ color:#D5E0D6; font-size:1rem; line-height:1.6; }
-.eval-section .leave-note{ margin:26px 0 0; padding:20px 0 0; border-top:1px solid rgba(232,211,166,.2); border-radius:0; background:none; color:#D5E0D6; font-size:1rem; line-height:1.6; }
+.eval-section .leave li strong{ grid-column:2; display:block; min-height:0; margin:0; color:var(--paper); font-size:1.0625rem; line-height:1.4; }
+.eval-section .leave li p{ grid-column:2; min-width:0; overflow-wrap:anywhere; color:#D5E0D6; font-size:1rem; line-height:1.6; }
+.eval-section .leave-note{ margin:18px 0 0; padding:14px 0 0; border-top:1px solid rgba(232,211,166,.2); border-radius:0; background:none; color:#D5E0D6; font-size:1rem; line-height:1.6; }
 .eval-section .leave-note strong{ color:var(--gold-soft); }
 .eval-cta{ display:flex; justify-content:center; align-items:center; gap:18px 28px; padding:4px 0 0; border:0; }
 .eval-cta .cost-note{ max-width:66ch; margin:0; color:var(--muted); font-size:1rem; line-height:1.6; }
 @media(min-width:600px){
  .eval-section .steps{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px 32px; }
  .eval-section .steps li{ padding:26px 0; }
- .eval-section .leave ul{ grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
- .eval-section .leave li{ display:block; }
- .eval-section .leave-icon{ margin-bottom:14px; }
- .eval-section .leave li+li{ border-left:1px solid rgba(232,211,166,.2); padding-left:24px; }
+
 }
 @media(min-width:1024px){
  .eval-grid{ grid-template-columns:4fr 6fr; grid-template-areas:"head head" "story steps" "story testing" "leave leave" "cta cta"; column-gap:64px; row-gap:28px; }
@@ -1135,17 +1132,16 @@ h1,h2,h3{ text-wrap:balance; }
  .eval-section .steps li::before{ margin-bottom:18px; font-size:3rem; }
  .eval-section .steps h3{ font-size:1.375rem; }
  .eval-section .steps p{ font-size:1.125rem; }
- .eval-section .leave{ margin-top:16px; padding:36px 40px; }
- .eval-section .leave h3{ margin-bottom:30px; font-size:2rem; }
- .eval-section .leave ul{ gap:32px; }
- .eval-section .leave li+li{ padding-left:32px; }
+ .eval-section .leave{ margin-top:12px; padding:28px 32px; }
+ .eval-section .leave h3{ margin-bottom:20px; font-size:2rem; }
+
 }
 @media(max-width:520px){
  .eval-section .steps li{ display:grid; grid-template-columns:40px minmax(0,1fr); gap:8px 16px; padding:24px 0; }
  .eval-section .steps li::before{ grid-column:1; grid-row:1 / span 2; margin:0; font-size:2rem; }
  .eval-section .steps h3{ grid-column:2; margin:0; }
  .eval-section .steps p{ grid-column:2; }
- .eval-section .leave{ padding:28px 22px; border-radius:22px; }
+ .eval-section .leave{ padding:22px; border-radius:22px; }
  .eval-cta{ gap:16px; text-align:center; }
  .eval-cta .btn-row,.eval-cta .btn{ width:100%; }
 }
@@ -1309,6 +1305,13 @@ h1,h2,h3{ text-wrap:balance; }
  .care-verification-head p{ grid-column:1 / -1; }
 }
 
+
+/* Outcome ticks share the headline row; stack comfortably on tablets. */
+.eval-section .leave li strong{ overflow-wrap:anywhere; }
+@media(min-width:900px){
+ .eval-section .leave ul{ grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+ .eval-section .leave li+li{ border-left:1px solid rgba(232,211,166,.2); padding-left:24px; }
+}
 
 /* Compact fitting close with booking aligned to the care box. */
 .care-section{ padding-bottom:32px; }
