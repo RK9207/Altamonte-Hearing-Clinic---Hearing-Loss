@@ -1306,6 +1306,34 @@ h1,h2,h3{ text-wrap:balance; }
 }
 
 
+/* Verified fitting: a compact connected timeline and shared attribution footer. */
+.care-top{ grid-template-areas:"intro" "photo" "stages" "footer"; }
+.care-visual{ display:block; align-self:center; }
+.care-top .care-media .frame{ border-width:3px; border-radius:22px; }
+.care-top .care-media figcaption{ margin-top:12px; font-size:.875rem; }
+.care-top .care-copy{ align-self:center; }
+.care-top .mrr{ display:grid; flex:1; gap:0; margin:0; }
+.care-top .mrr li{ position:relative; grid-template-columns:40px minmax(0,1fr); grid-template-rows:auto auto; align-content:start; gap:4px 16px; padding:0 0 28px; border:0; }
+.care-top .mrr li::before{ grid-column:1; grid-row:1; width:40px; height:40px; border:1px solid var(--gold); background:var(--gold); color:var(--pine); font-weight:700; z-index:1; }
+.care-top .mrr li:not(:last-child)::after{ content:""; position:absolute; left:19px; top:46px; bottom:6px; width:1px; background:rgba(232,211,166,.35); }
+.care-top .mrr strong{ grid-column:2; grid-row:1; min-height:40px; margin:0; font-size:1.25rem; line-height:1.3; }
+.care-top .mrr span{ grid-column:2; grid-row:2; font-size:1.0625rem; line-height:1.6; overflow-wrap:anywhere; }
+.care-top .mrr li:last-child{ padding-bottom:0; }
+.care-verification-footer{ grid-area:footer; display:grid; gap:16px; padding-top:20px; border-top:1px solid rgba(232,211,166,.22); }
+.care-verification-footer .care-proof{ margin:0; padding:0; border:0; }
+.care-verification-footer .care-limits{ margin:0; max-width:none; color:#D0DDCF; font-size:.9375rem; line-height:1.6; }
+@media(min-width:900px){
+ .care-top{ grid-template-areas:"intro intro" "photo stages" "footer footer"; }
+ .care-verification-footer{ grid-template-columns:minmax(0,240px) minmax(0,1fr); align-items:center; column-gap:28px; }
+ .care-verification-footer .care-limits{ padding-left:28px; border-left:1px solid rgba(232,211,166,.22); }
+}
+@media(max-width:520px){
+ .care-top .mrr li{ grid-template-columns:36px minmax(0,1fr); gap:4px 12px; padding-bottom:24px; }
+ .care-top .mrr li::before{ width:36px; height:36px; }
+ .care-top .mrr li:not(:last-child)::after{ left:17px; top:42px; }
+ .care-top .mrr strong{ min-height:36px; }
+}
+
 /* Outcome ticks share the headline row; stack comfortably on tablets. */
 .eval-section .leave li strong{ overflow-wrap:anywhere; }
 @media(min-width:900px){
@@ -1666,9 +1694,6 @@ h1,h2,h3{ text-wrap:balance; }
           <div class="frame"><img src="https://assets.cdn.filesafe.space/3o0LBBSuVEkoaohgGtT0/media/6ad11da4fbcf4d38019467ed.webp" width="1800" height="1201" alt="Jaysee Soto placing a thin probe tube at a patient's ear during Real Ear Measurement" loading="lazy" decoding="async"></div>
           <figcaption>Real Ear Measurement checks sound in the ear canal with the hearing aid in place.</figcaption>
         </figure>
-        <div class="care-proof">
-          <p class="care-proof-copy"><strong>Jaysee Soto</strong><span>HearingUp Certified Provider</span></p>
-        </div>
       </div>
       <div class="care-copy">
 
@@ -1679,7 +1704,12 @@ h1,h2,h3{ text-wrap:balance; }
         </ol>
 
       </div>
-<p class="care-limits">Hearing aids can make speech easier to follow, but none removes all background noise. Results and adjustment time vary.</p>
+<div class="care-verification-footer">
+        <div class="care-proof">
+          <p class="care-proof-copy"><strong>Jaysee Soto</strong><span>HearingUp Certified Provider</span></p>
+        </div>
+        <p class="care-limits">Hearing aids can make speech easier to follow, but none removes all background noise. Results and adjustment time vary.</p>
+      </div>
     </div>
     <div class="care-band">
       <div class="care-choice">
