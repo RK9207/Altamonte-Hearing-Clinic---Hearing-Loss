@@ -929,7 +929,7 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
 .welcome-dialog::backdrop{ background:rgba(10,25,19,.85); }
 .welcome-dialog-bar{ display:flex; align-items:center; justify-content:flex-end; padding:14px 20px; }
 .welcome-dialog-player{ aspect-ratio:16/9; background:#0e2119; }
-.welcome-dialog-player iframe{ display:block; width:100%; height:100%; border:0; }
+.welcome-dialog-player video{ display:block; width:100%; height:100%; border:0; object-fit:contain; background:#000; }
 .welcome-dialog-foot{ margin:0; padding:12px 20px; font-size:.9375rem; line-height:1.5; max-width:none; }
 @media(min-width:900px){
  .welcome-grid{ grid-template-columns:1.15fr 1fr; gap:clamp(36px,5vw,72px); }
@@ -1355,24 +1355,6 @@ h1,h2,h3{ text-wrap:balance; }
  .care-support{ grid-area:support; align-self:stretch; }
  .care-foot{ grid-area:booking; align-self:end; }
 }
-/* Mobile section navigation; the existing desktop navigation stays intact. */
-.page-nav-toggle{ display:none; }
-@media(max-width:1023px){
- .header-in{ row-gap:0; }
- .header-in>.logo{ grid-column:1; grid-row:1; }
- .page-nav-toggle{ grid-column:1 / -1; grid-row:2; width:100%; min-height:46px; padding:10px 4px; border:0; border-top:1px solid var(--line); border-radius:0; background:transparent; color:var(--green-deep); font:700 .9375rem/1.4 var(--font-body); text-align:left; align-items:center; justify-content:space-between; gap:12px; cursor:pointer; }
- .js .page-nav-toggle{ display:flex; }
- .page-nav-toggle:hover{ color:var(--green); background:#EDF3E9; }
- .page-nav-toggle:focus-visible{ outline:2px solid var(--green); outline-offset:-3px; border-radius:6px; }
- .page-nav-toggle svg{ flex:none; }
- .page-nav-toggle[aria-expanded="true"] svg{ transform:rotate(180deg); }
- .main-nav{ grid-column:1 / -1; grid-row:3; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:4px 8px; padding:6px 0 12px; border-top:1px solid var(--line); max-height:calc(100dvh - var(--header-h) - 16px); overflow-y:auto; overscroll-behavior:contain; }
- .js .main-nav{ display:none; }
- .js .site-header.page-nav-open .main-nav{ display:grid; }
- .main-nav a{ min-width:0; min-height:44px; padding:10px; font-size:.9375rem; line-height:1.4; overflow-wrap:anywhere; }
- .main-nav a:focus-visible{ outline:2px solid var(--green); outline-offset:-2px; background:#EDF3E9; }
-}
-
 </style>
 </head>
 <body>
@@ -1401,11 +1383,6 @@ h1,h2,h3{ text-wrap:balance; }
            alt="Altamonte Family Hearing"
            onerror="this.onerror=null;this.src='https://assets.cdn.filesafe.space/3o0LBBSuVEkoaohgGtT0/media/6ad1190df26156acedfb2229.png';">
     </a>
-    <div class="header-actions">
-      <a class="phone-link" href="tel:+14078098154"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span>407-809-8154</span></a>
-      <button class="btn btn-primary" type="button" data-open-booking>Book Appointment</button>
-    </div>
-    <button class="page-nav-toggle" type="button" aria-expanded="false" aria-controls="page-navigation"><span>Explore this page</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
     <nav class="main-nav" id="page-navigation" aria-label="Page sections">
       <a href="#welcome-video">Welcome video</a>
       <a href="#signs">Hearing loss signs</a>
@@ -1418,6 +1395,10 @@ h1,h2,h3{ text-wrap:balance; }
       <a href="#location">Location</a>
       <a href="#schedule">Request a visit</a>
     </nav>
+    <div class="header-actions">
+      <a class="phone-link" href="tel:+14078098154"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span>407-809-8154</span></a>
+      <button class="btn btn-primary" type="button" data-open-booking>Book Appointment</button>
+    </div>
   </div>
 </header>
 
@@ -1476,7 +1457,7 @@ h1,h2,h3{ text-wrap:balance; }
       <video id="welcome-preview" muted playsinline preload="none" poster="https://altamontefamilyhearing.com/assets/video/welcome-crop-poster.webp" aria-hidden="true" tabindex="-1">
         <source data-src="https://altamontefamilyhearing.com/assets/video/welcome-crop-loop.mp4" type="video/mp4">
       </video>
-      <a class="welcome-launch" href="https://www.youtube.com/watch?v=HxCXX0CgR9s" target="_blank" rel="noopener" data-open-video data-track="welcome_video_open" aria-haspopup="dialog" aria-controls="welcome-dialog" aria-label="Watch the two-minute Altamonte Family Hearing welcome video">
+      <a class="welcome-launch" href="https://assets.cdn.filesafe.space/3o0LBBSuVEkoaohgGtT0/media/6ae0c4182d54004a64406feb.mp4" target="_blank" rel="noopener" data-open-video data-track="welcome_video_open" aria-haspopup="dialog" aria-controls="welcome-dialog" aria-label="Watch the two-minute Altamonte Family Hearing welcome video">
         <span class="welcome-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
         <span class="welcome-launch-copy"><strong>Watch our welcome video</strong><span>2 minutes with Jaysee: a look inside the practice and your first visit.</span></span>
       </a>
@@ -2161,7 +2142,7 @@ h1,h2,h3{ text-wrap:balance; }
 <dialog class="welcome-dialog" id="welcome-dialog" aria-label="Altamonte Family Hearing welcome video">
   <div class="welcome-dialog-bar"><button class="dialog-close" type="button" data-close-video autofocus><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>Close</button></div>
   <div class="welcome-dialog-player"></div>
-  <p class="welcome-dialog-foot">Video not loading? <a href="https://www.youtube.com/watch?v=HxCXX0CgR9s" target="_blank" rel="noopener">Watch on YouTube</a>.</p>
+  <p class="welcome-dialog-foot">Video not loading? <a href="https://assets.cdn.filesafe.space/3o0LBBSuVEkoaohgGtT0/media/6ae0c4182d54004a64406feb.mp4" target="_blank" rel="noopener">Open it in a new tab</a>.</p>
 </dialog>
 
 <!-- ======================= BOOKING DIALOG ======================= -->
@@ -2326,6 +2307,7 @@ h1,h2,h3{ text-wrap:balance; }
   }
 
   /* Welcome preview and full video: mute the teaser, load the player on intent. */
+  var WELCOME_VIDEO_URL = 'https://assets.cdn.filesafe.space/3o0LBBSuVEkoaohgGtT0/media/6ae0c4182d54004a64406feb.mp4';
   var welcomeDialog = document.getElementById('welcome-dialog');
   var preview = document.getElementById('welcome-preview');
   var motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -2355,20 +2337,26 @@ h1,h2,h3{ text-wrap:balance; }
       trigger.addEventListener('click', function(e){
         if (typeof welcomeDialog.showModal !== 'function') return;
         e.preventDefault();
-        var player = document.createElement('iframe');
-        player.src = 'https://www.youtube-nocookie.com/embed/HxCXX0CgR9s?autoplay=1&rel=0&cc_load_policy=1';
-        player.title = 'Altamonte Family Hearing welcome video';
-        player.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
-        player.allowFullscreen = true;
+        var player = document.createElement('video');
+        player.src = WELCOME_VIDEO_URL;
+        player.controls = true;
+        player.autoplay = true;
+        player.playsInline = true;
+        player.preload = 'auto';
+        player.setAttribute('aria-label', 'Altamonte Family Hearing welcome video');
         welcomeDialog.querySelector('.welcome-dialog-player').replaceChildren(player);
         welcomeDialog.showModal();
         root.classList.add('dialog-open');
+        var started = player.play();
+        if (started && started.catch) started.catch(function(){ /* The viewer can press play. */ });
         syncWelcomePreview();
       });
     });
     welcomeDialog.querySelector('[data-close-video]').addEventListener('click', function(){ welcomeDialog.close(); });
     welcomeDialog.addEventListener('click', function(e){ if (e.target === welcomeDialog) welcomeDialog.close(); });
     welcomeDialog.addEventListener('close', function(){
+      var playing = welcomeDialog.querySelector('.welcome-dialog-player video');
+      if (playing){ playing.pause(); playing.removeAttribute('src'); playing.load(); }
       welcomeDialog.querySelector('.welcome-dialog-player').replaceChildren();
       root.classList.remove('dialog-open');
       syncWelcomePreview();
@@ -2459,59 +2447,6 @@ h1,h2,h3{ text-wrap:balance; }
   } else {
     initLocationMap();
   }
-})();
-</script>
-<script>
-/* Mobile disclosure navigation, retaining native links and desktop layout. */
-(function(){
-  var header = document.querySelector('.site-header');
-  var toggle = header.querySelector('.page-nav-toggle');
-  var nav = document.getElementById('page-navigation');
-  var mobile = window.matchMedia('(max-width:1023px)');
-  function measureHeader(){
-    var height = header.getBoundingClientRect().height;
-    if (mobile.matches && toggle.getAttribute('aria-expanded') === 'true') height -= nav.getBoundingClientRect().height;
-    document.documentElement.style.setProperty('--header-h', Math.ceil(height) + 'px');
-  }
-  function setOpen(open, returnFocus){
-    toggle.setAttribute('aria-expanded', String(open));
-    header.classList.toggle('page-nav-open', open);
-    measureHeader();
-    if (returnFocus) toggle.focus({preventScroll:true});
-  }
-  toggle.addEventListener('click', function(){ setOpen(toggle.getAttribute('aria-expanded') !== 'true'); });
-  nav.addEventListener('click', function(event){
-    var link = event.target.closest('a[href^="#"]');
-    if (!mobile.matches || !link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    var target = document.getElementById(link.getAttribute('href').slice(1));
-    if (!target) return;
-    event.preventDefault();
-    setOpen(false);
-    var heading = target.querySelector('h1,h2,h3') || target;
-    if (!heading.hasAttribute('tabindex')) heading.setAttribute('tabindex','-1');
-    heading.focus({preventScroll:true});
-    try { window.history.pushState(null,'',link.getAttribute('href')); } catch(error) { /* Navigation still works when history is restricted by an embed. */ }
-    window.scrollTo({top:Math.max(0, target.getBoundingClientRect().top + window.scrollY - header.getBoundingClientRect().height - 16), behavior:window.matchMedia('(prefers-reduced-motion:reduce)').matches ? 'instant' : 'smooth'});
-  });
-  document.addEventListener('pointerdown', function(event){
-    if (mobile.matches && !nav.contains(event.target) && !toggle.contains(event.target)) setOpen(false,nav.contains(document.activeElement));
-  });
-  document.addEventListener('keydown', function(event){
-    if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { event.preventDefault(); setOpen(false,true); }
-  });
-  document.addEventListener('focusin', function(event){
-    if (toggle.getAttribute('aria-expanded') === 'true' && !header.contains(event.target)) setOpen(false);
-  });
-  function breakpointChanged(){
-    var focusInNav = nav.contains(document.activeElement);
-    setOpen(false, mobile.matches && focusInNav);
-  }
-  if (mobile.addEventListener) mobile.addEventListener('change',breakpointChanged);
-  else mobile.addListener(breakpointChanged);
-  if ('ResizeObserver' in window) new ResizeObserver(measureHeader).observe(header);
-  window.addEventListener('resize', measureHeader);
-  window.addEventListener('pageshow', measureHeader);
-  measureHeader();
 })();
 </script>
 </body>
