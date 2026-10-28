@@ -528,15 +528,7 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
  .coordinator+ .coordinator{ border-top:1px solid var(--line); padding-top:20px; }
 }
 
-/* Manufacturer logos: original desktop strip and supplied mobile stack. */
-.manufacturer-mobile-logos{ display:none; }
-@media(max-width:767px){
- .manufacturer-strip .manufacturer-desktop-logos{ display:none; }
- .manufacturer-mobile-logos{ display:grid; grid-template-columns:minmax(0,1fr); gap:12px; list-style:none; padding:0; margin:0; }
- .manufacturer-mobile-logos li{ display:flex; align-items:center; justify-content:center; min-width:0; }
- .manufacturer-strip .manufacturer-mobile-logos img{ width:180px; max-width:100%; height:84px; object-fit:contain; mix-blend-mode:multiply; }
-}
-
+/* Manufacturer strip: supplied GHL composite image, shown in full. */
 .manufacturer-strip{ padding-block:32px; background:var(--paper); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
 .manufacturer-strip .wrap{ display:grid; gap:20px; align-items:center; }
 .manufacturer-strip h2{ margin:0; max-width:none; font-size:1.375rem; line-height:1.3; }
@@ -1780,15 +1772,7 @@ h1,h2,h3{ text-wrap:balance; }
 <section class="manufacturer-strip" aria-labelledby="manufacturers-title">
   <div class="wrap">
     <h2 id="manufacturers-title">Hearing technology matched to <em>your hearing and lifestyle.</em></h2>
-    <img class="manufacturer-desktop-logos" src="https://assets.cdn.filesafe.space/3o0LBBSuVEkoaohgGtT0/media/6ad1cf153cacdd9117617869.png" width="928" height="115" alt="Hearing aid manufacturers: Phonak, Oticon, ReSound GN, Signia, Starkey and Widex" loading="lazy" decoding="async">
-    <ul class="manufacturer-mobile-logos" aria-label="Hearing aid brands">
-      <li><img src="https://assets.cdn.filesafe.space/3o0LBBSuVEkoaohgGtT0/media/6ae212d3d1d68437cf858f2d.png" width="141" height="66" alt="Widex" loading="lazy" decoding="async"></li>
-      <li><img src="https://assets.cdn.filesafe.space/3o0LBBSuVEkoaohgGtT0/media/6ae212d3ce53a65ab2593374.png" width="147" height="71" alt="Oticon" loading="lazy" decoding="async"></li>
-      <li><img src="https://assets.cdn.filesafe.space/3o0LBBSuVEkoaohgGtT0/media/6ae212d3ce53a65ab259337e.png" width="151" height="88" alt="ReSound GN" loading="lazy" decoding="async"></li>
-      <li><img src="https://assets.cdn.filesafe.space/3o0LBBSuVEkoaohgGtT0/media/6ae212d3d542268bb48a0c47.png" width="157" height="75" alt="Phonak" loading="lazy" decoding="async"></li>
-      <li><img src="https://assets.cdn.filesafe.space/3o0LBBSuVEkoaohgGtT0/media/6ae212d3d542268bb48a0c40.png" width="111" height="79" alt="Starkey" loading="lazy" decoding="async"></li>
-      <li><img src="https://assets.cdn.filesafe.space/3o0LBBSuVEkoaohgGtT0/media/6ae212d3d542268bb48a0c46.png" width="68" height="67" alt="Signia" loading="lazy" decoding="async"></li>
-    </ul>
+    <img src="https://assets.cdn.filesafe.space/3o0LBBSuVEkoaohgGtT0/media/6ad1cf153cacdd9117617869.png" width="928" height="115" alt="Hearing aid manufacturers: Phonak, Oticon, ReSound GN, Signia, Starkey and Widex" loading="lazy" decoding="async">
   </div>
 </section>
 
