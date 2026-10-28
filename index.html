@@ -529,6 +529,12 @@ details.more-detail .detail-body p:last-child{ margin-bottom:0; }
 }
 
 /* Manufacturer strip: supplied GHL composite image, shown in full. */
+.manufacturer-mobile-logos{ display:none; }
+@media(max-width:767px){
+ .manufacturer-strip .manufacturer-desktop-logos{ display:none; }
+ .manufacturer-mobile-logos{ display:grid; grid-template-columns:minmax(0,1fr); gap:12px; width:100%; max-width:475px; margin-inline:auto; }
+}
+
 .manufacturer-strip{ padding-block:32px; background:var(--paper); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
 .manufacturer-strip .wrap{ display:grid; gap:20px; align-items:center; }
 .manufacturer-strip h2{ margin:0; max-width:none; font-size:1.375rem; line-height:1.3; }
@@ -1772,7 +1778,11 @@ h1,h2,h3{ text-wrap:balance; }
 <section class="manufacturer-strip" aria-labelledby="manufacturers-title">
   <div class="wrap">
     <h2 id="manufacturers-title">Hearing technology matched to <em>your hearing and lifestyle.</em></h2>
-    <img src="https://assets.cdn.filesafe.space/3o0LBBSuVEkoaohgGtT0/media/6ad1cf153cacdd9117617869.png" width="928" height="115" alt="Hearing aid manufacturers: Phonak, Oticon, ReSound GN, Signia, Starkey and Widex" loading="lazy" decoding="async">
+    <img class="manufacturer-desktop-logos" src="https://assets.cdn.filesafe.space/3o0LBBSuVEkoaohgGtT0/media/6ad1cf153cacdd9117617869.png" width="928" height="115" alt="Hearing aid manufacturers: Phonak, Oticon, ReSound GN, Signia, Starkey and Widex" loading="lazy" decoding="async">
+    <div class="manufacturer-mobile-logos">
+      <img src="https://assets.cdn.filesafe.space/3o0LBBSuVEkoaohgGtT0/media/6ae2147eae0d376721b174c7.png" width="475" height="104" alt="Hearing aid manufacturers: Phonak, Oticon and ReSound GN" loading="lazy" decoding="async">
+      <img src="https://assets.cdn.filesafe.space/3o0LBBSuVEkoaohgGtT0/media/6ae2147eae0d376721b174c6.png" width="392" height="81" alt="Hearing aid manufacturers: Signia, Starkey and Widex" loading="lazy" decoding="async">
+    </div>
   </div>
 </section>
 
